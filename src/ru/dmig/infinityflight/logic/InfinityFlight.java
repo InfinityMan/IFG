@@ -5,6 +5,8 @@
  */
 package ru.dmig.infinityflight.logic;
 
+import ru.epiclib.base.Base;
+
 /**
  *
  * @author Dmig
@@ -12,7 +14,7 @@ package ru.dmig.infinityflight.logic;
 public final class InfinityFlight {
 
     /**
-     * Flight duration between stations; FD[0] - low flight duration FD[1] -
+     * Flight duration between stations in days; FD[0] - low flight duration FD[1] -
      * normal FD[2] - high
      *
      * FD[x][0] - minimum FD[x][1] - maximum.
@@ -30,8 +32,30 @@ public final class InfinityFlight {
      */
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
-            System.out.println(new Station().toString());
+            System.out.println(new Ship().toString());
         }
+    }
+    
+    public static short genNumOfDaysBeforeStation() {
+        int flightDurationType = chancesUpgrade(CHANCES_FLIGHT_DURATION);
+        return Base.randomNumber(FLIGHT_DURATION[flightDurationType][0],
+                FLIGHT_DURATION[flightDurationType][1]);
+    }
+    
+    public static Station genNewStation() {
+        return new Station();
+    }
+    
+    public static int chancesUpgrade(byte[] chances) {
+        int[] newChances = new int[10];
+        for (int i = 0; i < 10; i++) {
+            if (i <= chances.length - 1) {
+                newChances[i] = chances[i];
+            } else {
+                newChances[i] = 0;
+            }
+        }
+        return Base.chances(newChances);
     }
 
 }
