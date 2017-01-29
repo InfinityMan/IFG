@@ -5,6 +5,7 @@
  */
 package ru.dmig.infinityflight.logic;
 
+import static ru.dmig.infinityflight.logic.InfinityFlight.chancesUpgrade;
 import ru.epiclib.base.Base;
 
 /**
@@ -18,7 +19,7 @@ public final class Station {
         SMALL, NORMAL, BIG
     };
 
-    public static final byte[] CHANCES = {56, 27, 17};
+    public static final byte[] SIZE_CHANCES = {56, 27, 17};
     public static final byte[] MAX_DAYS = {10, 20, 50};
 
     /**
@@ -77,15 +78,7 @@ public final class Station {
     private short foodAmount;
 
     public Station() {
-        int[] chances = new int[10];
-        for (int i = 0; i < 10; i++) {
-            if (i <= CHANCES.length - 1) {
-                chances[i] = CHANCES[i];
-            } else {
-                chances[i] = 0;
-            }
-        }
-        int indx = Base.chances(chances);
+        int indx = chancesUpgrade(SIZE_CHANCES);
         switch (indx) {
             case 0:
                 size = SIZE.SMALL;
@@ -144,15 +137,7 @@ public final class Station {
     }
 
     private void doFuelBonus() {
-        int[] chances = new int[10];
-        for (int i = 0; i < 10; i++) {
-            if (i <= VOLUME_FUEL_CHANCES.length - 1) {
-                chances[i] = VOLUME_FUEL_CHANCES[i];
-            } else {
-                chances[i] = 0;
-            }
-        }
-        int bonusType = Base.chances(chances);
+        int bonusType = chancesUpgrade(VOLUME_FUEL_CHANCES);
         switch (bonusType) {
             case 0:
                 fuelAmount += LOW_FUEL_ADDEND;
