@@ -55,7 +55,6 @@ public final class Station {
     private short foodAmount;
 
     public Station() {
-        this(SIZE.SMALL);
         int[] chances = new int[10];
         for (int i = 0; i < 10; i++) {
             if(i <= CHANCES.length-1) {
@@ -79,13 +78,48 @@ public final class Station {
                 throw new IllegalStateException("Sise and chances and constructor"
                         + " has some problems");
         }
+        
+        genStation();
     }
     
     public Station(SIZE size) {
         this.size = size;
         
+        genStation();
+    }
+    
+    private void genStation() {
+        int sizeIndex = 0;
+        switch (size) {
+            case SMALL:
+                sizeIndex = 0;
+                break;
+            case NORMAL:
+                sizeIndex = 1;
+                break;
+            case BIG:
+                sizeIndex = 2;
+                break;
+            default:
+                throw new IllegalStateException("Sise and chances and constructor"
+                        + " has some problems");
+        }
+        
+        workersAmount = Base.randomNumber(AMOUNT_OF_WORKERS[sizeIndex][0],
+                AMOUNT_OF_WORKERS[sizeIndex][1]);
+        touristsAmount = Base.randomNumber(AMOUNT_OF_TOURISTS[sizeIndex][0],
+                AMOUNT_OF_TOURISTS[sizeIndex][1]);
+        fuelAmount = Base.randomNumber(FUEL_AMOUNT[sizeIndex][0], FUEL_AMOUNT[sizeIndex][1]);
+        foodAmount = Base.randomNumber(FOOD_AMOUNT[sizeIndex][0], FOOD_AMOUNT[sizeIndex][1]);
         
     }
+
+    @Override
+    public String toString() {
+        return "Station{" + "size=" + size + ", workersAmount=" + workersAmount + ", touristsAmount=" + touristsAmount + ", fuelAmount=" + fuelAmount + ", foodAmount=" + foodAmount + '}';
+    }
+    
+    
 
     /**
      * Get the value of foodAmount
