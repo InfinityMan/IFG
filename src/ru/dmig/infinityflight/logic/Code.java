@@ -12,7 +12,7 @@ import ru.epiclib.base.Base;
  * @author Dmig
  */
 public final class Code {
-    
+
     /*
     
     CODE:
@@ -22,55 +22,58 @@ public final class Code {
     
     Code example: "Echo:6:2:D"
     
-    */
-    
-    public static final String[] SECTORS_NAMES = {"ALPHA","BETA","GAMMA","DELTA",
-        "THETA","ETA","SIGMA","ECHO","OMEGA"};
-    
+     */
+    public static final String[] SECTORS_NAMES = {"ALPHA", "BETA", "GAMMA", "DELTA",
+        "THETA", "ETA", "SIGMA", "ECHO", "OMEGA"};
+
     private String sector;
     private short block;
     private String idenID;
-    
-    
-    
+
     public Code() {
         sector = getRandomSector();
         block = (short) Base.randomNumber(0, 9);
         idenID = Base.randomString(1, false, true, false);
     }
-    
+
     public Code(String sector) {
-        if(testSector(sector)) {
+        if (testSector(sector)) {
             this.sector = sector;
-        } else throw new IllegalArgumentException("Wrong sector name: "+sector);
+        } else {
+            throw new IllegalArgumentException("Wrong sector name: " + sector);
+        }
         block = (short) Base.randomNumber(0, 9);
         idenID = Base.randomString(1, false, true, false);
     }
-    
-    public static String getRandomSector() { return SECTORS_NAMES[Base.randomNumber(0, SECTORS_NAMES.length-1)]; }
+
+    public static String getRandomSector() {
+        return SECTORS_NAMES[Base.randomNumber(0, SECTORS_NAMES.length - 1)];
+    }
 
     @Override
     public String toString() {
-        return sector + ":" + block + ":"+ idenID;
+        return sector + ":" + block + ":" + idenID;
     }
-    
+
     public static boolean testSector(String sector) {
         for (String string : SECTORS_NAMES) {
-            if(string == null ? sector == null : string.equals(sector)) return true;
+            if (string == null ? sector == null : string.equals(sector)) {
+                return true;
+            }
         }
         return false;
     }
-    
-    
 
     public String getSector() {
         return sector;
     }
 
     public void setSector(String sector) {
-        if(testSector(sector)) {
+        if (testSector(sector)) {
             this.sector = sector;
-        } else throw new IllegalArgumentException("Wrong sector name: "+sector);
+        } else {
+            throw new IllegalArgumentException("Wrong sector name: " + sector);
+        }
     }
 
     public short getBlock() {
@@ -88,7 +91,5 @@ public final class Code {
     public void setIdenID(String idenID) {
         this.idenID = idenID;
     }
-    
-    
-    
+
 }

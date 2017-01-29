@@ -9,22 +9,33 @@ import ru.epiclib.base.Base;
 
 /**
  * Class for stations in the infinity black sea
+ *
  * @author Dmig
  */
 public final class Station {
-    
-    public static enum SIZE {SMALL,NORMAL,BIG};
-    
-    public static final byte[] CHANCES = {56,27,17};
-    public static final byte[] MAX_DAYS = {10,20,50};
-    
+
+    public static enum SIZE {
+        SMALL, NORMAL, BIG
+    };
+
+    public static final byte[] CHANCES = {56, 27, 17};
+    public static final byte[] MAX_DAYS = {10, 20, 50};
+
     /**
-     * Chance of 'low' fuel
-     * Chance of 'normal' fuel
-     * Chance of 'high' fuel
+     * Food bonus for big stations
      */
-    public static final byte[] VOLUME_FUEL_CHANCES = {15,75,10};
-    
+    public static final short FOOD_BONUS = 500;
+
+    /**
+     * Chance of food bonus for big stations
+     */
+    public static final byte CHANCE_FOOD_BONUS = 15;
+
+    /**
+     * Chance of 'low' fuel Chance of 'normal' fuel Chance of 'high' fuel
+     */
+    public static final byte[] VOLUME_FUEL_CHANCES = {15, 75, 10};
+
     /**
      * !Bonus fuel value
      */
@@ -36,52 +47,46 @@ public final class Station {
     public static final short HIGH_FUEL_ADDEND = 30;
 
     /**
-     * Workers amount: AOW[0] - small station, etc.
-     * AOW[x][0] - min;
-     * AOW[x][1] - max;
+     * Workers amount: AOW[0] - small station, etc. AOW[x][0] - min; AOW[x][1] -
+     * max;
      */
-    public static final short[][] AMOUNT_OF_WORKERS = {{2,4},{6,8},{19,23}};
-    
+    public static final short[][] AMOUNT_OF_WORKERS = {{2, 4}, {6, 8}, {19, 23}};
+
     /**
-     * Tourists amount: AOT[0] - small station, etc.
-     * AOT[x][0] - min;
-     * AOT[x][1] - max;
+     * Tourists amount: AOT[0] - small station, etc. AOT[x][0] - min; AOT[x][1]
+     * - max;
      */
-    public static final short[][] AMOUNT_OF_TOURISTS = {{1,3},{7,9},{29,35}};
-    
+    public static final short[][] AMOUNT_OF_TOURISTS = {{1, 3}, {7, 9}, {29, 35}};
+
     /**
-     * Fuel amount: FA[0] - small station, etc.
-     * FA[x][0] - min;
-     * FA[x][1] - max;
+     * Fuel amount: FA[0] - small station, etc. FA[x][0] - min; FA[x][1] - max;
      */
-    public static final short[][] FUEL_AMOUNT = {{75,90},{80,95},{100,125}};
-    
+    public static final short[][] FUEL_AMOUNT = {{75, 90}, {80, 95}, {100, 125}};
+
     /**
-     * Food amount: FA[0] - small station, etc.
-     * FA[x][0] - min;
-     * FA[x][1] - max;
+     * Food amount: FA[0] - small station, etc. FA[x][0] - min; FA[x][1] - max;
      */
-    public static final short[][] FOOD_AMOUNT = {{3500,4500},{5000,5500},{7000,7500}};
-    
+    public static final short[][] FOOD_AMOUNT = {{3500, 4500}, {5000, 5500}, {7000, 7500}};
+
     public SIZE size;
-    
+
     private short workersAmount;
     private short touristsAmount;
-    
+
     private short fuelAmount;
     private short foodAmount;
 
     public Station() {
         int[] chances = new int[10];
         for (int i = 0; i < 10; i++) {
-            if(i <= CHANCES.length-1) {
+            if (i <= CHANCES.length - 1) {
                 chances[i] = CHANCES[i];
             } else {
                 chances[i] = 0;
             }
         }
         int indx = Base.chances(chances);
-        switch(indx) {
+        switch (indx) {
             case 0:
                 size = SIZE.SMALL;
                 break;
@@ -95,16 +100,16 @@ public final class Station {
                 throw new IllegalStateException("Sise and chances and constructor"
                         + " has some problems");
         }
-        
+
         genStation();
     }
-    
+
     public Station(SIZE size) {
         this.size = size;
-        
+
         genStation();
     }
-    
+
     private void genStation() {
         int sizeIndex = 0;
         switch (size) {
@@ -121,24 +126,34 @@ public final class Station {
                 throw new IllegalStateException("Sise and chances and constructor"
                         + " has some problems");
         }
-        
+
         workersAmount = Base.randomNumber(AMOUNT_OF_WORKERS[sizeIndex][0],
                 AMOUNT_OF_WORKERS[sizeIndex][1]);
         touristsAmount = Base.randomNumber(AMOUNT_OF_TOURISTS[sizeIndex][0],
                 AMOUNT_OF_TOURISTS[sizeIndex][1]);
         fuelAmount = Base.randomNumber(FUEL_AMOUNT[sizeIndex][0], FUEL_AMOUNT[sizeIndex][1]);
         foodAmount = Base.randomNumber(FOOD_AMOUNT[sizeIndex][0], FOOD_AMOUNT[sizeIndex][1]);
-        
+
+        doFuelBonus();
+
+        if (size == SIZE.BIG) {
+            if (Base.chance(CHANCE_FOOD_BONUS, 0)) {
+                foodAmount += CHANCE_FOOD_BONUS;
+            }
+        }
+    }
+
+    private void doFuelBonus() {
         int[] chances = new int[10];
         for (int i = 0; i < 10; i++) {
-            if(i <= VOLUME_FUEL_CHANCES.length-1) {
+            if (i <= VOLUME_FUEL_CHANCES.length - 1) {
                 chances[i] = VOLUME_FUEL_CHANCES[i];
             } else {
                 chances[i] = 0;
             }
         }
         int bonusType = Base.chances(chances);
-        switch(bonusType) {
+        switch (bonusType) {
             case 0:
                 fuelAmount += LOW_FUEL_ADDEND;
                 break;
@@ -155,8 +170,6 @@ public final class Station {
     public String toString() {
         return "Station{" + "size=" + size + ", workersAmount=" + workersAmount + ", touristsAmount=" + touristsAmount + ", fuelAmount=" + fuelAmount + ", foodAmount=" + foodAmount + '}';
     }
-    
-    
 
     /**
      * Get the value of foodAmount
@@ -176,7 +189,6 @@ public final class Station {
         this.foodAmount = foodAmount;
     }
 
-
     /**
      * Get the value of fuelAmount
      *
@@ -194,7 +206,6 @@ public final class Station {
     public void setFuelAmount(short fuelAmount) {
         this.fuelAmount = fuelAmount;
     }
-
 
     /**
      * Get the value of touristsAmount
@@ -214,7 +225,6 @@ public final class Station {
         this.touristsAmount = touristsAmount;
     }
 
-
     /**
      * Get the value of workersAmount
      *
@@ -233,8 +243,4 @@ public final class Station {
         this.workersAmount = workersAmount;
     }
 
-
-
-    
-    
 }

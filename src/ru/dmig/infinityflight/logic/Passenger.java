@@ -7,18 +7,21 @@ package ru.dmig.infinityflight.logic;
 
 /**
  * Class for peoples, who traveling on space
+ *
  * @author Dmig
  */
 public final class Passenger extends Person {
-    
-    public static enum CLASS {FIRST,BUSINESS,ECONOM};
-    
+
+    public static enum CLASS {
+        FIRST, BUSINESS, ECONOM
+    };
+
     public CLASS passengerClass;
-    
+
     public Passenger() {
         super();
     }
-    
+
     public Passenger(CLASS pasClass) {
         this();
         passengerClass = pasClass;
@@ -33,5 +36,5 @@ public final class Passenger extends Person {
         super(codes);
         this.passengerClass = passengerClass;
     }
-    
+
 }

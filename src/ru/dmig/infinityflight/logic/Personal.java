@@ -7,12 +7,15 @@ package ru.dmig.infinityflight.logic;
 
 /**
  * Class for peoples, who do all work on ship
+ *
  * @author Dmig
  */
 public final class Personal extends Person {
-    
-    public static enum PROFESSION {WORKER,ENGINEER,MEDIC,GUARD,BIOLOGIST,COOK};
-    
+
+    public static enum PROFESSION {
+        WORKER, ENGINEER, MEDIC, GUARD, BIOLOGIST, COOK
+    };
+
     public PROFESSION profession;
 
     public Personal() {
@@ -33,5 +36,5 @@ public final class Personal extends Person {
         super(codes);
         this.profession = profession;
     }
-    
+
 }
