@@ -17,6 +17,23 @@ public final class Station {
     
     public static final byte[] CHANCES = {56,27,17};
     public static final byte[] MAX_DAYS = {10,20,50};
+    
+    /**
+     * Chance of 'low' fuel
+     * Chance of 'normal' fuel
+     * Chance of 'high' fuel
+     */
+    public static final byte[] VOLUME_FUEL_CHANCES = {15,75,10};
+    
+    /**
+     * !Bonus fuel value
+     */
+    public static final short LOW_FUEL_ADDEND = -20;
+
+    /**
+     * Bonus fuel value
+     */
+    public static final short HIGH_FUEL_ADDEND = 30;
 
     /**
      * Workers amount: AOW[0] - small station, etc.
@@ -112,6 +129,26 @@ public final class Station {
         fuelAmount = Base.randomNumber(FUEL_AMOUNT[sizeIndex][0], FUEL_AMOUNT[sizeIndex][1]);
         foodAmount = Base.randomNumber(FOOD_AMOUNT[sizeIndex][0], FOOD_AMOUNT[sizeIndex][1]);
         
+        int[] chances = new int[10];
+        for (int i = 0; i < 10; i++) {
+            if(i <= VOLUME_FUEL_CHANCES.length-1) {
+                chances[i] = VOLUME_FUEL_CHANCES[i];
+            } else {
+                chances[i] = 0;
+            }
+        }
+        int bonusType = Base.chances(chances);
+        switch(bonusType) {
+            case 0:
+                fuelAmount += LOW_FUEL_ADDEND;
+                break;
+            case 1:
+                //no addend
+                break;
+            case 2:
+                fuelAmount += HIGH_FUEL_ADDEND;
+                break;
+        }
     }
 
     @Override

@@ -20,7 +20,7 @@ public final class InfinityFlight {
      * FD[x][0] - minimum
      * FD[x][1] - maximum.
      */
-    public static final short[][] FLIGHT_DURATION = {{60,70},{80,90},{100-120}};
+    public static final short[][] FLIGHT_DURATION = {{60,70},{80,90},{100,120}};
     
     /**
      * Chances of flight duration categories:
@@ -34,12 +34,8 @@ public final class InfinityFlight {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        for (int i = 0; i < 4; i++) {
-            String sector = Code.getRandomSector();
-            for (int j = 0; j < 10; j++) {
-                System.out.println(new Person(sector).toString());
-            }
-            System.out.println("--");
+        for (int i = 0; i < 10; i++) {
+            System.out.println(new Station().toString());
         }
     }
     
