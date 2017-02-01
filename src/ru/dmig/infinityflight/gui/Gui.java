@@ -33,8 +33,7 @@ public class Gui extends javax.swing.JFrame {
         foodAmount.setText(ship.getFoodAmount()+"/"+ship.getMaxFoodAmount());
         fuelAmount.setText(ship.getFuelAmount()+"/"+ship.getMaxFuelAmount());
         daysToStation.setText(ship.getNumberOfDaysBeforeStation()+"");
-        personalAmount.setText(ship.getPersonalAmount()+"/"+ship.getMaxPersonalAmount());
-        
+        personalAmount.setText(ship.personel.size()+"/"+ship.getMaxPersonalAmount());
         /* Tourists */
     }
 

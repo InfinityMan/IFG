@@ -16,6 +16,7 @@ public final class Updater extends Thread {
 
     public Updater(Ship ship) {
         this.ship = ship;
+        this.setName("Updater");
     }
 
     @Override

@@ -12,9 +12,9 @@ package ru.dmig.infinityflight.logic;
  */
 public final class Personal extends Person {
 
-    public static enum PROFESSION {
+    public static enum PROFESSION { 
         WORKER, ENGINEER, MEDIC, GUARD, BIOLOGIST
-    };
+    }; /* In case of edit: in InfinityFlight:StartPersonalAmount */
 
     public PROFESSION profession;
 
