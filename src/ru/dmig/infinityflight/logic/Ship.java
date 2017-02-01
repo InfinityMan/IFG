@@ -15,7 +15,8 @@ import ru.dmig.infinityflight.logic.rooms.CabinRoom;
  */
 public final class Ship {
 
-    public ArrayList<Person> persons = new ArrayList<>();
+    public ArrayList<Personal> personel = new ArrayList<>();
+    public ArrayList<Passenger> passengers = new ArrayList<>();
     public ArrayList<Room> rooms = new ArrayList<>();
 
     private byte hour; // [0,4,8,12,16,20]
@@ -41,7 +42,11 @@ public final class Ship {
      * Start new game
      */
     public Ship() {
+        
+        personel = InfinityFlight.getStartPersonal();
+        
         foodAmount = 5000; //Start food
+        maxFoodAmount = 10000;
         potencialFoodAmount = 0;
         
         fCRoomAmount = 0;
@@ -64,7 +69,8 @@ public final class Ship {
         if (hour != 0) {
             if (hour != 0 && hour != 4) {
                 if(hour != 12) {
-                    foodAmount -= persons.size();
+                    System.out.println("Theta");
+                    setFoodAmount(getFoodAmount() - (personel.size() + passengers.size()));
                 }
             }
         } else {
@@ -79,6 +85,7 @@ public final class Ship {
                 setNewRouteAndStation();
             }
         }
+        System.out.println("Beta");
         InfinityFlight.gui.update();
     }
     
@@ -89,18 +96,7 @@ public final class Ship {
 
     @Override
     public String toString() {
-        return "Ship{" + "persons=" + persons + ", hour=" + hour + ", foodAmount=" + foodAmount + ", potencialFoodAmount=" + potencialFoodAmount + ", fCRoomAmount=" + fCRoomAmount + ", bCRoomAmount=" + bCRoomAmount + ", eCRoomAmount=" + eCRoomAmount + ", cabinAmount=" + cabinAmount + ", entertainmentPlacesAmount=" + entertainmentPlacesAmount + ", fuelAmount=" + fuelAmount + ", maxFuelAmount=" + maxFuelAmount + ", numberOfDaysBeforeStation=" + numberOfDaysBeforeStation + '}';
-    }
-    
-    public short getPersonalAmount() {
-        short amount = 0;
-        for (int i = 0; i < persons.size(); i++) {
-            Person get = persons.get(i);
-            if (get instanceof Personal) {
-                amount++;
-            }
-        }
-        return amount;
+        return "Ship{" + "personel=" + personel + ", hour=" + hour + ", foodAmount=" + foodAmount + ", potencialFoodAmount=" + potencialFoodAmount + ", fCRoomAmount=" + fCRoomAmount + ", bCRoomAmount=" + bCRoomAmount + ", eCRoomAmount=" + eCRoomAmount + ", cabinAmount=" + cabinAmount + ", entertainmentPlacesAmount=" + entertainmentPlacesAmount + ", fuelAmount=" + fuelAmount + ", maxFuelAmount=" + maxFuelAmount + ", numberOfDaysBeforeStation=" + numberOfDaysBeforeStation + '}';
     }
     
     public short getMaxPersonalAmount() {
