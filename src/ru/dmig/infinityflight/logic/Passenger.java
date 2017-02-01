@@ -13,7 +13,7 @@ package ru.dmig.infinityflight.logic;
 public final class Passenger extends Person {
 
     public static enum CLASS {
-        FIRST, BUSINESS, ECONOM
+        FIRST, SECOND, THIRD
     };
 
     public CLASS passengerClass;

@@ -13,7 +13,7 @@ package ru.dmig.infinityflight.logic;
 public final class Personal extends Person {
 
     public static enum PROFESSION {
-        WORKER, ENGINEER, MEDIC, GUARD, BIOLOGIST, COOK
+        WORKER, ENGINEER, MEDIC, GUARD, BIOLOGIST
     };
 
     public PROFESSION profession;
