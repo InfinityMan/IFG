@@ -5,6 +5,9 @@
  */
 package ru.dmig.infinityflight.logic;
 
+import javax.swing.JOptionPane;
+import jdk.nashorn.internal.scripts.JO;
+import ru.dmig.infinityflight.gui.Gui;
 import ru.epiclib.base.Base;
 
 /**
@@ -26,14 +29,22 @@ public final class InfinityFlight {
      * CFD[1] - normal CFD[2] - high.
      */
     public static final byte[] CHANCES_FLIGHT_DURATION = {19, 71, 10};
+    
+    /**
+     * Type of defeat
+     */
+    public static enum DEFEAT_STATE {RUN_OUT_OF_FUEL};
+    
+    public static Gui gui;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(new Ship().toString());
-        }
+        Ship ship = new Ship();
+        /* Loading ship */
+        gui = new Gui(ship);
+        gui.setVisible(true);
     }
     
     public static short genNumOfDaysBeforeStation() {
@@ -56,6 +67,18 @@ public final class InfinityFlight {
             }
         }
         return Base.chances(newChances);
+    }
+    
+    public static void defeatProcess(DEFEAT_STATE state) {
+        //Stop update thread
+        switch (state) {
+            case RUN_OUT_OF_FUEL:
+                JOptionPane.showMessageDialog(null,
+                        "You defeated because: run out of fuel", "Defeat",
+                        JOptionPane.INFORMATION_MESSAGE);
+                break;
+        }
+        
     }
 
 }
