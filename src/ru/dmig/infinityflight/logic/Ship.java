@@ -65,13 +65,11 @@ public final class Ship {
     
 
     public void updateHour() {
-        hour += 4;
+        if(hour != 20) hour += 4;
+        else hour = 0;
         if (hour != 0) {
-            if (hour != 0 && hour != 4) {
-                if(hour != 12) {
-                    System.out.println("Theta");
-                    setFoodAmount(getFoodAmount() - (personel.size() + passengers.size()));
-                }
+            if (hour != 4 && hour != 12) {
+                setFoodAmount(getFoodAmount() - (personel.size() + passengers.size()));
             }
         } else {
             if(numberOfDaysBeforeStation != 1) {
@@ -85,7 +83,6 @@ public final class Ship {
                 setNewRouteAndStation();
             }
         }
-        System.out.println("Beta");
         InfinityFlight.gui.update();
     }
     
