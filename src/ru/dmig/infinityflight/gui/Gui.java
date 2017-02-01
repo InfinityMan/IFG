@@ -5,17 +5,37 @@
  */
 package ru.dmig.infinityflight.gui;
 
+import ru.dmig.infinityflight.logic.*;
+
 /**
  *
  * @author Dmig
  */
 public class Gui extends javax.swing.JFrame {
+    
+    private Ship ship;
 
     /**
      * Creates new form Gui
+     * @param ship ship for loading and updating gui
      */
-    public Gui() {
+    public Gui(Ship ship) {
+        this.ship = ship;
         initComponents();
+        init();
+    }
+    
+    private void init() {
+        update();
+    }
+    
+    public void update() {
+        foodAmount.setText(ship.getFoodAmount()+"/"+ship.getMaxFoodAmount());
+        fuelAmount.setText(ship.getFuelAmount()+"/"+ship.getMaxFuelAmount());
+        daysToStation.setText(ship.getNumberOfDaysBeforeStation()+"");
+        personalAmount.setText(ship.getPersonalAmount()+"/"+ship.getMaxPersonalAmount());
+        
+        /* Tourists */
     }
 
     /**
