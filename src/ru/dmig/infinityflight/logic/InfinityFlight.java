@@ -5,8 +5,8 @@
  */
 package ru.dmig.infinityflight.logic;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import jdk.nashorn.internal.scripts.JO;
 import ru.dmig.infinityflight.gui.Gui;
 import ru.epiclib.base.Base;
 
@@ -15,6 +15,8 @@ import ru.epiclib.base.Base;
  * @author Dmig
  */
 public final class InfinityFlight {
+    
+    public static final short[] START_PERSONAL_AMOUNT = {2,1,2,0,2};
 
     /**
      * Flight duration between stations in days; FD[0] - low flight duration FD[1] -
@@ -39,12 +41,39 @@ public final class InfinityFlight {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.InterruptedException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Ship ship = new Ship();
         /* Loading ship */
-        gui = new Gui(ship);
-        gui.setVisible(true);
+        
+        GuiStarter starter = new GuiStarter(ship);
+        starter.start();
+        
+        Thread.sleep(2000);
+        
+        Updater updater = new Updater(ship);
+        updater.start();
+        
+        
+        //updater.end();
+    }
+    
+    private static class GuiStarter extends Thread {
+        
+        Ship ship;
+
+        public GuiStarter(Ship ship) {
+            this.ship = ship;
+            this.setName("Guier");
+        }
+
+        @Override
+        public void run() {
+            gui = new Gui(ship);
+            gui.setVisible(true);
+        }
+        
     }
     
     public static short genNumOfDaysBeforeStation() {
@@ -67,6 +96,34 @@ public final class InfinityFlight {
             }
         }
         return Base.chances(newChances);
+    }
+    
+    public static ArrayList<Personal> getStartPersonal() {
+        ArrayList<Personal> alpha = new ArrayList<>();
+        for (int i = 0; i < START_PERSONAL_AMOUNT.length; i++) {
+            for (int j = 0; j < START_PERSONAL_AMOUNT[i]; j++) {
+                switch (j) {
+                    case 0:
+                        alpha.add(new Personal(Personal.PROFESSION.WORKER));
+                        break;
+                    case 1:
+                        alpha.add(new Personal(Personal.PROFESSION.ENGINEER));
+                        break;
+                    case 2:
+                        alpha.add(new Personal(Personal.PROFESSION.MEDIC));
+                        break;
+                    case 3:
+                        alpha.add(new Personal(Personal.PROFESSION.GUARD));
+                        break;
+                    case 4:
+                        alpha.add(new Personal(Personal.PROFESSION.BIOLOGIST));
+                        break;
+                    default:
+                        throw new AssertionError();
+                }
+            }
+        }
+        return alpha;
     }
     
     public static void defeatProcess(DEFEAT_STATE state) {
