@@ -50,7 +50,7 @@ public final class InfinityFlight {
         GuiStarter starter = new GuiStarter(ship);
         starter.start();
         
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         
         Updater updater = new Updater(ship);
         updater.start();

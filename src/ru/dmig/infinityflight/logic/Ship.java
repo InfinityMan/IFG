@@ -19,8 +19,6 @@ public final class Ship {
     public ArrayList<Passenger> passengers = new ArrayList<>();
     public ArrayList<Room> rooms = new ArrayList<>();
 
-    private byte hour; // [0,4,8,12,16,20]
-
     private int foodAmount;
     private int maxFoodAmount;
     private int potencialFoodAmount;
@@ -62,26 +60,29 @@ public final class Ship {
         setNewRouteAndStation();
     }
     
+    /**
+     * Updating hour on ship: eating
+     * @param hour hour; need for information: eat or not to eat?
+     */
+    public void updateHour(byte hour) {
+        boolean eat = (hour != 0 && hour != 4 && hour != 12);
+        if (eat) {
+            setFoodAmount(getFoodAmount() - (personel.size() + passengers.size()));
+        }
+        InfinityFlight.gui.update();
+    }
     
-
-    public void updateHour() {
-        if(hour != 20) hour += 4;
-        else hour = 0;
-        if (hour != 0) {
-            if (hour != 4 && hour != 12) {
-                setFoodAmount(getFoodAmount() - (personel.size() + passengers.size()));
+    public void updateDay() {
+        if (numberOfDaysBeforeStation != 1) {
+            numberOfDaysBeforeStation--;
+            if (fuelAmount != 1) {
+                fuelAmount--;
+            } else {
+                InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FUEL);
             }
         } else {
-            if(numberOfDaysBeforeStation != 1) {
-                numberOfDaysBeforeStation--;
-                if(fuelAmount != 1) fuelAmount--;
-                else {
-                    InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FUEL);
-                }
-            } else {
-                //Arrival to station
-                setNewRouteAndStation();
-            }
+            //Arrival to station
+            setNewRouteAndStation();
         }
         InfinityFlight.gui.update();
     }
@@ -93,7 +94,7 @@ public final class Ship {
 
     @Override
     public String toString() {
-        return "Ship{" + "personel=" + personel + ", hour=" + hour + ", foodAmount=" + foodAmount + ", potencialFoodAmount=" + potencialFoodAmount + ", fCRoomAmount=" + fCRoomAmount + ", bCRoomAmount=" + bCRoomAmount + ", eCRoomAmount=" + eCRoomAmount + ", cabinAmount=" + cabinAmount + ", entertainmentPlacesAmount=" + entertainmentPlacesAmount + ", fuelAmount=" + fuelAmount + ", maxFuelAmount=" + maxFuelAmount + ", numberOfDaysBeforeStation=" + numberOfDaysBeforeStation + '}';
+        return "Ship{" + "personel=" + personel + ", foodAmount=" + foodAmount + ", potencialFoodAmount=" + potencialFoodAmount + ", fCRoomAmount=" + fCRoomAmount + ", bCRoomAmount=" + bCRoomAmount + ", eCRoomAmount=" + eCRoomAmount + ", cabinAmount=" + cabinAmount + ", entertainmentPlacesAmount=" + entertainmentPlacesAmount + ", fuelAmount=" + fuelAmount + ", maxFuelAmount=" + maxFuelAmount + ", numberOfDaysBeforeStation=" + numberOfDaysBeforeStation + '}';
     }
     
     public short getMaxPersonalAmount() {
@@ -118,14 +119,6 @@ public final class Ship {
 
     public void setMaxFoodAmount(int maxFoodAmount) {
         this.maxFoodAmount = maxFoodAmount;
-    }
-    
-    public byte getHour() {
-        return hour;
-    }
-
-    public void setHour(byte hour) {
-        this.hour = hour;
     }
 
     public int getFoodAmount() {

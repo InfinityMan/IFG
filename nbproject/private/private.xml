@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="9">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="10">
         <file>
             <url>src/ru/dmig/prjisland/Base.java</url>
             <bookmark id="3">
@@ -48,20 +48,34 @@
             <url>src/ru/dmig/prjisland/Person.java</url>
             <bookmark id="9">
                 <name/>
-                <line>49</line>
+                <line>60</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/ru/dmig/infinityflight/gui/Gui.java</url>
+            <bookmark id="10">
+                <name/>
+                <line>36</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/Island/src/ru/dmig/prjisland/InfinityFlight.java</file>
-            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/Island/src/ru/dmig/prjisland/Station.java</file>
-            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/Island/src/ru/dmig/prjisland/Passenger.java</file>
-            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/Island/src/ru/dmig/prjisland/Personal.java</file>
-            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/Island/src/ru/dmig/prjisland/Code.java</file>
-            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/Island/src/ru/dmig/prjisland/Person.java</file>
-            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/Island/src/ru/dmig/prjisland/Base.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Updater.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/InfinityFlight.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/rooms/TouristRoom.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Ship.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/rooms/CabinRoom.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/gui/Gui.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Person.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Passenger.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Station.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Room.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Personal.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/ResearchNode.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Code.java</file>
         </group>
     </open-files>
 </project-private>

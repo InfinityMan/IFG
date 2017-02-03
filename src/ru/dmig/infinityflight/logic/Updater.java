@@ -21,10 +21,19 @@ public final class Updater extends Thread {
 
     @Override
     public void run() {
+        byte hour = 0; // 0;4;8;12;16;20
         while(!ended) {
             try {
                 Thread.sleep(1000);
-                ship.updateHour();
+                if(hour != 0) {
+                    System.out.println(hour);
+                    ship.updateHour(hour); //in case of edit: edit update hour
+                } else {
+                    System.out.println(hour + "D");
+                    ship.updateDay();
+                }
+                if(hour != 20) hour = (byte)(hour + 4);
+                else hour = 0;
             } catch (InterruptedException ex) {
                 System.out.println(ex);
                 System.exit(1);
