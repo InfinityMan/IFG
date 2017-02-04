@@ -6,6 +6,7 @@
 package ru.dmig.infinityflight.logic;
 
 import java.util.ArrayList;
+import ru.dmig.infinityflight.logic.exceptions.ReactorBrokenException;
 import ru.dmig.infinityflight.logic.rooms.CabinRoom;
 
 /**
@@ -18,6 +19,7 @@ public final class Ship {
     public ArrayList<Personal> personel = new ArrayList<>();
     public ArrayList<Passenger> passengers = new ArrayList<>();
     public ArrayList<Room> rooms = new ArrayList<>();
+    public ArrayList<Reactor> reactors = new ArrayList<>();
 
     private int foodAmount;
     private int maxFoodAmount;
@@ -32,6 +34,8 @@ public final class Ship {
 
     private int fuelAmount;
     private int maxFuelAmount;
+    
+    private long energyAmount;
     
     private short numberOfDaysBeforeStation; // 0 = on station
     public Station station;
@@ -57,18 +61,33 @@ public final class Ship {
         fuelAmount = 300; //Start fuel
         maxFuelAmount = 500;
         
+        energyAmount = 0;
+        
         setNewRouteAndStation();
     }
     
     /**
-     * Updating hour on ship: eating
+     * Updating hour on ship: eating and energy
      * @param hour hour; need for information: eat or not to eat?
      */
     public void updateHour(byte hour) {
         boolean eat = (hour != 0 && hour != 4 && hour != 12);
         if (eat) {
-            setFoodAmount(getFoodAmount() - (personel.size() + passengers.size()));
+            int amount = (personel.size() + passengers.size());
+            if(getFoodAmount() >= amount) {
+                setFoodAmount(getFoodAmount() - amount);
+            } else {
+                InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FOOD);
+            }
         }
+        reactors.forEach((reactor) -> {
+            try {
+                energyAmount += reactor.getEnergy();
+            } catch (ReactorBrokenException ex) {}
+        });
+        
+        //Energy compusition
+        
         InfinityFlight.gui.update();
     }
     
@@ -78,7 +97,9 @@ public final class Ship {
             if (fuelAmount != 1) {
                 fuelAmount--;
             } else {
-                InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FUEL);
+                //if(energyAmount == 0) {
+                    InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FUEL);
+                //}
             }
         } else {
             //Arrival to station
@@ -111,6 +132,23 @@ public final class Ship {
 
     
     
+    /**
+     * Get the value of energyAmount
+     *
+     * @return the value of energyAmount
+     */
+    public long getEnergyAmount() {
+        return energyAmount;
+    }
+
+    /**
+     * Set the value of energyAmount
+     *
+     * @param energyAmount new value of energyAmount
+     */
+    public void setEnergyAmount(long energyAmount) {
+        this.energyAmount = energyAmount;
+    }
     
     
     public int getMaxFoodAmount() {
