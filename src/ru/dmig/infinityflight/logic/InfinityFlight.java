@@ -73,13 +73,12 @@ public final class InfinityFlight {
             gui = new Gui(ship);
             gui.setVisible(true);
         }
-        
     }
     
-    public static short genNumOfDaysBeforeStation() {
+    public static double genDistanceToStation() {
         int flightDurationType = chancesUpgrade(CHANCES_FLIGHT_DURATION);
-        return Base.randomNumber(FLIGHT_DURATION[flightDurationType][0],
-                FLIGHT_DURATION[flightDurationType][1]);
+        return ((Base.randomNumber(FLIGHT_DURATION[flightDurationType][0],
+                FLIGHT_DURATION[flightDurationType][1]))*10);
     }
     
     public static Station genNewStation() {

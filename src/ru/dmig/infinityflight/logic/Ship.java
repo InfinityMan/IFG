@@ -40,7 +40,7 @@ public final class Ship {
     
     private short spareAmount;
     
-    private short numberOfDaysBeforeStation; // 0 = on station
+    private double distanceToStation; // 0 = on station 10x days
     public Station station;
     
     /**
@@ -89,36 +89,47 @@ public final class Ship {
             } catch (ReactorBrokenException ex) {}
         });
         
-        //Energy compusition
+        if(distanceToStation != 0) {
+            engines.forEach((engine) -> {
+                energyAmount -= engine.getEnergyConsumption();
+                if(distanceToStation > engine.getDistancePerSecond()) {
+                    distanceToStation -= engine.getDistancePerSecond();
+                } else {
+                    distanceToStation = 0;
+                    arriveToStation();
+                }
+            });
+        }
+        /* If distanceToStation == 0 => ship on station and engines off */
+        
+        //Energy consumption to rooms
         
         InfinityFlight.gui.update();
     }
     
+    private void arriveToStation() {
+        
+    }
+    
     public void updateDay() {
-        if (numberOfDaysBeforeStation != 1) {
-            numberOfDaysBeforeStation--;
-            if (fuelAmount != 1) {
-                fuelAmount--;
-            } else {
-                //if(energyAmount == 0) {
-                    InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FUEL);
-                //}
-            }
+        if (fuelAmount != 1) {
+            fuelAmount--;
         } else {
-            //Arrival to station
-            setNewRouteAndStation();
+            if (energyAmount == 0) {
+                InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FUEL);
+            }
         }
         InfinityFlight.gui.update();
     }
     
     private void setNewRouteAndStation() {
-        numberOfDaysBeforeStation = InfinityFlight.genNumOfDaysBeforeStation();
+        distanceToStation = InfinityFlight.genDistanceToStation();
         station = InfinityFlight.genNewStation();
     }
 
     @Override
     public String toString() {
-        return "Ship{" + "personel=" + personel + ", foodAmount=" + foodAmount + ", potencialFoodAmount=" + potencialFoodAmount + ", fCRoomAmount=" + fCRoomAmount + ", bCRoomAmount=" + bCRoomAmount + ", eCRoomAmount=" + eCRoomAmount + ", cabinAmount=" + cabinAmount + ", entertainmentPlacesAmount=" + entertainmentPlacesAmount + ", fuelAmount=" + fuelAmount + ", maxFuelAmount=" + maxFuelAmount + ", numberOfDaysBeforeStation=" + numberOfDaysBeforeStation + '}';
+        return "Ship{" + "personel=" + personel + ", foodAmount=" + foodAmount + ", potencialFoodAmount=" + potencialFoodAmount + ", fCRoomAmount=" + fCRoomAmount + ", bCRoomAmount=" + bCRoomAmount + ", eCRoomAmount=" + eCRoomAmount + ", cabinAmount=" + cabinAmount + ", entertainmentPlacesAmount=" + entertainmentPlacesAmount + ", fuelAmount=" + fuelAmount + ", maxFuelAmount=" + maxFuelAmount + ", numberOfDaysBeforeStation=" + distanceToStation + '}';
     }
     
     public short getMaxPersonalAmount() {
@@ -252,11 +263,11 @@ public final class Ship {
         this.maxFuelAmount = maxFuelAmount;
     }
 
-    public short getNumberOfDaysBeforeStation() {
-        return numberOfDaysBeforeStation;
+    public double getDistanceToStation() {
+        return distanceToStation;
     }
 
-    public void setNumberOfDaysBeforeStation(short numberOfDaysBeforeStation) {
-        this.numberOfDaysBeforeStation = numberOfDaysBeforeStation;
+    public void setDistanceToStation(double numberOfDaysBeforeStation) {
+        this.distanceToStation = numberOfDaysBeforeStation;
     }
 }
