@@ -25,13 +25,8 @@ public final class Updater extends Thread {
         while(!ended) {
             try {
                 Thread.sleep(1000);
-                if(hour != 0) {
-                    System.out.println(hour);
-                    ship.updateHour(hour); //in case of edit: edit update hour
-                } else {
-                    System.out.println(hour + "D");
-                    ship.updateDay();
-                }
+                ship.updateHour(hour); //in case of edit: edit update hour
+                
                 if(hour != 20) hour = (byte)(hour + 4);
                 else hour = 0;
             } catch (InterruptedException ex) {
