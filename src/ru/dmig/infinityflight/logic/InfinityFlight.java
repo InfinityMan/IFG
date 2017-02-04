@@ -35,7 +35,7 @@ public final class InfinityFlight {
     /**
      * Type of defeat
      */
-    public static enum DEFEAT_STATE {RUN_OUT_OF_FUEL};
+    public static enum DEFEAT_STATE {RUN_OUT_OF_FUEL, RUN_OUT_OF_FOOD};
     
     public static Gui gui;
 
@@ -134,7 +134,15 @@ public final class InfinityFlight {
                         "You defeated because: run out of fuel", "Defeat",
                         JOptionPane.INFORMATION_MESSAGE);
                 break;
+            case RUN_OUT_OF_FOOD:
+                JOptionPane.showMessageDialog(null,
+                        "You defeated because: run out of food", "Defeat",
+                        JOptionPane.INFORMATION_MESSAGE);
+                break;
         }
+        
+        //Deleting save?
+        //Restart message
         
     }
 
