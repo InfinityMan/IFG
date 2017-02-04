@@ -21,6 +21,8 @@ public final class Ship {
     public ArrayList<Room> rooms = new ArrayList<>();
     public ArrayList<Reactor> reactors = new ArrayList<>();
     public ArrayList<Engine> engines = new ArrayList<>();
+    
+    private short medicinesAmount;
 
     private int foodAmount;
     private int maxFoodAmount;
@@ -49,6 +51,8 @@ public final class Ship {
     public Ship() {
         
         personel = InfinityFlight.getStartPersonal();
+        
+        medicinesAmount = 20;
         
         foodAmount = 5000; //Start food
         maxFoodAmount = 10000;
@@ -277,5 +281,13 @@ public final class Ship {
 
     public void setDistanceToStation(double numberOfDaysBeforeStation) {
         this.distanceToStation = numberOfDaysBeforeStation;
+    }
+
+    public short getMedicinesAmount() {
+        return medicinesAmount;
+    }
+
+    public void setMedicinesAmount(short medicines) {
+        this.medicinesAmount = medicines;
     }
 }
