@@ -20,6 +20,7 @@ public final class Ship {
     public ArrayList<Passenger> passengers = new ArrayList<>();
     public ArrayList<Room> rooms = new ArrayList<>();
     public ArrayList<Reactor> reactors = new ArrayList<>();
+    public ArrayList<Engine> engines = new ArrayList<>();
 
     private int foodAmount;
     private int maxFoodAmount;
