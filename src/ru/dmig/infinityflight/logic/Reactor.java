@@ -17,11 +17,14 @@ public final class Reactor {
     public static final float BONUS_PRODUCTION_PERCENT = 1.1f;
     public static final float CHANCE_OF_BREAK_REACTOR = 0.14f;
     
+    private String name;
+    
     private double energyPerSecond;
     
     private boolean broken;
 
-    public Reactor(double energyPerSecond) {
+    public Reactor(double energyPerSecond, String name) {
+        this.name = name;
         this.energyPerSecond = energyPerSecond;
         broken = false;
     }
@@ -34,6 +37,24 @@ public final class Reactor {
         if(Base.chance((int)(CHANCE_OF_BREAK_REACTOR*100), 2)) breakThis();
         
         return Base.randomNumber(Math.round(minEnergy), Math.round(maxEnergy));
+    }
+    
+    /**
+     * Get the value of name
+     *
+     * @return the value of name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @param name new value of name
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
