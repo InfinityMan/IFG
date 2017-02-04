@@ -37,6 +37,8 @@ public final class Ship {
     
     private long energyAmount;
     
+    private short spareAmount;
+    
     private short numberOfDaysBeforeStation; // 0 = on station
     public Station station;
     
@@ -129,8 +131,26 @@ public final class Ship {
         }
         return amount;
     }
-
     
+    
+
+    /**
+     * Get the value of spareAmount
+     *
+     * @return the value of spareAmount
+     */
+    public short getSpareAmount() {
+        return spareAmount;
+    }
+
+    /**
+     * Set the value of spareAmount
+     *
+     * @param spareAmount new value of spareAmount
+     */
+    public void setSpareAmount(short spareAmount) {
+        this.spareAmount = spareAmount;
+    }
     
     /**
      * Get the value of energyAmount
