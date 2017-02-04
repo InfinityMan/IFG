@@ -20,7 +20,8 @@ public final class Reactor {
     private String name;
     
     private double energyPerSecond;
-    
+    private float fuelConsumption;
+
     private boolean broken;
 
     public Reactor(double energyPerSecond, String name) {
@@ -37,6 +38,24 @@ public final class Reactor {
         if(Base.chance((int)(CHANCE_OF_BREAK_REACTOR*100), 2)) breakThis();
         
         return Base.randomNumber(Math.round(minEnergy), Math.round(maxEnergy));
+    }
+    
+    /**
+     * Get the value of fuelConsumption
+     *
+     * @return the value of fuelConsumption
+     */
+    public float getFuelConsumption() {
+        return fuelConsumption;
+    }
+
+    /**
+     * Set the value of fuelConsumption
+     *
+     * @param fuelConsumption new value of fuelConsumption
+     */
+    public void setFuelConsumption(float fuelConsumption) {
+        this.fuelConsumption = fuelConsumption;
     }
     
     /**

@@ -33,8 +33,8 @@ public final class Ship {
     private short cabinAmount;
     private short entertainmentPlacesAmount;
 
-    private int fuelAmount;
-    private int maxFuelAmount;
+    private float fuelAmount;
+    private float maxFuelAmount;
     
     private long energyAmount;
     
@@ -83,25 +83,44 @@ public final class Ship {
                 InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FOOD);
             }
         }
-        reactors.forEach((reactor) -> {
-            try {
-                energyAmount += reactor.getEnergy();
-            } catch (ReactorBrokenException ex) {}
-        });
         
-        if(distanceToStation != 0) {
-            engines.forEach((engine) -> {
-                energyAmount -= engine.getEnergyConsumption();
+        if(fuelAmount != 0) {
+            for (Reactor reactor : reactors) {
+                try {
+                    energyAmount += reactor.getEnergy();
+                    if(fuelAmount > reactor.getFuelConsumption()) {
+                        fuelAmount -= reactor.getFuelConsumption();
+                    } else {
+                        fuelAmount = 0;
+                        break;
+                    }
+                } catch (ReactorBrokenException ex) {}
+            }
+        }
+        
+        if(distanceToStation != 0 && energyAmount != 0) {
+            for (Engine engine : engines) {
+                if(energyAmount > engine.getEnergyConsumption()) {
+                    energyAmount -= engine.getEnergyConsumption();
+                } else {
+                    energyAmount = 0;
+                    break;
+                }
                 if(distanceToStation > engine.getDistancePerSecond()) {
                     distanceToStation -= engine.getDistancePerSecond();
                 } else {
                     distanceToStation = 0;
                     arriveToStation();
+                    break;
                 }
-            });
+            }
         }
         /* If distanceToStation == 0 => ship on station and engines off */
-        
+
+        if (fuelAmount == 0 && energyAmount == 0) {
+            InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FUEL);
+        }
+
         //Energy consumption to rooms
         
         InfinityFlight.gui.update();
@@ -109,17 +128,6 @@ public final class Ship {
     
     private void arriveToStation() {
         
-    }
-    
-    public void updateDay() {
-        if (fuelAmount != 1) {
-            fuelAmount--;
-        } else {
-            if (energyAmount == 0) {
-                InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FUEL);
-            }
-        }
-        InfinityFlight.gui.update();
     }
     
     private void setNewRouteAndStation() {
@@ -247,19 +255,19 @@ public final class Ship {
         this.entertainmentPlacesAmount = entertainmentPlacesAmount;
     }
 
-    public int getFuelAmount() {
+    public float getFuelAmount() {
         return fuelAmount;
     }
 
-    public void setFuelAmount(int fuelAmount) {
+    public void setFuelAmount(float fuelAmount) {
         this.fuelAmount = fuelAmount;
     }
 
-    public int getMaxFuelAmount() {
+    public float getMaxFuelAmount() {
         return maxFuelAmount;
     }
 
-    public void setMaxFuelAmount(int maxFuelAmount) {
+    public void setMaxFuelAmount(float maxFuelAmount) {
         this.maxFuelAmount = maxFuelAmount;
     }
 
