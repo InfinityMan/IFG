@@ -47,32 +47,17 @@ public final class InfinityFlight {
         Ship ship = new Ship();
         /* Loading ship */
         
-        GuiStarter starter = new GuiStarter(ship);
-        starter.start();
+        Gui.start(ship);
         
         Thread.sleep(4000);
+        
+        gui = Gui.gui;
         
         Updater updater = new Updater(ship);
         updater.start();
         
         
         //updater.end();
-    }
-    
-    private static class GuiStarter extends Thread {
-        
-        Ship ship;
-
-        public GuiStarter(Ship ship) {
-            this.ship = ship;
-            this.setName("Guier");
-        }
-
-        @Override
-        public void run() {
-            gui = new Gui(ship);
-            gui.setVisible(true);
-        }
     }
     
     public static double genDistanceToStation() {
