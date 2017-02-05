@@ -15,17 +15,15 @@ import ru.dmig.infinityflight.logic.rooms.CabinRoom;
  * @author Dmig
  */
 public final class Ship {
+    
+    public final Storage storage;
 
     public ArrayList<Personal> personel = new ArrayList<>();
     public ArrayList<Passenger> passengers = new ArrayList<>();
     public ArrayList<Room> rooms = new ArrayList<>();
     public ArrayList<Reactor> reactors = new ArrayList<>();
     public ArrayList<Engine> engines = new ArrayList<>();
-    
-    private short medicinesAmount;
 
-    private int foodAmount;
-    private int maxFoodAmount;
     private int potencialFoodAmount;
 
     private short fCRoomAmount;
@@ -35,13 +33,8 @@ public final class Ship {
     private short cabinAmount;
     private short entertainmentPlacesAmount;
 
-    private float fuelAmount;
-    private float maxFuelAmount;
-    
     private long energyAmount;
-    
-    private short spareAmount;
-    
+
     private double distanceToStation; // 0 = on station 10x days
     public Station station;
     
@@ -50,12 +43,10 @@ public final class Ship {
      */
     public Ship() {
         
+        storage = new Storage();
+        
         personel = InfinityFlight.getStartPersonal();
         
-        medicinesAmount = 20;
-        
-        foodAmount = 5000; //Start food
-        maxFoodAmount = 10000;
         potencialFoodAmount = 0;
         
         fCRoomAmount = 0;
@@ -64,9 +55,6 @@ public final class Ship {
         
         cabinAmount = 10;
         entertainmentPlacesAmount = 30;
-        
-        fuelAmount = 300; //Start fuel
-        maxFuelAmount = 500;
         
         energyAmount = 0;
         
@@ -81,21 +69,21 @@ public final class Ship {
         boolean eat = (hour != 0 && hour != 4 && hour != 12);
         if (eat) {
             int amount = (personel.size() + passengers.size());
-            if(getFoodAmount() >= amount) {
-                setFoodAmount(getFoodAmount() - amount);
+            if(storage.getFoodAmount() >= amount) {
+                storage.setFoodAmount(storage.getFoodAmount() - amount);
             } else {
                 InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FOOD);
             }
         }
         
-        if(fuelAmount != 0) {
+        if(storage.getFuelAmount() != 0) {
             for (Reactor reactor : reactors) {
                 try {
                     energyAmount += reactor.getEnergy();
-                    if(fuelAmount > reactor.getFuelConsumption()) {
-                        fuelAmount -= reactor.getFuelConsumption();
+                    if(storage.getFuelAmount() > reactor.getFuelConsumption()) {
+                        storage.setFuelAmount(storage.getFuelAmount() - reactor.getFuelConsumption());
                     } else {
-                        fuelAmount = 0;
+                        storage.setFuelAmount(0);
                         break;
                     }
                 } catch (ReactorBrokenException ex) {}
@@ -121,7 +109,7 @@ public final class Ship {
         }
         /* If distanceToStation == 0 => ship on station and engines off */
 
-        if (fuelAmount == 0 && energyAmount == 0) {
+        if (storage.getFuelAmount() == 0 && energyAmount == 0) {
             InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FUEL);
         }
 
@@ -138,11 +126,6 @@ public final class Ship {
         distanceToStation = InfinityFlight.genDistanceToStation();
         station = InfinityFlight.genNewStation();
     }
-
-    @Override
-    public String toString() {
-        return "Ship{" + "personel=" + personel + ", foodAmount=" + foodAmount + ", potencialFoodAmount=" + potencialFoodAmount + ", fCRoomAmount=" + fCRoomAmount + ", bCRoomAmount=" + bCRoomAmount + ", eCRoomAmount=" + eCRoomAmount + ", cabinAmount=" + cabinAmount + ", entertainmentPlacesAmount=" + entertainmentPlacesAmount + ", fuelAmount=" + fuelAmount + ", maxFuelAmount=" + maxFuelAmount + ", numberOfDaysBeforeStation=" + distanceToStation + '}';
-    }
     
     public short getMaxPersonalAmount() {
         short amount = 0;
@@ -154,26 +137,6 @@ public final class Ship {
             }
         }
         return amount;
-    }
-    
-    
-
-    /**
-     * Get the value of spareAmount
-     *
-     * @return the value of spareAmount
-     */
-    public short getSpareAmount() {
-        return spareAmount;
-    }
-
-    /**
-     * Set the value of spareAmount
-     *
-     * @param spareAmount new value of spareAmount
-     */
-    public void setSpareAmount(short spareAmount) {
-        this.spareAmount = spareAmount;
     }
     
     /**
@@ -192,23 +155,6 @@ public final class Ship {
      */
     public void setEnergyAmount(long energyAmount) {
         this.energyAmount = energyAmount;
-    }
-    
-    
-    public int getMaxFoodAmount() {
-        return maxFoodAmount;
-    }
-
-    public void setMaxFoodAmount(int maxFoodAmount) {
-        this.maxFoodAmount = maxFoodAmount;
-    }
-
-    public int getFoodAmount() {
-        return foodAmount;
-    }
-
-    public void setFoodAmount(int foodAmount) {
-        this.foodAmount = foodAmount;
     }
 
     public int getPotencialFoodAmount() {
@@ -259,22 +205,6 @@ public final class Ship {
         this.entertainmentPlacesAmount = entertainmentPlacesAmount;
     }
 
-    public float getFuelAmount() {
-        return fuelAmount;
-    }
-
-    public void setFuelAmount(float fuelAmount) {
-        this.fuelAmount = fuelAmount;
-    }
-
-    public float getMaxFuelAmount() {
-        return maxFuelAmount;
-    }
-
-    public void setMaxFuelAmount(float maxFuelAmount) {
-        this.maxFuelAmount = maxFuelAmount;
-    }
-
     public double getDistanceToStation() {
         return distanceToStation;
     }
@@ -282,12 +212,5 @@ public final class Ship {
     public void setDistanceToStation(double numberOfDaysBeforeStation) {
         this.distanceToStation = numberOfDaysBeforeStation;
     }
-
-    public short getMedicinesAmount() {
-        return medicinesAmount;
-    }
-
-    public void setMedicinesAmount(short medicines) {
-        this.medicinesAmount = medicines;
-    }
+    
 }

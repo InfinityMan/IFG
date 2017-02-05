@@ -11,6 +11,18 @@ package ru.dmig.infinityflight.logic;
  * @author Dmig
  */
 public final class Storage {
+    
+    private static final int START_FOOD_AMOUNT = 5000;
+    private static final int START_MAX_FOOD_AMOUNT = 10000;
+    
+    private static final float START_FUEL_AMOUNT = 300;
+    private static final float START_MAX_FUEL_AMOUNT = 500;
+    
+    private static final short START_MEDICINE_AMOUNT = 20;
+    private static final short START_MAX_MEDICINE_AMOUNT = 20;
+    
+    private static final short START_SPARE_AMOUNT = 10;
+    private static final short START_MAX_SPARE_AMOUNT = 20;
 
     private int foodAmount;
     private int maxFoodAmount;
@@ -33,6 +45,20 @@ public final class Storage {
         this.maxMedicineAmount = maxMedicineAmount;
         this.spareAmount = spareAmount;
         this.maxSpareAmount = maxSpareAmount;
+    }
+    
+    /**
+     * New default storage
+     */
+    public Storage() {
+        foodAmount = START_FOOD_AMOUNT;
+        maxFoodAmount = START_MAX_FOOD_AMOUNT;
+        fuelAmount = START_FUEL_AMOUNT;
+        maxFuelAmount = START_MAX_FUEL_AMOUNT;
+        medicineAmount = START_MEDICINE_AMOUNT;
+        maxMedicineAmount = START_MAX_MEDICINE_AMOUNT;
+        spareAmount = START_SPARE_AMOUNT;
+        maxSpareAmount = START_MAX_SPARE_AMOUNT;
     }
     
     //<editor-fold defaultstate="collapsed" desc="Get and set">
