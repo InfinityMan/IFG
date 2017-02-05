@@ -70,14 +70,17 @@ public final class Station {
     public static final short[][] FOOD_AMOUNT = {{3500, 4500}, {5000, 5500}, {7000, 7500}};
 
     public SIZE size;
+    
+    public final Storage storage;
 
     private short workersAmount;
     private short touristsAmount;
 
-    private short fuelAmount;
-    private short foodAmount;
+    //private short fuelAmount;
+    //private short foodAmount;
 
     public Station() {
+        this(SIZE.SMALL);
         int indx = chancesUpgrade(SIZE_CHANCES);
         switch (indx) {
             case 0:
@@ -93,17 +96,13 @@ public final class Station {
                 throw new IllegalStateException("Sise and chances and constructor"
                         + " has some problems");
         }
-
-        genStation();
     }
 
     public Station(SIZE size) {
         this.size = size;
+        
+        storage = new Storage(true);
 
-        genStation();
-    }
-
-    private void genStation() {
         int sizeIndex = 0;
         switch (size) {
             case SMALL:
@@ -124,14 +123,14 @@ public final class Station {
                 AMOUNT_OF_WORKERS[sizeIndex][1]);
         touristsAmount = Base.randomNumber(AMOUNT_OF_TOURISTS[sizeIndex][0],
                 AMOUNT_OF_TOURISTS[sizeIndex][1]);
-        fuelAmount = Base.randomNumber(FUEL_AMOUNT[sizeIndex][0], FUEL_AMOUNT[sizeIndex][1]);
-        foodAmount = Base.randomNumber(FOOD_AMOUNT[sizeIndex][0], FOOD_AMOUNT[sizeIndex][1]);
+        storage.setFuelAmount(Base.randomNumber(FUEL_AMOUNT[sizeIndex][0], FUEL_AMOUNT[sizeIndex][1]));
+        storage.setFoodAmount(Base.randomNumber(FOOD_AMOUNT[sizeIndex][0], FOOD_AMOUNT[sizeIndex][1]));
 
         doFuelBonus();
 
         if (size == SIZE.BIG) {
             if (Base.chance(CHANCE_FOOD_BONUS, 0)) {
-                foodAmount += CHANCE_FOOD_BONUS;
+                storage.setFoodAmount(storage.getFoodAmount() + CHANCE_FOOD_BONUS);
             }
         }
     }
@@ -140,56 +139,15 @@ public final class Station {
         int bonusType = chancesUpgrade(VOLUME_FUEL_CHANCES);
         switch (bonusType) {
             case 0:
-                fuelAmount += LOW_FUEL_ADDEND;
+                storage.setFuelAmount(storage.getFuelAmount() + LOW_FUEL_ADDEND);
                 break;
             case 1:
                 //no addend
                 break;
             case 2:
-                fuelAmount += HIGH_FUEL_ADDEND;
+                storage.setFuelAmount(storage.getFuelAmount() + HIGH_FUEL_ADDEND);
                 break;
         }
-    }
-
-    @Override
-    public String toString() {
-        return "Station{" + "size=" + size + ", workersAmount=" + workersAmount + ", touristsAmount=" + touristsAmount + ", fuelAmount=" + fuelAmount + ", foodAmount=" + foodAmount + '}';
-    }
-
-    /**
-     * Get the value of foodAmount
-     *
-     * @return the value of foodAmount
-     */
-    public short getFoodAmount() {
-        return foodAmount;
-    }
-
-    /**
-     * Set the value of foodAmount
-     *
-     * @param foodAmount new value of foodAmount
-     */
-    public void setFoodAmount(short foodAmount) {
-        this.foodAmount = foodAmount;
-    }
-
-    /**
-     * Get the value of fuelAmount
-     *
-     * @return the value of fuelAmount
-     */
-    public short getFuelAmount() {
-        return fuelAmount;
-    }
-
-    /**
-     * Set the value of fuelAmount
-     *
-     * @param fuelAmount new value of fuelAmount
-     */
-    public void setFuelAmount(short fuelAmount) {
-        this.fuelAmount = fuelAmount;
     }
 
     /**

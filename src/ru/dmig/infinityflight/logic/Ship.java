@@ -43,7 +43,7 @@ public final class Ship {
      */
     public Ship() {
         
-        storage = new Storage();
+        storage = new Storage(false);
         
         personel = InfinityFlight.getStartPersonal();
         
