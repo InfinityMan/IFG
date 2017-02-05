@@ -5,8 +5,6 @@
  */
 package ru.dmig.infinityflight.gui;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import ru.dmig.infinityflight.logic.*;
 
@@ -63,9 +61,9 @@ public class Gui extends javax.swing.JFrame {
     }
     
     public void update() {
-        foodAmount.setText(ship.getFoodAmount()+"/"+ship.getMaxFoodAmount());
-        fuelAmount.setText(ship.getFuelAmount()+"/"+ship.getMaxFuelAmount());
-        daysToStation.setText(ship.getNumberOfDaysBeforeStation()+"");
+        foodAmount.setText(ship.storage.getFoodAmount()+"/"+ship.storage.getMaxFoodAmount());
+        fuelAmount.setText(ship.storage.getFuelAmount()+"/"+ship.storage.getMaxFuelAmount());
+        distanceToStation.setText(ship.getDistanceToStation()+"");
         personalAmount.setText(ship.personel.size()+"/"+ship.getMaxPersonalAmount());
         /* Tourists */
     }
@@ -86,8 +84,8 @@ public class Gui extends javax.swing.JFrame {
         fuelAmountL = new javax.swing.JLabel();
         fuelAmount = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        daysToStationL = new javax.swing.JLabel();
-        daysToStation = new javax.swing.JLabel();
+        distanceToStationL = new javax.swing.JLabel();
+        distanceToStation = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         personalAmountL = new javax.swing.JLabel();
         personalAmount = new javax.swing.JLabel();
@@ -132,10 +130,6 @@ public class Gui extends javax.swing.JFrame {
         jSeparator9 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
-        jPanel1 = new javax.swing.JPanel();
-        newRoomPanel = new javax.swing.JPanel();
-        roomType = new javax.swing.JComboBox<>();
-        newRoom = new javax.swing.JButton();
         jSeparator12 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -163,14 +157,14 @@ public class Gui extends javax.swing.JFrame {
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        daysToStationL.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        daysToStationL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        daysToStationL.setText("Days to Station");
+        distanceToStationL.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        distanceToStationL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        distanceToStationL.setText("Distance to Station");
 
-        daysToStation.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        daysToStation.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        daysToStation.setText("85");
-        daysToStation.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        distanceToStation.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        distanceToStation.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        distanceToStation.setText("85");
+        distanceToStation.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -279,8 +273,8 @@ public class Gui extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(InfoBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(daysToStationL, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(daysToStation, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(distanceToStationL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(distanceToStation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -303,9 +297,9 @@ public class Gui extends javax.swing.JFrame {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(InfoBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoBarLayout.createSequentialGroup()
-                    .addComponent(daysToStationL, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(distanceToStationL, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(daysToStation, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(distanceToStation, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(InfoBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                 .addGroup(InfoBarLayout.createSequentialGroup()
@@ -546,62 +540,18 @@ public class Gui extends javax.swing.JFrame {
             .addComponent(jSeparator11)
         );
 
-        roomType.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        roomType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cabin", "First class", "Second class", "Third class" }));
-
-        newRoom.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        newRoom.setText("New room!");
-        newRoom.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newRoomActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout newRoomPanelLayout = new javax.swing.GroupLayout(newRoomPanel);
-        newRoomPanel.setLayout(newRoomPanelLayout);
-        newRoomPanelLayout.setHorizontalGroup(
-            newRoomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(newRoomPanelLayout.createSequentialGroup()
-                .addComponent(roomType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(newRoom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        newRoomPanelLayout.setVerticalGroup(
-            newRoomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(newRoomPanelLayout.createSequentialGroup()
-                .addComponent(roomType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(newRoom))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(newRoomPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(newRoomPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 263, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(InfoBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator7)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jSeparator12)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jSeparator7)
+                    .addComponent(InfoBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -609,22 +559,16 @@ public class Gui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(InfoBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(334, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void newRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newRoomActionPerformed
-        
-    }//GEN-LAST:event_newRoomActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Bi;
@@ -633,8 +577,8 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JPanel InfoBar;
     private javax.swing.JPanel Me;
     private javax.swing.JPanel Wo;
-    private javax.swing.JLabel daysToStation;
-    private javax.swing.JLabel daysToStationL;
+    private javax.swing.JLabel distanceToStation;
+    private javax.swing.JLabel distanceToStationL;
     private javax.swing.JLabel foodAmount;
     private javax.swing.JLabel foodAmountL;
     private javax.swing.JLabel fuelAmount;
@@ -659,7 +603,6 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
@@ -673,11 +616,8 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JButton newRoom;
-    private javax.swing.JPanel newRoomPanel;
     private javax.swing.JLabel personalAmount;
     private javax.swing.JLabel personalAmountL;
-    private javax.swing.JComboBox<String> roomType;
     private javax.swing.JLabel tFirst;
     private javax.swing.JLabel tFirstL;
     private javax.swing.JLabel tSecond;
