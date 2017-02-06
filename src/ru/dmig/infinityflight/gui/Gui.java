@@ -16,12 +16,14 @@ public class Gui extends javax.swing.JFrame {
     
     public static Gui gui;
     
+    private Ship ship;
+    
     private static class GuiStarter extends Thread {
         
-        Ship ship;
+        static Ship ship;
 
         public GuiStarter(Ship ship) {
-            this.ship = ship;
+            GuiStarter.ship = ship;
             this.setName("Guier");
         }
 
@@ -44,8 +46,6 @@ public class Gui extends javax.swing.JFrame {
         starter.start();
     }
     
-    private Ship ship;
-
     /**
      * Creates new form Gui
      * @param ship ship for loading and updating gui
@@ -53,10 +53,6 @@ public class Gui extends javax.swing.JFrame {
     public Gui(Ship ship) {
         this.ship = ship;
         initComponents();
-        init();
-    }
-    
-    private void init() {
         update();
     }
     

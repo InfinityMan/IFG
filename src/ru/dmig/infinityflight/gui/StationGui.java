@@ -6,6 +6,7 @@
 package ru.dmig.infinityflight.gui;
 
 import javax.swing.JOptionPane;
+import ru.dmig.infinityflight.logic.Station;
 
 /**
  *
@@ -13,9 +14,16 @@ import javax.swing.JOptionPane;
  */
 public class StationGui extends javax.swing.JFrame {
     
+    public static StationGui stationGui;
+    
+    private final Station station;
+    
     private static class GuiStarter extends Thread {
+        
+        static Station station;
 
-        public GuiStarter() {
+        public GuiStarter(Station station) {
+            GuiStarter.station = station;
             this.setName("StationGui");
         }
 
@@ -28,21 +36,24 @@ public class StationGui extends javax.swing.JFrame {
                 System.exit(-11);
             }
             
-            StationGui gui = new StationGui();
+            StationGui gui = new StationGui(station);
             gui.setVisible(true);
         }
     }
     
-    public static void start() {
-        GuiStarter starter = new GuiStarter();
+    public static void start(Station station) {
+        GuiStarter starter = new GuiStarter(station);
         starter.start();
     }
 
-    /**
-     * Creates new form Station
-     */
-    public StationGui() {
+    public StationGui(Station station) {
+        this.station = station;
         initComponents();
+        update();
+    }
+    
+    public void update() {
+        
     }
 
     /**
@@ -60,11 +71,11 @@ public class StationGui extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 486, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 266, Short.MAX_VALUE)
         );
 
         pack();
