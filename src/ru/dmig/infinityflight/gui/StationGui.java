@@ -65,22 +65,773 @@ public class StationGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        thirdClass = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jSlider1 = new javax.swing.JSlider();
+        jLabel2 = new javax.swing.JLabel();
+        thirdClass1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jSlider2 = new javax.swing.JSlider();
+        jLabel4 = new javax.swing.JLabel();
+        thirdClass2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jSlider3 = new javax.swing.JSlider();
+        jLabel6 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        res = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        workerPanel = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jSlider4 = new javax.swing.JSlider();
+        jLabel8 = new javax.swing.JLabel();
+        workerPanel1 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jSlider9 = new javax.swing.JSlider();
+        jLabel18 = new javax.swing.JLabel();
+        workerPanel2 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jSlider10 = new javax.swing.JSlider();
+        jLabel20 = new javax.swing.JLabel();
+        workerPanel3 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jSlider11 = new javax.swing.JSlider();
+        jLabel22 = new javax.swing.JLabel();
+        workerPanel4 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jSlider12 = new javax.swing.JSlider();
+        jLabel24 = new javax.swing.JLabel();
+        res1 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jSlider5 = new javax.swing.JSlider();
+        jLabel10 = new javax.swing.JLabel();
+        res2 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jSlider6 = new javax.swing.JSlider();
+        jLabel12 = new javax.swing.JLabel();
+        res3 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jSlider7 = new javax.swing.JSlider();
+        jLabel14 = new javax.swing.JLabel();
+        res4 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jSlider8 = new javax.swing.JSlider();
+        jLabel16 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(460, 680));
+        setPreferredSize(new java.awt.Dimension(460, 680));
+
+        thirdClass.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel1.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Third class");
+        jLabel1.setMaximumSize(new java.awt.Dimension(91, 17));
+        jLabel1.setMinimumSize(new java.awt.Dimension(91, 17));
+        jLabel1.setPreferredSize(new java.awt.Dimension(91, 17));
+
+        jSlider1.setPaintLabels(true);
+        jSlider1.setPaintTicks(true);
+        jSlider1.setValue(0);
+        jSlider1.setMaximumSize(new java.awt.Dimension(32767, 40));
+        jSlider1.setMinimumSize(new java.awt.Dimension(213, 40));
+        jSlider1.setPreferredSize(new java.awt.Dimension(213, 40));
+        jSlider1.setValueIsAdjusting(true);
+
+        jLabel2.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("NaN");
+        jLabel2.setToolTipText("Price: NaN");
+        jLabel2.setMaximumSize(new java.awt.Dimension(30002, 40));
+        jLabel2.setMinimumSize(new java.awt.Dimension(102, 40));
+        jLabel2.setPreferredSize(new java.awt.Dimension(102, 40));
+
+        javax.swing.GroupLayout thirdClassLayout = new javax.swing.GroupLayout(thirdClass);
+        thirdClass.setLayout(thirdClassLayout);
+        thirdClassLayout.setHorizontalGroup(
+            thirdClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(thirdClassLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        thirdClassLayout.setVerticalGroup(
+            thirdClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, thirdClassLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(thirdClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        thirdClass1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel3.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Second class");
+
+        jSlider2.setPaintLabels(true);
+        jSlider2.setPaintTicks(true);
+        jSlider2.setValue(0);
+        jSlider2.setMaximumSize(new java.awt.Dimension(32767, 40));
+        jSlider2.setMinimumSize(new java.awt.Dimension(213, 40));
+        jSlider2.setPreferredSize(new java.awt.Dimension(213, 40));
+        jSlider2.setValueIsAdjusting(true);
+
+        jLabel4.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("NaN");
+        jLabel4.setToolTipText("Price: NaN");
+        jLabel4.setMaximumSize(new java.awt.Dimension(30002, 40));
+        jLabel4.setMinimumSize(new java.awt.Dimension(102, 40));
+        jLabel4.setPreferredSize(new java.awt.Dimension(102, 40));
+
+        javax.swing.GroupLayout thirdClass1Layout = new javax.swing.GroupLayout(thirdClass1);
+        thirdClass1.setLayout(thirdClass1Layout);
+        thirdClass1Layout.setHorizontalGroup(
+            thirdClass1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(thirdClass1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSlider2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        thirdClass1Layout.setVerticalGroup(
+            thirdClass1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, thirdClass1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(thirdClass1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSlider2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        thirdClass2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel5.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("First class");
+        jLabel5.setMaximumSize(new java.awt.Dimension(91, 17));
+        jLabel5.setMinimumSize(new java.awt.Dimension(91, 17));
+        jLabel5.setPreferredSize(new java.awt.Dimension(91, 17));
+
+        jSlider3.setPaintLabels(true);
+        jSlider3.setPaintTicks(true);
+        jSlider3.setValue(0);
+        jSlider3.setMaximumSize(new java.awt.Dimension(32767, 40));
+        jSlider3.setMinimumSize(new java.awt.Dimension(213, 40));
+        jSlider3.setPreferredSize(new java.awt.Dimension(213, 40));
+        jSlider3.setValueIsAdjusting(true);
+
+        jLabel6.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("NaN");
+        jLabel6.setToolTipText("Price: NaN");
+        jLabel6.setMaximumSize(new java.awt.Dimension(30002, 40));
+        jLabel6.setMinimumSize(new java.awt.Dimension(102, 40));
+        jLabel6.setPreferredSize(new java.awt.Dimension(102, 40));
+
+        javax.swing.GroupLayout thirdClass2Layout = new javax.swing.GroupLayout(thirdClass2);
+        thirdClass2.setLayout(thirdClass2Layout);
+        thirdClass2Layout.setHorizontalGroup(
+            thirdClass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(thirdClass2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSlider3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        thirdClass2Layout.setVerticalGroup(
+            thirdClass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, thirdClass2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(thirdClass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSlider3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        res.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jTabbedPane1.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Workers");
+        jLabel7.setMaximumSize(new java.awt.Dimension(91, 17));
+        jLabel7.setMinimumSize(new java.awt.Dimension(91, 17));
+        jLabel7.setPreferredSize(new java.awt.Dimension(91, 17));
+
+        jSlider4.setPaintLabels(true);
+        jSlider4.setPaintTicks(true);
+        jSlider4.setValue(0);
+        jSlider4.setMaximumSize(new java.awt.Dimension(32767, 40));
+        jSlider4.setMinimumSize(new java.awt.Dimension(213, 40));
+        jSlider4.setPreferredSize(new java.awt.Dimension(213, 40));
+        jSlider4.setValueIsAdjusting(true);
+
+        jLabel8.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("NaN");
+        jLabel8.setToolTipText("Price: NaN");
+        jLabel8.setMaximumSize(new java.awt.Dimension(30002, 40));
+        jLabel8.setMinimumSize(new java.awt.Dimension(102, 40));
+        jLabel8.setPreferredSize(new java.awt.Dimension(102, 40));
+
+        javax.swing.GroupLayout workerPanelLayout = new javax.swing.GroupLayout(workerPanel);
+        workerPanel.setLayout(workerPanelLayout);
+        workerPanelLayout.setHorizontalGroup(
+            workerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(workerPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSlider4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        workerPanelLayout.setVerticalGroup(
+            workerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(workerPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(workerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSlider4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Worker", workerPanel);
+
+        jLabel17.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("Engineers");
+        jLabel17.setMaximumSize(new java.awt.Dimension(91, 17));
+        jLabel17.setMinimumSize(new java.awt.Dimension(91, 17));
+        jLabel17.setPreferredSize(new java.awt.Dimension(91, 17));
+
+        jSlider9.setPaintLabels(true);
+        jSlider9.setPaintTicks(true);
+        jSlider9.setValue(0);
+        jSlider9.setMaximumSize(new java.awt.Dimension(32767, 40));
+        jSlider9.setMinimumSize(new java.awt.Dimension(213, 40));
+        jSlider9.setPreferredSize(new java.awt.Dimension(213, 40));
+        jSlider9.setValueIsAdjusting(true);
+
+        jLabel18.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("NaN");
+        jLabel18.setToolTipText("Price: NaN");
+        jLabel18.setMaximumSize(new java.awt.Dimension(30002, 40));
+        jLabel18.setMinimumSize(new java.awt.Dimension(102, 40));
+        jLabel18.setPreferredSize(new java.awt.Dimension(102, 40));
+
+        javax.swing.GroupLayout workerPanel1Layout = new javax.swing.GroupLayout(workerPanel1);
+        workerPanel1.setLayout(workerPanel1Layout);
+        workerPanel1Layout.setHorizontalGroup(
+            workerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(workerPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSlider9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        workerPanel1Layout.setVerticalGroup(
+            workerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(workerPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(workerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSlider9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Engineer", workerPanel1);
+
+        jLabel19.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("Medics");
+        jLabel19.setMaximumSize(new java.awt.Dimension(91, 17));
+        jLabel19.setMinimumSize(new java.awt.Dimension(91, 17));
+        jLabel19.setPreferredSize(new java.awt.Dimension(91, 17));
+
+        jSlider10.setPaintLabels(true);
+        jSlider10.setPaintTicks(true);
+        jSlider10.setValue(0);
+        jSlider10.setMaximumSize(new java.awt.Dimension(32767, 40));
+        jSlider10.setMinimumSize(new java.awt.Dimension(213, 40));
+        jSlider10.setPreferredSize(new java.awt.Dimension(213, 40));
+        jSlider10.setValueIsAdjusting(true);
+
+        jLabel20.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("NaN");
+        jLabel20.setToolTipText("Price: NaN");
+        jLabel20.setMaximumSize(new java.awt.Dimension(30002, 40));
+        jLabel20.setMinimumSize(new java.awt.Dimension(102, 40));
+        jLabel20.setPreferredSize(new java.awt.Dimension(102, 40));
+
+        javax.swing.GroupLayout workerPanel2Layout = new javax.swing.GroupLayout(workerPanel2);
+        workerPanel2.setLayout(workerPanel2Layout);
+        workerPanel2Layout.setHorizontalGroup(
+            workerPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(workerPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSlider10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        workerPanel2Layout.setVerticalGroup(
+            workerPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(workerPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(workerPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSlider10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Medic", workerPanel2);
+
+        jLabel21.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("Guards");
+        jLabel21.setMaximumSize(new java.awt.Dimension(91, 17));
+        jLabel21.setMinimumSize(new java.awt.Dimension(91, 17));
+        jLabel21.setPreferredSize(new java.awt.Dimension(91, 17));
+
+        jSlider11.setPaintLabels(true);
+        jSlider11.setPaintTicks(true);
+        jSlider11.setValue(0);
+        jSlider11.setMaximumSize(new java.awt.Dimension(32767, 40));
+        jSlider11.setMinimumSize(new java.awt.Dimension(213, 40));
+        jSlider11.setPreferredSize(new java.awt.Dimension(213, 40));
+        jSlider11.setValueIsAdjusting(true);
+
+        jLabel22.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("NaN");
+        jLabel22.setToolTipText("Price: NaN");
+        jLabel22.setMaximumSize(new java.awt.Dimension(30002, 40));
+        jLabel22.setMinimumSize(new java.awt.Dimension(102, 40));
+        jLabel22.setPreferredSize(new java.awt.Dimension(102, 40));
+
+        javax.swing.GroupLayout workerPanel3Layout = new javax.swing.GroupLayout(workerPanel3);
+        workerPanel3.setLayout(workerPanel3Layout);
+        workerPanel3Layout.setHorizontalGroup(
+            workerPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(workerPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSlider11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        workerPanel3Layout.setVerticalGroup(
+            workerPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(workerPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(workerPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSlider11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Guard", workerPanel3);
+
+        jLabel23.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setText("Biologists");
+        jLabel23.setMaximumSize(new java.awt.Dimension(91, 17));
+        jLabel23.setMinimumSize(new java.awt.Dimension(91, 17));
+        jLabel23.setPreferredSize(new java.awt.Dimension(91, 17));
+
+        jSlider12.setPaintLabels(true);
+        jSlider12.setPaintTicks(true);
+        jSlider12.setValue(0);
+        jSlider12.setMaximumSize(new java.awt.Dimension(32767, 40));
+        jSlider12.setMinimumSize(new java.awt.Dimension(213, 40));
+        jSlider12.setPreferredSize(new java.awt.Dimension(213, 40));
+        jSlider12.setValueIsAdjusting(true);
+
+        jLabel24.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("NaN");
+        jLabel24.setToolTipText("Price: NaN");
+        jLabel24.setMaximumSize(new java.awt.Dimension(30002, 40));
+        jLabel24.setMinimumSize(new java.awt.Dimension(102, 40));
+        jLabel24.setPreferredSize(new java.awt.Dimension(102, 40));
+
+        javax.swing.GroupLayout workerPanel4Layout = new javax.swing.GroupLayout(workerPanel4);
+        workerPanel4.setLayout(workerPanel4Layout);
+        workerPanel4Layout.setHorizontalGroup(
+            workerPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(workerPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSlider12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        workerPanel4Layout.setVerticalGroup(
+            workerPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(workerPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(workerPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSlider12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Biologist", workerPanel4);
+
+        javax.swing.GroupLayout resLayout = new javax.swing.GroupLayout(res);
+        res.setLayout(resLayout);
+        resLayout.setHorizontalGroup(
+            resLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1)
+        );
+        resLayout.setVerticalGroup(
+            resLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jTabbedPane1.getAccessibleContext().setAccessibleName("res");
+
+        res1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel9.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Fuel");
+        jLabel9.setMaximumSize(new java.awt.Dimension(91, 17));
+        jLabel9.setMinimumSize(new java.awt.Dimension(91, 17));
+        jLabel9.setPreferredSize(new java.awt.Dimension(91, 17));
+
+        jSlider5.setPaintLabels(true);
+        jSlider5.setPaintTicks(true);
+        jSlider5.setValue(0);
+        jSlider5.setMaximumSize(new java.awt.Dimension(32767, 40));
+        jSlider5.setMinimumSize(new java.awt.Dimension(213, 40));
+        jSlider5.setPreferredSize(new java.awt.Dimension(213, 40));
+        jSlider5.setValueIsAdjusting(true);
+
+        jLabel10.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("NaN");
+        jLabel10.setToolTipText("Price: NaN");
+        jLabel10.setMaximumSize(new java.awt.Dimension(30002, 40));
+        jLabel10.setMinimumSize(new java.awt.Dimension(102, 40));
+        jLabel10.setPreferredSize(new java.awt.Dimension(102, 40));
+
+        javax.swing.GroupLayout res1Layout = new javax.swing.GroupLayout(res1);
+        res1.setLayout(res1Layout);
+        res1Layout.setHorizontalGroup(
+            res1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(res1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSlider5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        res1Layout.setVerticalGroup(
+            res1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, res1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(res1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSlider5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        res2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel11.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Food");
+        jLabel11.setMaximumSize(new java.awt.Dimension(91, 17));
+        jLabel11.setMinimumSize(new java.awt.Dimension(91, 17));
+        jLabel11.setPreferredSize(new java.awt.Dimension(91, 17));
+
+        jSlider6.setPaintLabels(true);
+        jSlider6.setPaintTicks(true);
+        jSlider6.setValue(0);
+        jSlider6.setMaximumSize(new java.awt.Dimension(32767, 40));
+        jSlider6.setMinimumSize(new java.awt.Dimension(213, 40));
+        jSlider6.setPreferredSize(new java.awt.Dimension(213, 40));
+        jSlider6.setValueIsAdjusting(true);
+
+        jLabel12.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("NaN");
+        jLabel12.setToolTipText("Price: NaN");
+        jLabel12.setMaximumSize(new java.awt.Dimension(30002, 40));
+        jLabel12.setMinimumSize(new java.awt.Dimension(102, 40));
+        jLabel12.setPreferredSize(new java.awt.Dimension(102, 40));
+
+        javax.swing.GroupLayout res2Layout = new javax.swing.GroupLayout(res2);
+        res2.setLayout(res2Layout);
+        res2Layout.setHorizontalGroup(
+            res2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(res2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSlider6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        res2Layout.setVerticalGroup(
+            res2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, res2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(res2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSlider6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        res3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel13.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("Medicine");
+        jLabel13.setMaximumSize(new java.awt.Dimension(91, 17));
+        jLabel13.setMinimumSize(new java.awt.Dimension(91, 17));
+        jLabel13.setPreferredSize(new java.awt.Dimension(91, 17));
+
+        jSlider7.setPaintLabels(true);
+        jSlider7.setPaintTicks(true);
+        jSlider7.setValue(0);
+        jSlider7.setMaximumSize(new java.awt.Dimension(32767, 40));
+        jSlider7.setMinimumSize(new java.awt.Dimension(213, 40));
+        jSlider7.setPreferredSize(new java.awt.Dimension(213, 40));
+        jSlider7.setValueIsAdjusting(true);
+
+        jLabel14.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("NaN");
+        jLabel14.setToolTipText("Price: NaN");
+        jLabel14.setMaximumSize(new java.awt.Dimension(30002, 40));
+        jLabel14.setMinimumSize(new java.awt.Dimension(102, 40));
+        jLabel14.setPreferredSize(new java.awt.Dimension(102, 40));
+
+        javax.swing.GroupLayout res3Layout = new javax.swing.GroupLayout(res3);
+        res3.setLayout(res3Layout);
+        res3Layout.setHorizontalGroup(
+            res3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(res3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSlider7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        res3Layout.setVerticalGroup(
+            res3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, res3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(res3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSlider7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        res4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel15.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("Spares");
+        jLabel15.setMaximumSize(new java.awt.Dimension(91, 17));
+        jLabel15.setMinimumSize(new java.awt.Dimension(91, 17));
+        jLabel15.setPreferredSize(new java.awt.Dimension(91, 17));
+
+        jSlider8.setPaintLabels(true);
+        jSlider8.setPaintTicks(true);
+        jSlider8.setValue(0);
+        jSlider8.setMaximumSize(new java.awt.Dimension(32767, 40));
+        jSlider8.setMinimumSize(new java.awt.Dimension(213, 40));
+        jSlider8.setPreferredSize(new java.awt.Dimension(213, 40));
+        jSlider8.setValueIsAdjusting(true);
+
+        jLabel16.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("NaN");
+        jLabel16.setToolTipText("Price: NaN");
+        jLabel16.setMaximumSize(new java.awt.Dimension(30002, 40));
+        jLabel16.setMinimumSize(new java.awt.Dimension(102, 40));
+        jLabel16.setPreferredSize(new java.awt.Dimension(102, 40));
+
+        javax.swing.GroupLayout res4Layout = new javax.swing.GroupLayout(res4);
+        res4.setLayout(res4Layout);
+        res4Layout.setHorizontalGroup(
+            res4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(res4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSlider8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        res4Layout.setVerticalGroup(
+            res4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, res4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(res4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSlider8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        jButton1.setFont(new java.awt.Font("Gulim", 0, 18)); // NOI18N
+        jButton1.setText("Buy / Hire ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 486, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(thirdClass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(thirdClass1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(thirdClass2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator1)
+                    .addComponent(res, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(res1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(res2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(res3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(res4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator2)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 266, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(thirdClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(thirdClass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(thirdClass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(res, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(res1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(res2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(res3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(res4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSlider jSlider1;
+    private javax.swing.JSlider jSlider10;
+    private javax.swing.JSlider jSlider11;
+    private javax.swing.JSlider jSlider12;
+    private javax.swing.JSlider jSlider2;
+    private javax.swing.JSlider jSlider3;
+    private javax.swing.JSlider jSlider4;
+    private javax.swing.JSlider jSlider5;
+    private javax.swing.JSlider jSlider6;
+    private javax.swing.JSlider jSlider7;
+    private javax.swing.JSlider jSlider8;
+    private javax.swing.JSlider jSlider9;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JPanel res;
+    private javax.swing.JPanel res1;
+    private javax.swing.JPanel res2;
+    private javax.swing.JPanel res3;
+    private javax.swing.JPanel res4;
+    private javax.swing.JPanel thirdClass;
+    private javax.swing.JPanel thirdClass1;
+    private javax.swing.JPanel thirdClass2;
+    private javax.swing.JPanel workerPanel;
+    private javax.swing.JPanel workerPanel1;
+    private javax.swing.JPanel workerPanel2;
+    private javax.swing.JPanel workerPanel3;
+    private javax.swing.JPanel workerPanel4;
     // End of variables declaration//GEN-END:variables
 }
