@@ -28,6 +28,9 @@ import ru.epiclib.base.Base;
  */
 public final class InfinityFlight {
     
+    public static final byte PROFFESSION_AMOUNT = 5;
+    public static final byte TOURIST_CLASSES_AMOUNT = 3;
+    
     public static final short[] START_PERSONAL_AMOUNT = {2,1,2,0,2};
 
     /**

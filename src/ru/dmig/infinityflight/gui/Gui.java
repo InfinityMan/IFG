@@ -23,7 +23,7 @@ import ru.dmig.infinityflight.logic.*;
  *
  * @author Dmig
  */
-public class Gui extends javax.swing.JFrame {
+public final class Gui extends javax.swing.JFrame {
     
     public static Gui gui;
     
