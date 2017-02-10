@@ -12,7 +12,7 @@ import ru.dmig.infinityflight.logic.Station;
  *
  * @author Dmig
  */
-public class StationGui extends javax.swing.JFrame {
+public final class StationGui extends javax.swing.JFrame {
     
     public static StationGui stationGui;
     
@@ -49,11 +49,43 @@ public class StationGui extends javax.swing.JFrame {
     public StationGui(Station station) {
         this.station = station;
         initComponents();
-        update();
+        update(true);
     }
     
-    public void update() {
+    public void update(boolean all) {
         
+        //Sliders
+        if (all) {
+            thirdClassSlider.setMaximum(station.getTouristsAmount()[0]);
+            secondClassSlider.setMaximum(station.getTouristsAmount()[1]);
+            thirdClassSlider.setMaximum(station.getTouristsAmount()[2]);
+            
+            workerSlider.setMaximum(station.getWorkersAmount()[0]);
+            engineerSlider.setMaximum(station.getWorkersAmount()[1]);
+            medicSlider.setMaximum(station.getWorkersAmount()[2]);
+            guardSlider.setMaximum(station.getWorkersAmount()[3]);
+            biologistSlider.setMaximum(station.getWorkersAmount()[4]);
+            
+            fuelSlider.setMaximum(Math.round(station.storage.getFuelAmount()));
+            foodSlider.setMaximum(station.storage.getFoodAmount());
+            medicineSlider.setMaximum(station.storage.getMedicineAmount());
+            sparesSlider.setMaximum(station.storage.getSpareAmount());
+        }
+        
+        thirdClassAmount.setText(thirdClassSlider.getValue() + "/" + thirdClassSlider.getMaximum());
+        secondClassAmount.setText(secondClassSlider.getValue() + "/" + secondClassSlider.getMaximum());
+        firstClassAmount.setText(firstClassSlider.getValue() + "/" + firstClassSlider.getMaximum());
+
+        workerAmount.setText(workerSlider.getValue() + "/" + workerSlider.getMaximum());
+        engineerAmount.setText(engineerSlider.getValue() + "/" + engineerSlider.getMaximum());
+        medicAmount.setText(medicSlider.getValue() + "/" + medicSlider.getMaximum());
+        guardAmount.setText(guardSlider.getValue() + "/" + guardSlider.getMaximum());
+        biologistAmount.setText(biologistSlider.getValue() + "/" + biologistSlider.getMaximum());
+
+        fuelAmount.setText(fuelSlider.getValue() + "/" + fuelSlider.getMaximum());
+        foodAmount.setText(foodSlider.getValue() + "/" + foodSlider.getMaximum());
+        medicineAmount.setText(medicineSlider.getValue() + "/" + medicineSlider.getMaximum());
+        sparesAmount.setText(sparesSlider.getValue() + "/" + sparesSlider.getMaximum());
     }
 
     /**
@@ -110,7 +142,7 @@ public class StationGui extends javax.swing.JFrame {
         foodAmount = new javax.swing.JLabel();
         medicinePanel = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        medicibeSlider = new javax.swing.JSlider();
+        medicineSlider = new javax.swing.JSlider();
         medicineAmount = new javax.swing.JLabel();
         sparesPanel = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
@@ -636,13 +668,13 @@ public class StationGui extends javax.swing.JFrame {
         jLabel13.setMinimumSize(new java.awt.Dimension(91, 17));
         jLabel13.setPreferredSize(new java.awt.Dimension(91, 17));
 
-        medicibeSlider.setPaintLabels(true);
-        medicibeSlider.setPaintTicks(true);
-        medicibeSlider.setValue(0);
-        medicibeSlider.setMaximumSize(new java.awt.Dimension(32767, 40));
-        medicibeSlider.setMinimumSize(new java.awt.Dimension(213, 40));
-        medicibeSlider.setPreferredSize(new java.awt.Dimension(213, 40));
-        medicibeSlider.setValueIsAdjusting(true);
+        medicineSlider.setPaintLabels(true);
+        medicineSlider.setPaintTicks(true);
+        medicineSlider.setValue(0);
+        medicineSlider.setMaximumSize(new java.awt.Dimension(32767, 40));
+        medicineSlider.setMinimumSize(new java.awt.Dimension(213, 40));
+        medicineSlider.setPreferredSize(new java.awt.Dimension(213, 40));
+        medicineSlider.setValueIsAdjusting(true);
 
         medicineAmount.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
         medicineAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -660,7 +692,7 @@ public class StationGui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(medicibeSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(medicineSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(medicineAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -670,7 +702,7 @@ public class StationGui extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, medicinePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(medicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(medicibeSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(medicineSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(medicineAmount, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -785,7 +817,10 @@ public class StationGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActionPerformed
-        // TODO add your handling code here:
+        
+        //ddd
+        
+        update(true);
     }//GEN-LAST:event_buttonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -826,9 +861,9 @@ public class StationGui extends javax.swing.JFrame {
     private javax.swing.JLabel medicAmount;
     private javax.swing.JPanel medicPanel;
     private javax.swing.JSlider medicSlider;
-    private javax.swing.JSlider medicibeSlider;
     private javax.swing.JLabel medicineAmount;
     private javax.swing.JPanel medicinePanel;
+    private javax.swing.JSlider medicineSlider;
     private javax.swing.JPanel res;
     private javax.swing.JPanel secondClass;
     private javax.swing.JLabel secondClassAmount;

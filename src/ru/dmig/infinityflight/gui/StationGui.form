@@ -1066,7 +1066,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="medicibeSlider" max="32767" attributes="0"/>
+                  <Component id="medicineSlider" max="32767" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="medicineAmount" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1078,7 +1078,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="medicibeSlider" alignment="1" max="32767" attributes="0"/>
+                      <Component id="medicineSlider" alignment="1" max="32767" attributes="0"/>
                       <Component id="medicineAmount" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel13" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -1106,7 +1106,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSlider" name="medicibeSlider">
+        <Component class="javax.swing.JSlider" name="medicineSlider">
           <Properties>
             <Property name="paintLabels" type="boolean" value="true"/>
             <Property name="paintTicks" type="boolean" value="true"/>
