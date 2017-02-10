@@ -52,12 +52,22 @@ public final class Station {
      * max;
      */
     public static final short[][] AMOUNT_OF_WORKERS = {{2, 4}, {6, 8}, {19, 23}};
+    
+    /**
+     * Chance of workers: Worker: CW[0], Engineer CW[1] etc. (Personal).
+     */
+    public static final byte[] CHANCE_WORKERS = {43,12,11,16,18};
 
     /**
      * Tourists amount: AOT[0] - small station, etc. AOT[x][0] - min; AOT[x][1]
      * - max;
      */
     public static final short[][] AMOUNT_OF_TOURISTS = {{1, 3}, {7, 9}, {29, 35}};
+    
+    /**
+     * Chance of tourists: Third: CT[0], Second: CT[1], First: CT[2].
+     */
+    public static final byte[] CHANCE_TOURISTS = {62,26,12};
 
     /**
      * Fuel amount: FA[0] - small station, etc. FA[x][0] - min; FA[x][1] - max;
@@ -73,8 +83,17 @@ public final class Station {
     
     public final Storage storage;
 
-    private short workersAmount;
-    private short touristsAmount;
+    /**
+     * In sequence:
+     *  Worker, Engineer, Medic, Guard, Biologist.
+     */
+    private short[] workersAmount;
+    
+    /**
+     * In sequence:
+     *  Third class, Second class, First class.
+     */
+    private short[] touristsAmount;
 
     //private short fuelAmount;
     //private short foodAmount;
@@ -119,12 +138,14 @@ public final class Station {
                         + " has some problems");
         }
 
-        workersAmount = Base.randomNumber(AMOUNT_OF_WORKERS[sizeIndex][0],
-                AMOUNT_OF_WORKERS[sizeIndex][1]);
-        touristsAmount = Base.randomNumber(AMOUNT_OF_TOURISTS[sizeIndex][0],
-                AMOUNT_OF_TOURISTS[sizeIndex][1]);
+        assignWorkers(sizeIndex);
+        assignTourists(sizeIndex);
+
         storage.setFuelAmount(Base.randomNumber(FUEL_AMOUNT[sizeIndex][0], FUEL_AMOUNT[sizeIndex][1]));
         storage.setFoodAmount(Base.randomNumber(FOOD_AMOUNT[sizeIndex][0], FOOD_AMOUNT[sizeIndex][1]));
+        
+        //Medinice bonus
+        //Spare bonus
 
         doFuelBonus();
 
@@ -132,6 +153,24 @@ public final class Station {
             if (Base.chance(CHANCE_FOOD_BONUS, 0)) {
                 storage.setFoodAmount(storage.getFoodAmount() + CHANCE_FOOD_BONUS);
             }
+        }
+    }
+    
+    private void assignWorkers(int sizeIndex) {
+        short workersMainAmount = Base.randomNumber(AMOUNT_OF_WORKERS[sizeIndex][0],
+                AMOUNT_OF_WORKERS[sizeIndex][1]);
+
+        for (int i = 0; i < workersMainAmount; i++) {
+            workersAmount[InfinityFlight.chancesUpgrade(CHANCE_WORKERS)]++;
+        }
+    }
+
+    private void assignTourists(int sizeIndex) {
+        short touristsMainAmount = Base.randomNumber(AMOUNT_OF_TOURISTS[sizeIndex][0],
+                AMOUNT_OF_TOURISTS[sizeIndex][1]);
+        
+        for (int i = 0; i < touristsMainAmount; i++) {
+            touristsAmount[InfinityFlight.chancesUpgrade(CHANCE_TOURISTS)]++;
         }
     }
 
@@ -155,7 +194,7 @@ public final class Station {
      *
      * @return the value of touristsAmount
      */
-    public short getTouristsAmount() {
+    public short[] getTouristsAmount() {
         return touristsAmount;
     }
 
@@ -164,7 +203,7 @@ public final class Station {
      *
      * @param touristsAmount new value of touristsAmount
      */
-    public void setTouristsAmount(short touristsAmount) {
+    public void setTouristsAmount(short[] touristsAmount) {
         this.touristsAmount = touristsAmount;
     }
 
@@ -173,7 +212,7 @@ public final class Station {
      *
      * @return the value of workersAmount
      */
-    public short getWorkersAmount() {
+    public short[] getWorkersAmount() {
         return workersAmount;
     }
 
@@ -182,7 +221,7 @@ public final class Station {
      *
      * @param workersAmount new value of workersAmount
      */
-    public void setWorkersAmount(short workersAmount) {
+    public void setWorkersAmount(short[] workersAmount) {
         this.workersAmount = workersAmount;
     }
 
