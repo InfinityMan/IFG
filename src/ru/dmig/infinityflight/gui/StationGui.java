@@ -67,57 +67,57 @@ public class StationGui extends javax.swing.JFrame {
 
         thirdClass = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
-        jLabel2 = new javax.swing.JLabel();
-        thirdClass1 = new javax.swing.JPanel();
+        thirdClassSlider = new javax.swing.JSlider();
+        thirdClassAmount = new javax.swing.JLabel();
+        secondClass = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jSlider2 = new javax.swing.JSlider();
-        jLabel4 = new javax.swing.JLabel();
-        thirdClass2 = new javax.swing.JPanel();
+        secondClassSlider = new javax.swing.JSlider();
+        secondClassAmount = new javax.swing.JLabel();
+        firstClass = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jSlider3 = new javax.swing.JSlider();
-        jLabel6 = new javax.swing.JLabel();
+        firstClassSlider = new javax.swing.JSlider();
+        firstClassAmount = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         res = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         workerPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jSlider4 = new javax.swing.JSlider();
-        jLabel8 = new javax.swing.JLabel();
-        workerPanel1 = new javax.swing.JPanel();
+        workerSlider = new javax.swing.JSlider();
+        workerAmount = new javax.swing.JLabel();
+        engineerPanel = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jSlider9 = new javax.swing.JSlider();
-        jLabel18 = new javax.swing.JLabel();
-        workerPanel2 = new javax.swing.JPanel();
+        engineerSlider = new javax.swing.JSlider();
+        engineerAmount = new javax.swing.JLabel();
+        medicPanel = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        jSlider10 = new javax.swing.JSlider();
-        jLabel20 = new javax.swing.JLabel();
-        workerPanel3 = new javax.swing.JPanel();
+        medicSlider = new javax.swing.JSlider();
+        medicAmount = new javax.swing.JLabel();
+        guardPanel = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        jSlider11 = new javax.swing.JSlider();
-        jLabel22 = new javax.swing.JLabel();
-        workerPanel4 = new javax.swing.JPanel();
+        guardSlider = new javax.swing.JSlider();
+        guardAmount = new javax.swing.JLabel();
+        biologistPanel = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        jSlider12 = new javax.swing.JSlider();
-        jLabel24 = new javax.swing.JLabel();
-        res1 = new javax.swing.JPanel();
+        biologistSlider = new javax.swing.JSlider();
+        biologistAmount = new javax.swing.JLabel();
+        fuelPanel = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jSlider5 = new javax.swing.JSlider();
-        jLabel10 = new javax.swing.JLabel();
-        res2 = new javax.swing.JPanel();
+        fuelSlider = new javax.swing.JSlider();
+        fuelAmount = new javax.swing.JLabel();
+        foodPanel = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jSlider6 = new javax.swing.JSlider();
-        jLabel12 = new javax.swing.JLabel();
-        res3 = new javax.swing.JPanel();
+        foodSlider = new javax.swing.JSlider();
+        foodAmount = new javax.swing.JLabel();
+        medicinePanel = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jSlider7 = new javax.swing.JSlider();
-        jLabel14 = new javax.swing.JLabel();
-        res4 = new javax.swing.JPanel();
+        medicibeSlider = new javax.swing.JSlider();
+        medicineAmount = new javax.swing.JLabel();
+        sparesPanel = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jSlider8 = new javax.swing.JSlider();
-        jLabel16 = new javax.swing.JLabel();
+        sparesSlider = new javax.swing.JSlider();
+        sparesAmount = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
+        button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(460, 680));
@@ -132,21 +132,21 @@ public class StationGui extends javax.swing.JFrame {
         jLabel1.setMinimumSize(new java.awt.Dimension(91, 17));
         jLabel1.setPreferredSize(new java.awt.Dimension(91, 17));
 
-        jSlider1.setPaintLabels(true);
-        jSlider1.setPaintTicks(true);
-        jSlider1.setValue(0);
-        jSlider1.setMaximumSize(new java.awt.Dimension(32767, 40));
-        jSlider1.setMinimumSize(new java.awt.Dimension(213, 40));
-        jSlider1.setPreferredSize(new java.awt.Dimension(213, 40));
-        jSlider1.setValueIsAdjusting(true);
+        thirdClassSlider.setPaintLabels(true);
+        thirdClassSlider.setPaintTicks(true);
+        thirdClassSlider.setValue(0);
+        thirdClassSlider.setMaximumSize(new java.awt.Dimension(32767, 40));
+        thirdClassSlider.setMinimumSize(new java.awt.Dimension(213, 40));
+        thirdClassSlider.setPreferredSize(new java.awt.Dimension(213, 40));
+        thirdClassSlider.setValueIsAdjusting(true);
 
-        jLabel2.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("NaN");
-        jLabel2.setToolTipText("Price: NaN");
-        jLabel2.setMaximumSize(new java.awt.Dimension(30002, 40));
-        jLabel2.setMinimumSize(new java.awt.Dimension(102, 40));
-        jLabel2.setPreferredSize(new java.awt.Dimension(102, 40));
+        thirdClassAmount.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        thirdClassAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        thirdClassAmount.setText("NaN");
+        thirdClassAmount.setToolTipText("Price: NaN");
+        thirdClassAmount.setMaximumSize(new java.awt.Dimension(30002, 40));
+        thirdClassAmount.setMinimumSize(new java.awt.Dimension(102, 40));
+        thirdClassAmount.setPreferredSize(new java.awt.Dimension(102, 40));
 
         javax.swing.GroupLayout thirdClassLayout = new javax.swing.GroupLayout(thirdClass);
         thirdClass.setLayout(thirdClassLayout);
@@ -156,9 +156,9 @@ public class StationGui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(thirdClassSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(thirdClassAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         thirdClassLayout.setVerticalGroup(
@@ -166,59 +166,59 @@ public class StationGui extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, thirdClassLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(thirdClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(thirdClassSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(thirdClassAmount, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        thirdClass1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        secondClass.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel3.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Second class");
 
-        jSlider2.setPaintLabels(true);
-        jSlider2.setPaintTicks(true);
-        jSlider2.setValue(0);
-        jSlider2.setMaximumSize(new java.awt.Dimension(32767, 40));
-        jSlider2.setMinimumSize(new java.awt.Dimension(213, 40));
-        jSlider2.setPreferredSize(new java.awt.Dimension(213, 40));
-        jSlider2.setValueIsAdjusting(true);
+        secondClassSlider.setPaintLabels(true);
+        secondClassSlider.setPaintTicks(true);
+        secondClassSlider.setValue(0);
+        secondClassSlider.setMaximumSize(new java.awt.Dimension(32767, 40));
+        secondClassSlider.setMinimumSize(new java.awt.Dimension(213, 40));
+        secondClassSlider.setPreferredSize(new java.awt.Dimension(213, 40));
+        secondClassSlider.setValueIsAdjusting(true);
 
-        jLabel4.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("NaN");
-        jLabel4.setToolTipText("Price: NaN");
-        jLabel4.setMaximumSize(new java.awt.Dimension(30002, 40));
-        jLabel4.setMinimumSize(new java.awt.Dimension(102, 40));
-        jLabel4.setPreferredSize(new java.awt.Dimension(102, 40));
+        secondClassAmount.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        secondClassAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        secondClassAmount.setText("NaN");
+        secondClassAmount.setToolTipText("Price: NaN");
+        secondClassAmount.setMaximumSize(new java.awt.Dimension(30002, 40));
+        secondClassAmount.setMinimumSize(new java.awt.Dimension(102, 40));
+        secondClassAmount.setPreferredSize(new java.awt.Dimension(102, 40));
 
-        javax.swing.GroupLayout thirdClass1Layout = new javax.swing.GroupLayout(thirdClass1);
-        thirdClass1.setLayout(thirdClass1Layout);
-        thirdClass1Layout.setHorizontalGroup(
-            thirdClass1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(thirdClass1Layout.createSequentialGroup()
+        javax.swing.GroupLayout secondClassLayout = new javax.swing.GroupLayout(secondClass);
+        secondClass.setLayout(secondClassLayout);
+        secondClassLayout.setHorizontalGroup(
+            secondClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(secondClassLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSlider2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(secondClassSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(secondClassAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        thirdClass1Layout.setVerticalGroup(
-            thirdClass1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, thirdClass1Layout.createSequentialGroup()
+        secondClassLayout.setVerticalGroup(
+            secondClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondClassLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(thirdClass1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSlider2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(secondClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(secondClassSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(secondClassAmount, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        thirdClass2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        firstClass.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel5.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -227,42 +227,42 @@ public class StationGui extends javax.swing.JFrame {
         jLabel5.setMinimumSize(new java.awt.Dimension(91, 17));
         jLabel5.setPreferredSize(new java.awt.Dimension(91, 17));
 
-        jSlider3.setPaintLabels(true);
-        jSlider3.setPaintTicks(true);
-        jSlider3.setValue(0);
-        jSlider3.setMaximumSize(new java.awt.Dimension(32767, 40));
-        jSlider3.setMinimumSize(new java.awt.Dimension(213, 40));
-        jSlider3.setPreferredSize(new java.awt.Dimension(213, 40));
-        jSlider3.setValueIsAdjusting(true);
+        firstClassSlider.setPaintLabels(true);
+        firstClassSlider.setPaintTicks(true);
+        firstClassSlider.setValue(0);
+        firstClassSlider.setMaximumSize(new java.awt.Dimension(32767, 40));
+        firstClassSlider.setMinimumSize(new java.awt.Dimension(213, 40));
+        firstClassSlider.setPreferredSize(new java.awt.Dimension(213, 40));
+        firstClassSlider.setValueIsAdjusting(true);
 
-        jLabel6.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("NaN");
-        jLabel6.setToolTipText("Price: NaN");
-        jLabel6.setMaximumSize(new java.awt.Dimension(30002, 40));
-        jLabel6.setMinimumSize(new java.awt.Dimension(102, 40));
-        jLabel6.setPreferredSize(new java.awt.Dimension(102, 40));
+        firstClassAmount.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        firstClassAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        firstClassAmount.setText("NaN");
+        firstClassAmount.setToolTipText("Price: NaN");
+        firstClassAmount.setMaximumSize(new java.awt.Dimension(30002, 40));
+        firstClassAmount.setMinimumSize(new java.awt.Dimension(102, 40));
+        firstClassAmount.setPreferredSize(new java.awt.Dimension(102, 40));
 
-        javax.swing.GroupLayout thirdClass2Layout = new javax.swing.GroupLayout(thirdClass2);
-        thirdClass2.setLayout(thirdClass2Layout);
-        thirdClass2Layout.setHorizontalGroup(
-            thirdClass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(thirdClass2Layout.createSequentialGroup()
+        javax.swing.GroupLayout firstClassLayout = new javax.swing.GroupLayout(firstClass);
+        firstClass.setLayout(firstClassLayout);
+        firstClassLayout.setHorizontalGroup(
+            firstClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(firstClassLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSlider3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(firstClassSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(firstClassAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        thirdClass2Layout.setVerticalGroup(
-            thirdClass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, thirdClass2Layout.createSequentialGroup()
+        firstClassLayout.setVerticalGroup(
+            firstClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, firstClassLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(thirdClass2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSlider3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(firstClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(firstClassSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(firstClassAmount, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -278,21 +278,21 @@ public class StationGui extends javax.swing.JFrame {
         jLabel7.setMinimumSize(new java.awt.Dimension(91, 17));
         jLabel7.setPreferredSize(new java.awt.Dimension(91, 17));
 
-        jSlider4.setPaintLabels(true);
-        jSlider4.setPaintTicks(true);
-        jSlider4.setValue(0);
-        jSlider4.setMaximumSize(new java.awt.Dimension(32767, 40));
-        jSlider4.setMinimumSize(new java.awt.Dimension(213, 40));
-        jSlider4.setPreferredSize(new java.awt.Dimension(213, 40));
-        jSlider4.setValueIsAdjusting(true);
+        workerSlider.setPaintLabels(true);
+        workerSlider.setPaintTicks(true);
+        workerSlider.setValue(0);
+        workerSlider.setMaximumSize(new java.awt.Dimension(32767, 40));
+        workerSlider.setMinimumSize(new java.awt.Dimension(213, 40));
+        workerSlider.setPreferredSize(new java.awt.Dimension(213, 40));
+        workerSlider.setValueIsAdjusting(true);
 
-        jLabel8.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("NaN");
-        jLabel8.setToolTipText("Price: NaN");
-        jLabel8.setMaximumSize(new java.awt.Dimension(30002, 40));
-        jLabel8.setMinimumSize(new java.awt.Dimension(102, 40));
-        jLabel8.setPreferredSize(new java.awt.Dimension(102, 40));
+        workerAmount.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        workerAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        workerAmount.setText("NaN");
+        workerAmount.setToolTipText("Price: NaN");
+        workerAmount.setMaximumSize(new java.awt.Dimension(30002, 40));
+        workerAmount.setMinimumSize(new java.awt.Dimension(102, 40));
+        workerAmount.setPreferredSize(new java.awt.Dimension(102, 40));
 
         javax.swing.GroupLayout workerPanelLayout = new javax.swing.GroupLayout(workerPanel);
         workerPanel.setLayout(workerPanelLayout);
@@ -302,9 +302,9 @@ public class StationGui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSlider4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(workerSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(workerAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         workerPanelLayout.setVerticalGroup(
@@ -312,9 +312,9 @@ public class StationGui extends javax.swing.JFrame {
             .addGroup(workerPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(workerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSlider4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(workerSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(workerAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -327,47 +327,47 @@ public class StationGui extends javax.swing.JFrame {
         jLabel17.setMinimumSize(new java.awt.Dimension(91, 17));
         jLabel17.setPreferredSize(new java.awt.Dimension(91, 17));
 
-        jSlider9.setPaintLabels(true);
-        jSlider9.setPaintTicks(true);
-        jSlider9.setValue(0);
-        jSlider9.setMaximumSize(new java.awt.Dimension(32767, 40));
-        jSlider9.setMinimumSize(new java.awt.Dimension(213, 40));
-        jSlider9.setPreferredSize(new java.awt.Dimension(213, 40));
-        jSlider9.setValueIsAdjusting(true);
+        engineerSlider.setPaintLabels(true);
+        engineerSlider.setPaintTicks(true);
+        engineerSlider.setValue(0);
+        engineerSlider.setMaximumSize(new java.awt.Dimension(32767, 40));
+        engineerSlider.setMinimumSize(new java.awt.Dimension(213, 40));
+        engineerSlider.setPreferredSize(new java.awt.Dimension(213, 40));
+        engineerSlider.setValueIsAdjusting(true);
 
-        jLabel18.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("NaN");
-        jLabel18.setToolTipText("Price: NaN");
-        jLabel18.setMaximumSize(new java.awt.Dimension(30002, 40));
-        jLabel18.setMinimumSize(new java.awt.Dimension(102, 40));
-        jLabel18.setPreferredSize(new java.awt.Dimension(102, 40));
+        engineerAmount.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        engineerAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        engineerAmount.setText("NaN");
+        engineerAmount.setToolTipText("Price: NaN");
+        engineerAmount.setMaximumSize(new java.awt.Dimension(30002, 40));
+        engineerAmount.setMinimumSize(new java.awt.Dimension(102, 40));
+        engineerAmount.setPreferredSize(new java.awt.Dimension(102, 40));
 
-        javax.swing.GroupLayout workerPanel1Layout = new javax.swing.GroupLayout(workerPanel1);
-        workerPanel1.setLayout(workerPanel1Layout);
-        workerPanel1Layout.setHorizontalGroup(
-            workerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(workerPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout engineerPanelLayout = new javax.swing.GroupLayout(engineerPanel);
+        engineerPanel.setLayout(engineerPanelLayout);
+        engineerPanelLayout.setHorizontalGroup(
+            engineerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(engineerPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSlider9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(engineerSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(engineerAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        workerPanel1Layout.setVerticalGroup(
-            workerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(workerPanel1Layout.createSequentialGroup()
+        engineerPanelLayout.setVerticalGroup(
+            engineerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(engineerPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(workerPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSlider9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(engineerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(engineerSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(engineerAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Engineer", workerPanel1);
+        jTabbedPane1.addTab("Engineer", engineerPanel);
 
         jLabel19.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -376,47 +376,47 @@ public class StationGui extends javax.swing.JFrame {
         jLabel19.setMinimumSize(new java.awt.Dimension(91, 17));
         jLabel19.setPreferredSize(new java.awt.Dimension(91, 17));
 
-        jSlider10.setPaintLabels(true);
-        jSlider10.setPaintTicks(true);
-        jSlider10.setValue(0);
-        jSlider10.setMaximumSize(new java.awt.Dimension(32767, 40));
-        jSlider10.setMinimumSize(new java.awt.Dimension(213, 40));
-        jSlider10.setPreferredSize(new java.awt.Dimension(213, 40));
-        jSlider10.setValueIsAdjusting(true);
+        medicSlider.setPaintLabels(true);
+        medicSlider.setPaintTicks(true);
+        medicSlider.setValue(0);
+        medicSlider.setMaximumSize(new java.awt.Dimension(32767, 40));
+        medicSlider.setMinimumSize(new java.awt.Dimension(213, 40));
+        medicSlider.setPreferredSize(new java.awt.Dimension(213, 40));
+        medicSlider.setValueIsAdjusting(true);
 
-        jLabel20.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("NaN");
-        jLabel20.setToolTipText("Price: NaN");
-        jLabel20.setMaximumSize(new java.awt.Dimension(30002, 40));
-        jLabel20.setMinimumSize(new java.awt.Dimension(102, 40));
-        jLabel20.setPreferredSize(new java.awt.Dimension(102, 40));
+        medicAmount.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        medicAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        medicAmount.setText("NaN");
+        medicAmount.setToolTipText("Price: NaN");
+        medicAmount.setMaximumSize(new java.awt.Dimension(30002, 40));
+        medicAmount.setMinimumSize(new java.awt.Dimension(102, 40));
+        medicAmount.setPreferredSize(new java.awt.Dimension(102, 40));
 
-        javax.swing.GroupLayout workerPanel2Layout = new javax.swing.GroupLayout(workerPanel2);
-        workerPanel2.setLayout(workerPanel2Layout);
-        workerPanel2Layout.setHorizontalGroup(
-            workerPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(workerPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout medicPanelLayout = new javax.swing.GroupLayout(medicPanel);
+        medicPanel.setLayout(medicPanelLayout);
+        medicPanelLayout.setHorizontalGroup(
+            medicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(medicPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSlider10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(medicSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(medicAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        workerPanel2Layout.setVerticalGroup(
-            workerPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(workerPanel2Layout.createSequentialGroup()
+        medicPanelLayout.setVerticalGroup(
+            medicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(medicPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(workerPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSlider10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(medicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(medicSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(medicAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Medic", workerPanel2);
+        jTabbedPane1.addTab("Medic", medicPanel);
 
         jLabel21.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -425,47 +425,47 @@ public class StationGui extends javax.swing.JFrame {
         jLabel21.setMinimumSize(new java.awt.Dimension(91, 17));
         jLabel21.setPreferredSize(new java.awt.Dimension(91, 17));
 
-        jSlider11.setPaintLabels(true);
-        jSlider11.setPaintTicks(true);
-        jSlider11.setValue(0);
-        jSlider11.setMaximumSize(new java.awt.Dimension(32767, 40));
-        jSlider11.setMinimumSize(new java.awt.Dimension(213, 40));
-        jSlider11.setPreferredSize(new java.awt.Dimension(213, 40));
-        jSlider11.setValueIsAdjusting(true);
+        guardSlider.setPaintLabels(true);
+        guardSlider.setPaintTicks(true);
+        guardSlider.setValue(0);
+        guardSlider.setMaximumSize(new java.awt.Dimension(32767, 40));
+        guardSlider.setMinimumSize(new java.awt.Dimension(213, 40));
+        guardSlider.setPreferredSize(new java.awt.Dimension(213, 40));
+        guardSlider.setValueIsAdjusting(true);
 
-        jLabel22.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("NaN");
-        jLabel22.setToolTipText("Price: NaN");
-        jLabel22.setMaximumSize(new java.awt.Dimension(30002, 40));
-        jLabel22.setMinimumSize(new java.awt.Dimension(102, 40));
-        jLabel22.setPreferredSize(new java.awt.Dimension(102, 40));
+        guardAmount.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        guardAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guardAmount.setText("NaN");
+        guardAmount.setToolTipText("Price: NaN");
+        guardAmount.setMaximumSize(new java.awt.Dimension(30002, 40));
+        guardAmount.setMinimumSize(new java.awt.Dimension(102, 40));
+        guardAmount.setPreferredSize(new java.awt.Dimension(102, 40));
 
-        javax.swing.GroupLayout workerPanel3Layout = new javax.swing.GroupLayout(workerPanel3);
-        workerPanel3.setLayout(workerPanel3Layout);
-        workerPanel3Layout.setHorizontalGroup(
-            workerPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(workerPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout guardPanelLayout = new javax.swing.GroupLayout(guardPanel);
+        guardPanel.setLayout(guardPanelLayout);
+        guardPanelLayout.setHorizontalGroup(
+            guardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(guardPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSlider11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(guardSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(guardAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        workerPanel3Layout.setVerticalGroup(
-            workerPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(workerPanel3Layout.createSequentialGroup()
+        guardPanelLayout.setVerticalGroup(
+            guardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(guardPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(workerPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSlider11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(guardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(guardSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(guardAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Guard", workerPanel3);
+        jTabbedPane1.addTab("Guard", guardPanel);
 
         jLabel23.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -474,47 +474,47 @@ public class StationGui extends javax.swing.JFrame {
         jLabel23.setMinimumSize(new java.awt.Dimension(91, 17));
         jLabel23.setPreferredSize(new java.awt.Dimension(91, 17));
 
-        jSlider12.setPaintLabels(true);
-        jSlider12.setPaintTicks(true);
-        jSlider12.setValue(0);
-        jSlider12.setMaximumSize(new java.awt.Dimension(32767, 40));
-        jSlider12.setMinimumSize(new java.awt.Dimension(213, 40));
-        jSlider12.setPreferredSize(new java.awt.Dimension(213, 40));
-        jSlider12.setValueIsAdjusting(true);
+        biologistSlider.setPaintLabels(true);
+        biologistSlider.setPaintTicks(true);
+        biologistSlider.setValue(0);
+        biologistSlider.setMaximumSize(new java.awt.Dimension(32767, 40));
+        biologistSlider.setMinimumSize(new java.awt.Dimension(213, 40));
+        biologistSlider.setPreferredSize(new java.awt.Dimension(213, 40));
+        biologistSlider.setValueIsAdjusting(true);
 
-        jLabel24.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText("NaN");
-        jLabel24.setToolTipText("Price: NaN");
-        jLabel24.setMaximumSize(new java.awt.Dimension(30002, 40));
-        jLabel24.setMinimumSize(new java.awt.Dimension(102, 40));
-        jLabel24.setPreferredSize(new java.awt.Dimension(102, 40));
+        biologistAmount.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        biologistAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        biologistAmount.setText("NaN");
+        biologistAmount.setToolTipText("Price: NaN");
+        biologistAmount.setMaximumSize(new java.awt.Dimension(30002, 40));
+        biologistAmount.setMinimumSize(new java.awt.Dimension(102, 40));
+        biologistAmount.setPreferredSize(new java.awt.Dimension(102, 40));
 
-        javax.swing.GroupLayout workerPanel4Layout = new javax.swing.GroupLayout(workerPanel4);
-        workerPanel4.setLayout(workerPanel4Layout);
-        workerPanel4Layout.setHorizontalGroup(
-            workerPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(workerPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout biologistPanelLayout = new javax.swing.GroupLayout(biologistPanel);
+        biologistPanel.setLayout(biologistPanelLayout);
+        biologistPanelLayout.setHorizontalGroup(
+            biologistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(biologistPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSlider12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(biologistSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(biologistAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        workerPanel4Layout.setVerticalGroup(
-            workerPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(workerPanel4Layout.createSequentialGroup()
+        biologistPanelLayout.setVerticalGroup(
+            biologistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(biologistPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(workerPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSlider12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(biologistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(biologistSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(biologistAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Biologist", workerPanel4);
+        jTabbedPane1.addTab("Biologist", biologistPanel);
 
         javax.swing.GroupLayout resLayout = new javax.swing.GroupLayout(res);
         res.setLayout(resLayout);
@@ -529,7 +529,7 @@ public class StationGui extends javax.swing.JFrame {
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("res");
 
-        res1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        fuelPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel9.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -538,47 +538,47 @@ public class StationGui extends javax.swing.JFrame {
         jLabel9.setMinimumSize(new java.awt.Dimension(91, 17));
         jLabel9.setPreferredSize(new java.awt.Dimension(91, 17));
 
-        jSlider5.setPaintLabels(true);
-        jSlider5.setPaintTicks(true);
-        jSlider5.setValue(0);
-        jSlider5.setMaximumSize(new java.awt.Dimension(32767, 40));
-        jSlider5.setMinimumSize(new java.awt.Dimension(213, 40));
-        jSlider5.setPreferredSize(new java.awt.Dimension(213, 40));
-        jSlider5.setValueIsAdjusting(true);
+        fuelSlider.setPaintLabels(true);
+        fuelSlider.setPaintTicks(true);
+        fuelSlider.setValue(0);
+        fuelSlider.setMaximumSize(new java.awt.Dimension(32767, 40));
+        fuelSlider.setMinimumSize(new java.awt.Dimension(213, 40));
+        fuelSlider.setPreferredSize(new java.awt.Dimension(213, 40));
+        fuelSlider.setValueIsAdjusting(true);
 
-        jLabel10.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("NaN");
-        jLabel10.setToolTipText("Price: NaN");
-        jLabel10.setMaximumSize(new java.awt.Dimension(30002, 40));
-        jLabel10.setMinimumSize(new java.awt.Dimension(102, 40));
-        jLabel10.setPreferredSize(new java.awt.Dimension(102, 40));
+        fuelAmount.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        fuelAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fuelAmount.setText("NaN");
+        fuelAmount.setToolTipText("Price: NaN");
+        fuelAmount.setMaximumSize(new java.awt.Dimension(30002, 40));
+        fuelAmount.setMinimumSize(new java.awt.Dimension(102, 40));
+        fuelAmount.setPreferredSize(new java.awt.Dimension(102, 40));
 
-        javax.swing.GroupLayout res1Layout = new javax.swing.GroupLayout(res1);
-        res1.setLayout(res1Layout);
-        res1Layout.setHorizontalGroup(
-            res1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(res1Layout.createSequentialGroup()
+        javax.swing.GroupLayout fuelPanelLayout = new javax.swing.GroupLayout(fuelPanel);
+        fuelPanel.setLayout(fuelPanelLayout);
+        fuelPanelLayout.setHorizontalGroup(
+            fuelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fuelPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSlider5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(fuelSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fuelAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        res1Layout.setVerticalGroup(
-            res1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, res1Layout.createSequentialGroup()
+        fuelPanelLayout.setVerticalGroup(
+            fuelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fuelPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(res1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSlider5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(fuelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(fuelSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fuelAmount, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        res2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        foodPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel11.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -587,47 +587,47 @@ public class StationGui extends javax.swing.JFrame {
         jLabel11.setMinimumSize(new java.awt.Dimension(91, 17));
         jLabel11.setPreferredSize(new java.awt.Dimension(91, 17));
 
-        jSlider6.setPaintLabels(true);
-        jSlider6.setPaintTicks(true);
-        jSlider6.setValue(0);
-        jSlider6.setMaximumSize(new java.awt.Dimension(32767, 40));
-        jSlider6.setMinimumSize(new java.awt.Dimension(213, 40));
-        jSlider6.setPreferredSize(new java.awt.Dimension(213, 40));
-        jSlider6.setValueIsAdjusting(true);
+        foodSlider.setPaintLabels(true);
+        foodSlider.setPaintTicks(true);
+        foodSlider.setValue(0);
+        foodSlider.setMaximumSize(new java.awt.Dimension(32767, 40));
+        foodSlider.setMinimumSize(new java.awt.Dimension(213, 40));
+        foodSlider.setPreferredSize(new java.awt.Dimension(213, 40));
+        foodSlider.setValueIsAdjusting(true);
 
-        jLabel12.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("NaN");
-        jLabel12.setToolTipText("Price: NaN");
-        jLabel12.setMaximumSize(new java.awt.Dimension(30002, 40));
-        jLabel12.setMinimumSize(new java.awt.Dimension(102, 40));
-        jLabel12.setPreferredSize(new java.awt.Dimension(102, 40));
+        foodAmount.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        foodAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        foodAmount.setText("NaN");
+        foodAmount.setToolTipText("Price: NaN");
+        foodAmount.setMaximumSize(new java.awt.Dimension(30002, 40));
+        foodAmount.setMinimumSize(new java.awt.Dimension(102, 40));
+        foodAmount.setPreferredSize(new java.awt.Dimension(102, 40));
 
-        javax.swing.GroupLayout res2Layout = new javax.swing.GroupLayout(res2);
-        res2.setLayout(res2Layout);
-        res2Layout.setHorizontalGroup(
-            res2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(res2Layout.createSequentialGroup()
+        javax.swing.GroupLayout foodPanelLayout = new javax.swing.GroupLayout(foodPanel);
+        foodPanel.setLayout(foodPanelLayout);
+        foodPanelLayout.setHorizontalGroup(
+            foodPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(foodPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSlider6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(foodSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(foodAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        res2Layout.setVerticalGroup(
-            res2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, res2Layout.createSequentialGroup()
+        foodPanelLayout.setVerticalGroup(
+            foodPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, foodPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(res2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSlider6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(foodPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(foodSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(foodAmount, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        res3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        medicinePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel13.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -636,47 +636,47 @@ public class StationGui extends javax.swing.JFrame {
         jLabel13.setMinimumSize(new java.awt.Dimension(91, 17));
         jLabel13.setPreferredSize(new java.awt.Dimension(91, 17));
 
-        jSlider7.setPaintLabels(true);
-        jSlider7.setPaintTicks(true);
-        jSlider7.setValue(0);
-        jSlider7.setMaximumSize(new java.awt.Dimension(32767, 40));
-        jSlider7.setMinimumSize(new java.awt.Dimension(213, 40));
-        jSlider7.setPreferredSize(new java.awt.Dimension(213, 40));
-        jSlider7.setValueIsAdjusting(true);
+        medicibeSlider.setPaintLabels(true);
+        medicibeSlider.setPaintTicks(true);
+        medicibeSlider.setValue(0);
+        medicibeSlider.setMaximumSize(new java.awt.Dimension(32767, 40));
+        medicibeSlider.setMinimumSize(new java.awt.Dimension(213, 40));
+        medicibeSlider.setPreferredSize(new java.awt.Dimension(213, 40));
+        medicibeSlider.setValueIsAdjusting(true);
 
-        jLabel14.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("NaN");
-        jLabel14.setToolTipText("Price: NaN");
-        jLabel14.setMaximumSize(new java.awt.Dimension(30002, 40));
-        jLabel14.setMinimumSize(new java.awt.Dimension(102, 40));
-        jLabel14.setPreferredSize(new java.awt.Dimension(102, 40));
+        medicineAmount.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        medicineAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        medicineAmount.setText("NaN");
+        medicineAmount.setToolTipText("Price: NaN");
+        medicineAmount.setMaximumSize(new java.awt.Dimension(30002, 40));
+        medicineAmount.setMinimumSize(new java.awt.Dimension(102, 40));
+        medicineAmount.setPreferredSize(new java.awt.Dimension(102, 40));
 
-        javax.swing.GroupLayout res3Layout = new javax.swing.GroupLayout(res3);
-        res3.setLayout(res3Layout);
-        res3Layout.setHorizontalGroup(
-            res3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(res3Layout.createSequentialGroup()
+        javax.swing.GroupLayout medicinePanelLayout = new javax.swing.GroupLayout(medicinePanel);
+        medicinePanel.setLayout(medicinePanelLayout);
+        medicinePanelLayout.setHorizontalGroup(
+            medicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(medicinePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSlider7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(medicibeSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(medicineAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        res3Layout.setVerticalGroup(
-            res3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, res3Layout.createSequentialGroup()
+        medicinePanelLayout.setVerticalGroup(
+            medicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, medicinePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(res3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSlider7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(medicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(medicibeSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(medicineAmount, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        res4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        sparesPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel15.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -685,48 +685,53 @@ public class StationGui extends javax.swing.JFrame {
         jLabel15.setMinimumSize(new java.awt.Dimension(91, 17));
         jLabel15.setPreferredSize(new java.awt.Dimension(91, 17));
 
-        jSlider8.setPaintLabels(true);
-        jSlider8.setPaintTicks(true);
-        jSlider8.setValue(0);
-        jSlider8.setMaximumSize(new java.awt.Dimension(32767, 40));
-        jSlider8.setMinimumSize(new java.awt.Dimension(213, 40));
-        jSlider8.setPreferredSize(new java.awt.Dimension(213, 40));
-        jSlider8.setValueIsAdjusting(true);
+        sparesSlider.setPaintLabels(true);
+        sparesSlider.setPaintTicks(true);
+        sparesSlider.setValue(0);
+        sparesSlider.setMaximumSize(new java.awt.Dimension(32767, 40));
+        sparesSlider.setMinimumSize(new java.awt.Dimension(213, 40));
+        sparesSlider.setPreferredSize(new java.awt.Dimension(213, 40));
+        sparesSlider.setValueIsAdjusting(true);
 
-        jLabel16.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("NaN");
-        jLabel16.setToolTipText("Price: NaN");
-        jLabel16.setMaximumSize(new java.awt.Dimension(30002, 40));
-        jLabel16.setMinimumSize(new java.awt.Dimension(102, 40));
-        jLabel16.setPreferredSize(new java.awt.Dimension(102, 40));
+        sparesAmount.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        sparesAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sparesAmount.setText("NaN");
+        sparesAmount.setToolTipText("Price: NaN");
+        sparesAmount.setMaximumSize(new java.awt.Dimension(30002, 40));
+        sparesAmount.setMinimumSize(new java.awt.Dimension(102, 40));
+        sparesAmount.setPreferredSize(new java.awt.Dimension(102, 40));
 
-        javax.swing.GroupLayout res4Layout = new javax.swing.GroupLayout(res4);
-        res4.setLayout(res4Layout);
-        res4Layout.setHorizontalGroup(
-            res4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(res4Layout.createSequentialGroup()
+        javax.swing.GroupLayout sparesPanelLayout = new javax.swing.GroupLayout(sparesPanel);
+        sparesPanel.setLayout(sparesPanelLayout);
+        sparesPanelLayout.setHorizontalGroup(
+            sparesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sparesPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSlider8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(sparesSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sparesAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        res4Layout.setVerticalGroup(
-            res4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, res4Layout.createSequentialGroup()
+        sparesPanelLayout.setVerticalGroup(
+            sparesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sparesPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(res4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSlider8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(sparesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(sparesSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sparesAmount, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        jButton1.setFont(new java.awt.Font("Gulim", 0, 18)); // NOI18N
-        jButton1.setText("Buy / Hire ");
+        button.setFont(new java.awt.Font("Gulim", 0, 18)); // NOI18N
+        button.setText("Buy / Hire ");
+        button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -736,16 +741,16 @@ public class StationGui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(thirdClass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(thirdClass1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(thirdClass2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(secondClass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(firstClass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator1)
                     .addComponent(res, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(res1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(res2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(res3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(res4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fuelPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(foodPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(medicinePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sparesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator2)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -754,9 +759,9 @@ public class StationGui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(thirdClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(thirdClass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(secondClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(thirdClass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(firstClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -764,74 +769,78 @@ public class StationGui extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(res1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fuelPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(res2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(foodPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(res3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(medicinePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(res4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sparesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(button)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel biologistAmount;
+    private javax.swing.JPanel biologistPanel;
+    private javax.swing.JSlider biologistSlider;
+    private javax.swing.JButton button;
+    private javax.swing.JLabel engineerAmount;
+    private javax.swing.JPanel engineerPanel;
+    private javax.swing.JSlider engineerSlider;
+    private javax.swing.JPanel firstClass;
+    private javax.swing.JLabel firstClassAmount;
+    private javax.swing.JSlider firstClassSlider;
+    private javax.swing.JLabel foodAmount;
+    private javax.swing.JPanel foodPanel;
+    private javax.swing.JSlider foodSlider;
+    private javax.swing.JLabel fuelAmount;
+    private javax.swing.JPanel fuelPanel;
+    private javax.swing.JSlider fuelSlider;
+    private javax.swing.JLabel guardAmount;
+    private javax.swing.JPanel guardPanel;
+    private javax.swing.JSlider guardSlider;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JSlider jSlider10;
-    private javax.swing.JSlider jSlider11;
-    private javax.swing.JSlider jSlider12;
-    private javax.swing.JSlider jSlider2;
-    private javax.swing.JSlider jSlider3;
-    private javax.swing.JSlider jSlider4;
-    private javax.swing.JSlider jSlider5;
-    private javax.swing.JSlider jSlider6;
-    private javax.swing.JSlider jSlider7;
-    private javax.swing.JSlider jSlider8;
-    private javax.swing.JSlider jSlider9;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel medicAmount;
+    private javax.swing.JPanel medicPanel;
+    private javax.swing.JSlider medicSlider;
+    private javax.swing.JSlider medicibeSlider;
+    private javax.swing.JLabel medicineAmount;
+    private javax.swing.JPanel medicinePanel;
     private javax.swing.JPanel res;
-    private javax.swing.JPanel res1;
-    private javax.swing.JPanel res2;
-    private javax.swing.JPanel res3;
-    private javax.swing.JPanel res4;
+    private javax.swing.JPanel secondClass;
+    private javax.swing.JLabel secondClassAmount;
+    private javax.swing.JSlider secondClassSlider;
+    private javax.swing.JLabel sparesAmount;
+    private javax.swing.JPanel sparesPanel;
+    private javax.swing.JSlider sparesSlider;
     private javax.swing.JPanel thirdClass;
-    private javax.swing.JPanel thirdClass1;
-    private javax.swing.JPanel thirdClass2;
+    private javax.swing.JLabel thirdClassAmount;
+    private javax.swing.JSlider thirdClassSlider;
+    private javax.swing.JLabel workerAmount;
     private javax.swing.JPanel workerPanel;
-    private javax.swing.JPanel workerPanel1;
-    private javax.swing.JPanel workerPanel2;
-    private javax.swing.JPanel workerPanel3;
-    private javax.swing.JPanel workerPanel4;
+    private javax.swing.JSlider workerSlider;
     // End of variables declaration//GEN-END:variables
 }
