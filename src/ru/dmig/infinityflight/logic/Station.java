@@ -101,7 +101,9 @@ public final class Station {
     //private short foodAmount;
 
     public Station() {
-        this(SIZE.SMALL);
+        
+        storage = new Storage(true);
+        
         int indx = chancesUpgrade(SIZE_CHANCES);
         switch (indx) {
             case 0:
@@ -117,12 +119,25 @@ public final class Station {
                 throw new IllegalStateException("Sise and chances and constructor"
                         + " has some problems");
         }
+        
+        constructor(size);
+        
     }
 
     public Station(SIZE size) {
-        this.size = size;
         
         storage = new Storage(true);
+        
+        constructor(size);
+
+    }
+    
+    private final void constructor(SIZE size) {
+        
+        name = "NoName";
+        //Generating name
+        
+        this.size = size;
 
         int sizeIndex = 0;
         switch (size) {

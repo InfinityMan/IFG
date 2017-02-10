@@ -13,13 +13,13 @@ import ru.dmig.infinityflight.logic.Station;
  * @author Dmig
  */
 public final class StationGui extends javax.swing.JFrame {
-    
+
     public static StationGui stationGui;
-    
+
     private final Station station;
-    
+
     private static class GuiStarter extends Thread {
-        
+
         static Station station;
 
         public GuiStarter(Station station) {
@@ -35,12 +35,12 @@ public final class StationGui extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, ex, "Error", JOptionPane.ERROR_MESSAGE);
                 System.exit(-11);
             }
-            
+
             StationGui gui = new StationGui(station);
             gui.setVisible(true);
         }
     }
-    
+
     public static void start(Station station) {
         GuiStarter starter = new GuiStarter(station);
         starter.start();
@@ -51,27 +51,31 @@ public final class StationGui extends javax.swing.JFrame {
         initComponents();
         update(true);
     }
-    
+
     public void update(boolean all) {
-        
+
+        if (all) {
+            stationLabel.setText(station.getName() + " - " + station.getSizeString() + " station");
+        }
+
         //Sliders
         if (all) {
             thirdClassSlider.setMaximum(station.getTouristsAmount()[0]);
             secondClassSlider.setMaximum(station.getTouristsAmount()[1]);
-            thirdClassSlider.setMaximum(station.getTouristsAmount()[2]);
-            
+            firstClassSlider.setMaximum(station.getTouristsAmount()[2]);
+
             workerSlider.setMaximum(station.getWorkersAmount()[0]);
             engineerSlider.setMaximum(station.getWorkersAmount()[1]);
             medicSlider.setMaximum(station.getWorkersAmount()[2]);
             guardSlider.setMaximum(station.getWorkersAmount()[3]);
             biologistSlider.setMaximum(station.getWorkersAmount()[4]);
-            
+
             fuelSlider.setMaximum(Math.round(station.storage.getFuelAmount()));
             foodSlider.setMaximum(station.storage.getFoodAmount());
             medicineSlider.setMaximum(station.storage.getMedicineAmount());
             sparesSlider.setMaximum(station.storage.getSpareAmount());
         }
-        
+
         thirdClassAmount.setText(thirdClassSlider.getValue() + "/" + thirdClassSlider.getMaximum());
         secondClassAmount.setText(secondClassSlider.getValue() + "/" + secondClassSlider.getMaximum());
         firstClassAmount.setText(firstClassSlider.getValue() + "/" + firstClassSlider.getMaximum());
@@ -97,6 +101,7 @@ public final class StationGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        stationLabel = new javax.swing.JLabel();
         thirdClass = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         thirdClassSlider = new javax.swing.JSlider();
@@ -152,8 +157,12 @@ public final class StationGui extends javax.swing.JFrame {
         button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(460, 680));
-        setPreferredSize(new java.awt.Dimension(460, 680));
+        setMinimumSize(new java.awt.Dimension(500, 750));
+        setPreferredSize(new java.awt.Dimension(500, 750));
+
+        stationLabel.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        stationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        stationLabel.setText("Oreon - big station");
 
         thirdClass.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -782,13 +791,16 @@ public final class StationGui extends javax.swing.JFrame {
                     .addComponent(medicinePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sparesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator2)
-                    .addComponent(button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(stationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(stationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(thirdClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(secondClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -809,17 +821,16 @@ public final class StationGui extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sparesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(button)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(button, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActionPerformed
-        
+
         //ddd
-        
         update(true);
     }//GEN-LAST:event_buttonActionPerformed
 
@@ -871,6 +882,7 @@ public final class StationGui extends javax.swing.JFrame {
     private javax.swing.JLabel sparesAmount;
     private javax.swing.JPanel sparesPanel;
     private javax.swing.JSlider sparesSlider;
+    private javax.swing.JLabel stationLabel;
     private javax.swing.JPanel thirdClass;
     private javax.swing.JLabel thirdClassAmount;
     private javax.swing.JSlider thirdClassSlider;
