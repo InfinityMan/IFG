@@ -82,7 +82,9 @@ public final class Station {
     public SIZE size;
     
     public final Storage storage;
-
+    
+    private String name;
+    
     /**
      * In sequence:
      *  Worker, Engineer, Medic, Guard, Biologist.
@@ -190,6 +192,24 @@ public final class Station {
                 break;
         }
     }
+    
+    /**
+     * Get the value of name
+     *
+     * @return the value of name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @param name new value of name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
     /**
      * Get the value of touristsAmount
@@ -225,6 +245,19 @@ public final class Station {
      */
     public void setWorkersAmount(short[] workersAmount) {
         this.workersAmount = workersAmount;
+    }
+    
+    public String getSizeString() {
+        switch(size) {
+            case SMALL:
+                return "Small";
+            case NORMAL:
+                return "Normal";
+            case BIG:
+                return "Big";
+            default:
+                throw new IllegalStateException("Station::getSizeString()");
+        }
     }
 
 }
