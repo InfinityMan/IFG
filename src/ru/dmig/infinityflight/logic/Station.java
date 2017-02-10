@@ -160,6 +160,7 @@ public final class Station {
         short workersMainAmount = Base.randomNumber(AMOUNT_OF_WORKERS[sizeIndex][0],
                 AMOUNT_OF_WORKERS[sizeIndex][1]);
 
+        workersAmount = new short[InfinityFlight.PROFFESSION_AMOUNT];
         for (int i = 0; i < workersMainAmount; i++) {
             workersAmount[InfinityFlight.chancesUpgrade(CHANCE_WORKERS)]++;
         }
@@ -169,6 +170,7 @@ public final class Station {
         short touristsMainAmount = Base.randomNumber(AMOUNT_OF_TOURISTS[sizeIndex][0],
                 AMOUNT_OF_TOURISTS[sizeIndex][1]);
         
+        touristsAmount = new short[InfinityFlight.TOURIST_CLASSES_AMOUNT];
         for (int i = 0; i < touristsMainAmount; i++) {
             touristsAmount[InfinityFlight.chancesUpgrade(CHANCE_TOURISTS)]++;
         }

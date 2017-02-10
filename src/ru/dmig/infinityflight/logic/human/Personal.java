@@ -25,8 +25,13 @@ public final class Personal extends Person {
 
     public static enum PROFESSION { 
         WORKER, ENGINEER, MEDIC, GUARD, BIOLOGIST
-    }; /* In case of edit: in InfinityFlight:StartPersonalAmount */
-
+    }; 
+    /* In case of edit proffessions:
+        in InfinityFlight:StartPersonalAmount
+        GUI 
+        Station constants
+    */
+    
     public PROFESSION profession;
 
     public Personal() {
