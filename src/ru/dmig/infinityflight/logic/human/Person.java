@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ru.dmig.infinityflight.logic;
+package ru.dmig.infinityflight.logic.human;
 
+import ru.dmig.infinityflight.logic.Code;
 import ru.epiclib.base.Base;
 
 /**

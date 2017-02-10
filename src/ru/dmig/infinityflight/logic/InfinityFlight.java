@@ -5,6 +5,7 @@
  */
 package ru.dmig.infinityflight.logic;
 
+import ru.dmig.infinityflight.logic.human.Personal;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import ru.dmig.infinityflight.gui.Gui;

@@ -5,6 +5,8 @@
  */
 package ru.dmig.infinityflight.logic;
 
+import ru.dmig.infinityflight.logic.human.Passenger;
+import ru.dmig.infinityflight.logic.human.Personal;
 import java.util.ArrayList;
 import ru.dmig.infinityflight.logic.exceptions.ReactorBrokenException;
 import ru.dmig.infinityflight.logic.rooms.CabinRoom;
