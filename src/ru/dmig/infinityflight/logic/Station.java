@@ -97,9 +97,6 @@ public final class Station {
      */
     private short[] touristsAmount;
 
-    //private short fuelAmount;
-    //private short foodAmount;
-
     public Station() {
         
         storage = new Storage(true);

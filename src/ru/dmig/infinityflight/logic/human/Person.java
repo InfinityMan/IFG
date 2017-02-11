@@ -56,7 +56,6 @@ public class Person {
 
     //?:toString()
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Constructors">
     public Person() {
         code = new Code();

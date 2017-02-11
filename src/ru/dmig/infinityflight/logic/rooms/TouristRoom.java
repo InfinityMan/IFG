@@ -23,9 +23,11 @@ import ru.dmig.infinityflight.logic.*;
  * @author Dmig
  */
 public final class TouristRoom extends Room {
-    
-    public static enum CLASS {FIRST,SECOND,THIRD};
-    
+
+    public static enum CLASS {
+        FIRST, SECOND, THIRD
+    };
+
     private byte placeAmount;
 
     /**
@@ -45,5 +47,5 @@ public final class TouristRoom extends Room {
     public void setPlaceAmount(byte placeAmount) {
         this.placeAmount = placeAmount;
     }
-    
+
 }

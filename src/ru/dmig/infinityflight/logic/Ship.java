@@ -16,10 +16,9 @@
  */
 package ru.dmig.infinityflight.logic;
 
-import ru.dmig.infinityflight.logic.human.Passenger;
-import ru.dmig.infinityflight.logic.human.Personal;
 import java.util.ArrayList;
 import ru.dmig.infinityflight.logic.exceptions.ReactorBrokenException;
+import ru.dmig.infinityflight.logic.human.*;
 import ru.dmig.infinityflight.logic.rooms.CabinRoom;
 
 /**
@@ -28,7 +27,7 @@ import ru.dmig.infinityflight.logic.rooms.CabinRoom;
  * @author Dmig
  */
 public final class Ship {
-    
+
     public final Storage storage;
 
     public ArrayList<Personal> personel = new ArrayList<>();
@@ -50,68 +49,70 @@ public final class Ship {
 
     private double distanceToStation; // 0 = on station 10x days
     public Station station;
-    
+
     /**
      * Start new game
      */
     public Ship() {
-        
+
         storage = new Storage(false);
-        
+
         personel = InfinityFlight.getStartPersonal();
-        
+
         potencialFoodAmount = 0;
-        
+
         fCRoomAmount = 0;
         bCRoomAmount = 0;
         eCRoomAmount = 2;
-        
+
         cabinAmount = 10;
         entertainmentPlacesAmount = 30;
-        
+
         energyAmount = 0;
-        
+
         setNewRouteAndStation();
     }
-    
+
     /**
      * Updating hour on ship: eating and energy
+     *
      * @param hour hour; need for information: eat or not to eat?
      */
     public void updateHour(byte hour) {
         boolean eat = (hour != 0 && hour != 4 && hour != 12);
         if (eat) {
             int amount = (personel.size() + passengers.size());
-            if(storage.getFoodAmount() >= amount) {
+            if (storage.getFoodAmount() >= amount) {
                 storage.setFoodAmount(storage.getFoodAmount() - amount);
             } else {
                 InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FOOD);
             }
         }
-        
-        if(storage.getFuelAmount() != 0) {
+
+        if (storage.getFuelAmount() != 0) {
             for (Reactor reactor : reactors) {
                 try {
                     energyAmount += reactor.getEnergy();
-                    if(storage.getFuelAmount() > reactor.getFuelConsumption()) {
+                    if (storage.getFuelAmount() > reactor.getFuelConsumption()) {
                         storage.setFuelAmount(storage.getFuelAmount() - reactor.getFuelConsumption());
                     } else {
                         storage.setFuelAmount(0);
                         break;
                     }
-                } catch (ReactorBrokenException ex) {}
+                } catch (ReactorBrokenException ex) {
+                }
             }
         }
-        
-        if(distanceToStation != 0 && energyAmount != 0) {
+
+        if (distanceToStation != 0 && energyAmount != 0) {
             for (Engine engine : engines) {
-                if(energyAmount > engine.getEnergyConsumption()) {
+                if (energyAmount > engine.getEnergyConsumption()) {
                     energyAmount -= engine.getEnergyConsumption();
                 } else {
                     energyAmount = 0;
                     break;
                 }
-                if(distanceToStation > engine.getDistancePerSecond()) {
+                if (distanceToStation > engine.getDistancePerSecond()) {
                     distanceToStation -= engine.getDistancePerSecond();
                 } else {
                     distanceToStation = 0;
@@ -127,19 +128,18 @@ public final class Ship {
         }
 
         //Energy consumption to rooms
-        
         InfinityFlight.gui.update();
     }
-    
+
     private void arriveToStation() {
-        
+
     }
-    
+
     private void setNewRouteAndStation() {
         distanceToStation = InfinityFlight.genDistanceToStation();
         station = InfinityFlight.genNewStation();
     }
-    
+
     public short getMaxPersonalAmount() {
         short amount = 0;
         for (int i = 0; i < rooms.size(); i++) {
@@ -151,7 +151,7 @@ public final class Ship {
         }
         return amount;
     }
-    
+
     /**
      * Get the value of energyAmount
      *
@@ -225,5 +225,5 @@ public final class Ship {
     public void setDistanceToStation(double numberOfDaysBeforeStation) {
         this.distanceToStation = numberOfDaysBeforeStation;
     }
-    
+
 }

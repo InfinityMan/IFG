@@ -24,9 +24,9 @@ import ru.dmig.infinityflight.logic.*;
  * @author Dmig
  */
 public final class Gui extends javax.swing.JFrame {
-    
+
     public static Gui gui;
-    
+
     private static class GuiStarter extends Thread {
 
         public GuiStarter() {
@@ -41,17 +41,17 @@ public final class Gui extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, ex, "Error", JOptionPane.ERROR_MESSAGE);
                 System.exit(-11);
             }
-            
+
             gui = new Gui();
             gui.setVisible(true);
         }
     }
-    
+
     public static void start(Ship ship) {
         GuiStarter starter = new GuiStarter();
         starter.start();
     }
-    
+
     /**
      * Creates new form Gui
      */
@@ -59,14 +59,14 @@ public final class Gui extends javax.swing.JFrame {
         initComponents();
         update();
     }
-    
+
     public void update() {
         Ship ship = InfinityFlight.ship;
-        
-        foodAmount.setText(ship.storage.getFoodAmount()+"/"+ship.storage.getMaxFoodAmount());
-        fuelAmount.setText(ship.storage.getFuelAmount()+"/"+ship.storage.getMaxFuelAmount());
-        distanceToStation.setText(ship.getDistanceToStation()+"");
-        personalAmount.setText(ship.personel.size()+"/"+ship.getMaxPersonalAmount());
+
+        foodAmount.setText(ship.storage.getFoodAmount() + "/" + ship.storage.getMaxFoodAmount());
+        fuelAmount.setText(ship.storage.getFuelAmount() + "/" + ship.storage.getMaxFuelAmount());
+        distanceToStation.setText(ship.getDistanceToStation() + "");
+        personalAmount.setText(ship.personel.size() + "/" + ship.getMaxPersonalAmount());
         /* Tourists */
     }
 

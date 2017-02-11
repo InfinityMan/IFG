@@ -16,10 +16,10 @@
  */
 package ru.dmig.infinityflight.logic;
 
-import ru.dmig.infinityflight.logic.human.Personal;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import ru.dmig.infinityflight.gui.Gui;
+import ru.dmig.infinityflight.logic.human.Personal;
 import ru.epiclib.base.Base;
 
 /**
@@ -27,15 +27,15 @@ import ru.epiclib.base.Base;
  * @author Dmig
  */
 public final class InfinityFlight {
-    
+
     public static final byte PROFFESSION_AMOUNT = 5;
     public static final byte TOURIST_CLASSES_AMOUNT = 3;
-    
-    public static final short[] START_PERSONAL_AMOUNT = {2,1,2,0,2};
+
+    public static final short[] START_PERSONAL_AMOUNT = {2, 1, 2, 0, 2};
 
     /**
-     * Flight duration between stations in days; FD[0] - low flight duration FD[1] -
-     * normal FD[2] - high
+     * Flight duration between stations in days; FD[0] - low flight duration
+     * FD[1] - normal FD[2] - high
      *
      * FD[x][0] - minimum FD[x][1] - maximum.
      */
@@ -46,14 +46,16 @@ public final class InfinityFlight {
      * CFD[1] - normal CFD[2] - high.
      */
     public static final byte[] CHANCES_FLIGHT_DURATION = {19, 71, 10};
-    
+
     /**
      * Type of defeat
      */
-    public static enum DEFEAT_STATE {RUN_OUT_OF_FUEL, RUN_OUT_OF_FOOD};
-    
+    public static enum DEFEAT_STATE {
+        RUN_OUT_OF_FUEL, RUN_OUT_OF_FOOD
+    };
+
     public static Gui gui;
-    
+
     public static Ship ship;
 
     /**
@@ -63,30 +65,29 @@ public final class InfinityFlight {
     public static void main(String[] args) throws InterruptedException {
         ship = new Ship();
         /* Loading ship */
-        
+
         Gui.start(ship);
-        
+
         Thread.sleep(4000);
-        
+
         gui = Gui.gui;
-        
+
         Updater updater = new Updater(ship);
         updater.start();
-        
-        
+
         //updater.end();
     }
-    
+
     public static double genDistanceToStation() {
         int flightDurationType = chancesUpgrade(CHANCES_FLIGHT_DURATION);
         return ((Base.randomNumber(FLIGHT_DURATION[flightDurationType][0],
-                FLIGHT_DURATION[flightDurationType][1]))*10);
+                FLIGHT_DURATION[flightDurationType][1])) * 10);
     }
-    
+
     public static Station genNewStation() {
         return new Station();
     }
-    
+
     public static int chancesUpgrade(byte[] chances) {
         int[] newChances = new int[10];
         for (int i = 0; i < 10; i++) {
@@ -98,7 +99,7 @@ public final class InfinityFlight {
         }
         return Base.chances(newChances);
     }
-    
+
     public static ArrayList<Personal> getStartPersonal() {
         ArrayList<Personal> alpha = new ArrayList<>();
         for (int i = 0; i < START_PERSONAL_AMOUNT.length; i++) {
@@ -126,7 +127,7 @@ public final class InfinityFlight {
         }
         return alpha;
     }
-    
+
     public static void defeatProcess(DEFEAT_STATE state) {
         //Stop update thread
         switch (state) {
@@ -141,10 +142,9 @@ public final class InfinityFlight {
                         JOptionPane.INFORMATION_MESSAGE);
                 break;
         }
-        
+
         //Deleting save?
         //Restart message
-        
     }
 
 }

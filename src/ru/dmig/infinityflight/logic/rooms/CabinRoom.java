@@ -23,7 +23,7 @@ import ru.dmig.infinityflight.logic.*;
  * @author Dmig
  */
 public final class CabinRoom extends Room {
-    
+
     private byte placeAmount;
 
     /**
@@ -44,5 +44,4 @@ public final class CabinRoom extends Room {
         this.placeAmount = placeAmount;
     }
 
-    
 }

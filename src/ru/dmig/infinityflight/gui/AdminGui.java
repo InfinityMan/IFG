@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
  * @author Dmig
  */
 public final class AdminGui extends javax.swing.JFrame {
-    
+
     private static class GuiStarter extends Thread {
 
         public GuiStarter() {
