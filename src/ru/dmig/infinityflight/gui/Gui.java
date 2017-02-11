@@ -47,7 +47,7 @@ public final class Gui extends javax.swing.JFrame {
         }
     }
 
-    public static void start(Ship ship) {
+    public static void start() {
         GuiStarter starter = new GuiStarter();
         starter.start();
     }

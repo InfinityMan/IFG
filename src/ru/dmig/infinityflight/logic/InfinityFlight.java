@@ -19,6 +19,7 @@ package ru.dmig.infinityflight.logic;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import ru.dmig.infinityflight.gui.Gui;
+import ru.dmig.infinityflight.gui.StationGui;
 import ru.dmig.infinityflight.logic.human.Personal;
 import ru.epiclib.base.Base;
 
@@ -66,7 +67,9 @@ public final class InfinityFlight {
         ship = new Ship();
         /* Loading ship */
 
-        Gui.start(ship);
+        Gui.start();
+        
+        StationGui.start();
 
         Thread.sleep(4000);
 
