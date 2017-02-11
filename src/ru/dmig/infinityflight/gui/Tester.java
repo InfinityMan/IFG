@@ -16,7 +16,7 @@
  */
 package ru.dmig.infinityflight.gui;
 
-import ru.dmig.infinityflight.logic.Station;
+import ru.dmig.infinityflight.logic.*;
 
 /**
  *
@@ -24,6 +24,7 @@ import ru.dmig.infinityflight.logic.Station;
  */
 public class Tester {
     public static void main(String[] args) {
-        StationGui.start(new Station());
+        InfinityFlight.ship = new Ship();
+        StationGui.start();
     }
 }

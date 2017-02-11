@@ -53,13 +53,15 @@ public final class InfinityFlight {
     public static enum DEFEAT_STATE {RUN_OUT_OF_FUEL, RUN_OUT_OF_FOOD};
     
     public static Gui gui;
+    
+    public static Ship ship;
 
     /**
      * @param args the command line arguments
      * @throws java.lang.InterruptedException
      */
     public static void main(String[] args) throws InterruptedException {
-        Ship ship = new Ship();
+        ship = new Ship();
         /* Loading ship */
         
         Gui.start(ship);

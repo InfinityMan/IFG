@@ -6,6 +6,7 @@
 package ru.dmig.infinityflight.gui;
 
 import javax.swing.JOptionPane;
+import ru.dmig.infinityflight.logic.InfinityFlight;
 import ru.dmig.infinityflight.logic.Station;
 
 /**
@@ -16,14 +17,9 @@ public final class StationGui extends javax.swing.JFrame {
 
     public static StationGui stationGui;
 
-    private final Station station;
-
     private static class GuiStarter extends Thread {
 
-        static Station station;
-
-        public GuiStarter(Station station) {
-            GuiStarter.station = station;
+        public GuiStarter() {
             this.setName("StationGui");
         }
 
@@ -36,23 +32,24 @@ public final class StationGui extends javax.swing.JFrame {
                 System.exit(-11);
             }
 
-            StationGui gui = new StationGui(station);
+            StationGui gui = new StationGui();
             gui.setVisible(true);
         }
     }
 
-    public static void start(Station station) {
-        GuiStarter starter = new GuiStarter(station);
+    public static void start() {
+        GuiStarter starter = new GuiStarter();
         starter.start();
     }
 
-    public StationGui(Station station) {
-        this.station = station;
+    public StationGui() {
         initComponents();
         update(true);
     }
 
     public void update(boolean all) {
+        
+        Station station = InfinityFlight.ship.station;
 
         if (all) {
             stationLabel.setText(station.getName() + " - " + station.getSizeString() + " station");

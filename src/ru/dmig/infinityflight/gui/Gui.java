@@ -27,14 +27,9 @@ public final class Gui extends javax.swing.JFrame {
     
     public static Gui gui;
     
-    private Ship ship;
-    
     private static class GuiStarter extends Thread {
-        
-        static Ship ship;
 
-        public GuiStarter(Ship ship) {
-            GuiStarter.ship = ship;
+        public GuiStarter() {
             this.setName("Guier");
         }
 
@@ -47,27 +42,27 @@ public final class Gui extends javax.swing.JFrame {
                 System.exit(-11);
             }
             
-            gui = new Gui(ship);
+            gui = new Gui();
             gui.setVisible(true);
         }
     }
     
     public static void start(Ship ship) {
-        GuiStarter starter = new GuiStarter(ship);
+        GuiStarter starter = new GuiStarter();
         starter.start();
     }
     
     /**
      * Creates new form Gui
-     * @param ship ship for loading and updating gui
      */
-    public Gui(Ship ship) {
-        this.ship = ship;
+    public Gui() {
         initComponents();
         update();
     }
     
     public void update() {
+        Ship ship = InfinityFlight.ship;
+        
         foodAmount.setText(ship.storage.getFoodAmount()+"/"+ship.storage.getMaxFoodAmount());
         fuelAmount.setText(ship.storage.getFuelAmount()+"/"+ship.storage.getMaxFuelAmount());
         distanceToStation.setText(ship.getDistanceToStation()+"");
