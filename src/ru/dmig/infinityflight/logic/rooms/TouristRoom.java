@@ -1,4 +1,4 @@
-/*
+ /*
  * Copyright (C) 2016 Dmitry Tsvetkovsky
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,28 +24,36 @@ import ru.dmig.infinityflight.logic.*;
  */
 public final class TouristRoom extends Room {
 
-    public static enum CLASS {
+    public static enum Class {
         FIRST, SECOND, THIRD
     };
+    
 
-    private byte placeAmount;
+    private Class roomClass;
 
+    public TouristRoom(Class roomClass, String typeName, Prestige prestige, byte placeAmount) {
+        this.roomClass = roomClass;
+        setTypeName(typeName);
+        setPrestige(prestige);
+        setPlaceAmount(placeAmount);
+    }
+    
     /**
-     * Get the value of placeAmount
+     * Get the value of roomClass
      *
-     * @return the value of placeAmount
+     * @return the value of roomClass
      */
-    public byte getPlaceAmount() {
-        return placeAmount;
+    public Class getRoomClass() {
+        return roomClass;
     }
 
     /**
-     * Set the value of placeAmount
+     * Set the value of roomClass
      *
-     * @param placeAmount new value of placeAmount
+     * @param roomClass new value of roomClass
      */
-    public void setPlaceAmount(byte placeAmount) {
-        this.placeAmount = placeAmount;
+    public void setRoomClass(Class roomClass) {
+        this.roomClass = roomClass;
     }
 
 }

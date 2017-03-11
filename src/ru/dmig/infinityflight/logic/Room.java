@@ -22,6 +22,67 @@ package ru.dmig.infinityflight.logic;
  */
 public abstract class Room {
     
+    public static enum Prestige {
+        TERRIBLE,BAD,NORMAL,GOOD
+    };
     
+    private String typeName;
+    
+    private Prestige prestige;
+    private byte placeAmount;
+    
+    /**
+     * Get the value of typeName
+     *
+     * @return the value of typeName
+     */
+    public String getTypeName() {
+        return typeName;
+    }
+
+    /**
+     * Set the value of typeName
+     *
+     * @param typeName new value of typeName
+     */
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+    
+    /**
+     * Get the value of prestige
+     *
+     * @return the value of prestige
+     */
+    public Prestige getPrestige() {
+        return prestige;
+    }
+
+    /**
+     * Set the value of prestige
+     *
+     * @param prestige new value of prestige
+     */
+    public void setPrestige(Prestige prestige) {
+        this.prestige = prestige;
+    }
+    
+    /**
+     * Get the value of placeAmount
+     *
+     * @return the value of placeAmount
+     */
+    public byte getPlaceAmount() {
+        return placeAmount;
+    }
+
+    /**
+     * Set the value of placeAmount
+     *
+     * @param placeAmount new value of placeAmount
+     */
+    public void setPlaceAmount(byte placeAmount) {
+        this.placeAmount = placeAmount;
+    }
     
 }

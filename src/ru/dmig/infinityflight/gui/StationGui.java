@@ -880,6 +880,8 @@ public final class StationGui extends javax.swing.JFrame {
             station.storage.setSpareAmount((short) (station.storage.getSpareAmount() - spareSlider.getValue()));
         }
         
+        //Money!
+        
         update(true);
     }//GEN-LAST:event_buttonActionPerformed
 

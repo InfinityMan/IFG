@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import ru.dmig.infinityflight.logic.exceptions.ReactorBrokenException;
 import ru.dmig.infinityflight.logic.human.*;
 import ru.dmig.infinityflight.logic.rooms.CabinRoom;
+import ru.dmig.infinityflight.logic.rooms.TouristRoom;
 
 /**
  * Class for ship and all parameters of him
@@ -38,13 +39,6 @@ public final class Ship {
 
     private int potencialFoodAmount;
 
-    private short fCRoomAmount;
-    private short bCRoomAmount;
-    private short eCRoomAmount;
-
-    private short cabinAmount;
-    private short entertainmentPlacesAmount;
-
     private long energyAmount;
 
     private double distanceToStation; // 0 = on station 10x days
@@ -61,12 +55,10 @@ public final class Ship {
 
         potencialFoodAmount = 0;
 
-        fCRoomAmount = 0;
-        bCRoomAmount = 0;
-        eCRoomAmount = 2;
+        rooms.add(InfinityFlight.DEFAULT_TOURIST_ROOMS[0][1]); // "Heit"
+        rooms.add(InfinityFlight.DEFAULT_TOURIST_ROOMS[0][0]); // "Dorm"
 
-        cabinAmount = 10;
-        entertainmentPlacesAmount = 30;
+        //rooms.add(new CabinRoom());
 
         energyAmount = 0;
 
@@ -176,46 +168,6 @@ public final class Ship {
 
     public void setPotencialFoodAmount(int potencialFoodAmount) {
         this.potencialFoodAmount = potencialFoodAmount;
-    }
-
-    public short getfCRoomAmount() {
-        return fCRoomAmount;
-    }
-
-    public void setfCRoomAmount(short fCRoomAmount) {
-        this.fCRoomAmount = fCRoomAmount;
-    }
-
-    public short getbCRoomAmount() {
-        return bCRoomAmount;
-    }
-
-    public void setbCRoomAmount(short bCRoomAmount) {
-        this.bCRoomAmount = bCRoomAmount;
-    }
-
-    public short geteCRoomAmount() {
-        return eCRoomAmount;
-    }
-
-    public void seteCRoomAmount(short eCRoomAmount) {
-        this.eCRoomAmount = eCRoomAmount;
-    }
-
-    public short getCabinAmount() {
-        return cabinAmount;
-    }
-
-    public void setCabinAmount(short cabinAmount) {
-        this.cabinAmount = cabinAmount;
-    }
-
-    public short getEntertainmentPlacesAmount() {
-        return entertainmentPlacesAmount;
-    }
-
-    public void setEntertainmentPlacesAmount(short entertainmentPlacesAmount) {
-        this.entertainmentPlacesAmount = entertainmentPlacesAmount;
     }
 
     public double getDistanceToStation() {
