@@ -176,7 +176,7 @@ public final class InfinityFlight {
                     
                     String typeName;
                     TouristRoom.Class cl = TouristRoom.Class.THIRD;
-                    TouristRoom.Prestige pr = TouristRoom.Prestige.TERRIBLE;
+                    Room.Prestige pr = Room.Prestige.TERRIBLE;
                     byte placeAmount;
                     
                     typeName = gamm[0]; //TypeName
@@ -197,16 +197,16 @@ public final class InfinityFlight {
                     
                     switch (Integer.valueOf(gamm[1])) {
                         case 0:
-                            pr = TouristRoom.Prestige.TERRIBLE;
+                            pr = Room.Prestige.TERRIBLE;
                             break;
                         case 1:
-                            pr = TouristRoom.Prestige.BAD;
+                            pr = Room.Prestige.BAD;
                             break;
                         case 2:
-                            pr = TouristRoom.Prestige.NORMAL;
+                            pr = Room.Prestige.NORMAL;
                             break;
                         case 3:
-                            pr = TouristRoom.Prestige.GOOD;
+                            pr = Room.Prestige.GOOD;
                             break;
                         default:
                             throw new AssertionError();
@@ -222,6 +222,47 @@ public final class InfinityFlight {
     }
 
     public static CabinRoom[] loadDefaultCabin() {
-        return null;
+        CabinRoom[] cbRooms = null;
+        
+        Link l = new Link();
+        String[] alpha = null;
+        try {
+            alpha = l.readResArray("cabinRooms");
+        } catch (IOException ex) {
+            throw new IllegalStateException("loadDefaultCabinRooms() :"+ ex.getMessage());
+        }
+        if(alpha != null) {
+                for (int i = 0; i < alpha.length; i++) {
+                    String[] beta = alpha[i].split(",");
+                    
+                    String typeName;
+                    Room.Prestige pr = Room.Prestige.TERRIBLE;
+                    byte placeAmount;
+                    
+                    typeName = beta[0]; //TypeName
+                    
+                    switch (Integer.valueOf(beta[1])) {
+                        case 0:
+                            pr = Room.Prestige.TERRIBLE;
+                            break;
+                        case 1:
+                            pr = Room.Prestige.BAD;
+                            break;
+                        case 2:
+                            pr = Room.Prestige.NORMAL;
+                            break;
+                        case 3:
+                            pr = Room.Prestige.GOOD;
+                            break;
+                        default:
+                            throw new AssertionError();
+                    }
+                    
+                    placeAmount = Byte.valueOf(beta[2]);
+                    
+                    cbRooms[i] = new CabinRoom(typeName, pr, placeAmount);
+                }
+        } else System.exit(-2);
+        return cbRooms;
     }
 }

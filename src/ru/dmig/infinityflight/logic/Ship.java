@@ -58,7 +58,8 @@ public final class Ship {
         rooms.add(InfinityFlight.DEFAULT_TOURIST_ROOMS[0][1]); // "Heit"
         rooms.add(InfinityFlight.DEFAULT_TOURIST_ROOMS[0][0]); // "Dorm"
 
-        //rooms.add(new CabinRoom());
+        rooms.add(InfinityFlight.DEFAULT_CABIN_ROOMS[0]);
+        rooms.add(InfinityFlight.DEFAULT_CABIN_ROOMS[0]);
 
         energyAmount = 0;
 

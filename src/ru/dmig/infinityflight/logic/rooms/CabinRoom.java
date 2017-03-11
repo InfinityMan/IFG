@@ -24,24 +24,11 @@ import ru.dmig.infinityflight.logic.*;
  */
 public final class CabinRoom extends Room {
 
-    private byte placeAmount;
-
-    /**
-     * Get the value of placeAmount
-     *
-     * @return the value of placeAmount
-     */
-    public byte getPlaceAmount() {
-        return placeAmount;
+    public CabinRoom(String typeName, Room.Prestige prestige, byte placeAmount) {
+        setTypeName(typeName);
+        setPrestige(prestige);
+        setPlaceAmount(placeAmount);
     }
-
-    /**
-     * Set the value of placeAmount
-     *
-     * @param placeAmount new value of placeAmount
-     */
-    public void setPlaceAmount(byte placeAmount) {
-        this.placeAmount = placeAmount;
-    }
-
+    
+    
 }
