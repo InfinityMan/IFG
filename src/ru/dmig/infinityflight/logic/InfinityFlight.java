@@ -172,6 +172,12 @@ public final class InfinityFlight {
             for (int i = 0; i < alpha.length; i++) {
                 String[] beta = alpha[i].split(";");
                 for (int j = 0; j < beta.length; j++) {
+                    if(i == 0 && j == 0) {
+                        trRooms = new TouristRoom[alpha.length][];
+                    }
+                    if(j == 0) {
+                        trRooms[i] = new TouristRoom[beta.length];
+                    }
                     String[] gamm = beta[j].split(",");
                     
                     String typeName;
@@ -233,6 +239,9 @@ public final class InfinityFlight {
         }
         if(alpha != null) {
                 for (int i = 0; i < alpha.length; i++) {
+                    if(i == 0) {
+                        cbRooms = new CabinRoom[alpha.length];
+                    }
                     String[] beta = alpha[i].split(",");
                     
                     String typeName;

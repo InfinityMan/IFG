@@ -30,6 +30,11 @@ public abstract class Room {
     
     private Prestige prestige;
     private byte placeAmount;
+
+    @Override
+    public String toString() {
+        return "Room{" + "typeName=" + typeName + ", prestige=" + prestige + ", placeAmount=" + placeAmount + '}';
+    }
     
     /**
      * Get the value of typeName

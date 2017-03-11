@@ -25,6 +25,14 @@ import ru.dmig.infinityflight.logic.*;
 public class Tester {
     public static void main(String[] args) {
         InfinityFlight.ship = new Ship();
+        
+                for (int i = 0; i < InfinityFlight.ship.rooms.size(); i++) {
+            Room get = InfinityFlight.ship.rooms.get(i);
+            System.out.println(get);
+        }
+        
         StationGui.start();
+        
+
     }
 }

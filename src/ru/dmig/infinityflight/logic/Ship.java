@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import ru.dmig.infinityflight.logic.exceptions.ReactorBrokenException;
 import ru.dmig.infinityflight.logic.human.*;
 import ru.dmig.infinityflight.logic.rooms.CabinRoom;
-import ru.dmig.infinityflight.logic.rooms.TouristRoom;
 
 /**
  * Class for ship and all parameters of him
