@@ -17,6 +17,7 @@
 package ru.dmig.infinityflight.gui;
 
 import javax.swing.JOptionPane;
+import ru.dmig.infinityflight.logic.Updater;
 
 /**
  *
@@ -65,22 +66,75 @@ public final class AdminGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        halfSpeed = new javax.swing.JButton();
+        doubleSpeed = new javax.swing.JButton();
+        tickSize = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        halfSpeed.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        halfSpeed.setText("speed / 2");
+        halfSpeed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                halfSpeedActionPerformed(evt);
+            }
+        });
+
+        doubleSpeed.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        doubleSpeed.setText("speed * 2");
+        doubleSpeed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doubleSpeedActionPerformed(evt);
+            }
+        });
+
+        tickSize.setEditable(false);
+        tickSize.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        tickSize.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tickSize.setText("1000 ms");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(tickSize)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(halfSpeed)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(doubleSpeed)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tickSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(halfSpeed)
+                    .addComponent(doubleSpeed))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void doubleSpeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doubleSpeedActionPerformed
+        Updater.changeTick(false);
+        tickSize.setText(Math.round(Updater.getTick()) + " ms");
+    }//GEN-LAST:event_doubleSpeedActionPerformed
+
+    private void halfSpeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfSpeedActionPerformed
+        Updater.changeTick(true);
+        tickSize.setText(Math.round(Updater.getTick()) + " ms");
+    }//GEN-LAST:event_halfSpeedActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton doubleSpeed;
+    private javax.swing.JButton halfSpeed;
+    private javax.swing.JTextField tickSize;
     // End of variables declaration//GEN-END:variables
 }

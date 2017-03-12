@@ -22,6 +22,8 @@ package ru.dmig.infinityflight.logic;
  */
 public final class Updater extends Thread {
     
+    private static float tick = 1000;
+    
     public Ship ship;
     private boolean ended = false;
 
@@ -35,7 +37,7 @@ public final class Updater extends Thread {
         byte hour = 0; // 0;4;8;12;16;20
         while(!ended) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(Math.round(tick));
                 ship.updateHour(hour); //in case of edit: edit update hour
                 
                 if(hour != 20) hour = (byte)(hour + 4);
@@ -49,6 +51,19 @@ public final class Updater extends Thread {
     
     public void end() {
         ended = true;
+    }
+    
+    /**
+     * Change tick of game
+     * @param half If half - halfes tick; else doubles
+     */
+    public static void changeTick(boolean half) {
+        if(half) tick = tick/2;
+        else tick = tick*2;
+    }
+
+    public static float getTick() {
+        return tick;
     }
     
 }
