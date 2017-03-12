@@ -16,17 +16,56 @@
  */
 package ru.dmig.infinityflight.logic;
 
+import ru.dmig.infinityflight.logic.exceptions.EngineBrokenException;
+import ru.epiclib.base.Base;
+
 /**
  * Class for engines on ship
  * @author Dmig
  */
 public final class Engine {
+    public static final float CHANCE_OF_BREAK_ENGINE = 0.14f;
     
-    private double distancePerSecond;
-    private long energyConsumption;
-
     private String name;
+    
+    private float energyConsumption;
+    private float efficiency;
+    
+    private boolean broken;
 
+    public Engine(String name, float fuelConsumption, float efficiency) {
+        this.name = name;
+        this.energyConsumption = fuelConsumption;
+        this.efficiency = efficiency;
+        this.broken = false;
+    }
+    
+    public int goDistance() throws EngineBrokenException {
+        if(broken) throw new EngineBrokenException();
+        
+        if(Base.chance((int)(CHANCE_OF_BREAK_ENGINE*100), 2)) breakThis();
+        
+        return Math.round(energyConsumption*efficiency);
+    }
+    
+    /**
+     * Get the value of fuelConsumption
+     *
+     * @return the value of fuelConsumption
+     */
+    public float getEnergyConsumption() {
+        return energyConsumption;
+    }
+
+    /**
+     * Set the value of fuelConsumption
+     *
+     * @param fuelConsumption new value of fuelConsumption
+     */
+    public void setEnergyConsumption(float fuelConsumption) {
+        this.energyConsumption = fuelConsumption;
+    }
+    
     /**
      * Get the value of name
      *
@@ -45,42 +84,47 @@ public final class Engine {
         this.name = name;
     }
 
+    /**
+     * Get the value of broken
+     *
+     * @return the value of broken
+     */
+    public boolean isBroken() {
+        return broken;
+    }
+
+    /**
+     * Set the value of broken false
+     */
+    public void breakThis() {
+        broken = true;
+    }
     
     /**
-     * Get the value of energyConsumption
-     *
-     * @return the value of energyConsumption
+     * Set the value of broken true
      */
-    public long getEnergyConsumption() {
-        return energyConsumption;
+    public void fixThis() {
+        broken = false;
     }
-
-    /**
-     * Set the value of energyConsumption
-     *
-     * @param energyConsumption new value of energyConsumption
-     */
-    public void setEnergyConsumption(long energyConsumption) {
-        this.energyConsumption = energyConsumption;
-    }
-
-    /**
-     * Get the value of distancePerSecond
-     *
-     * @return the value of distancePerSecond
-     */
-    public double getDistancePerSecond() {
-        return distancePerSecond;
-    }
-
-    /**
-     * Set the value of distancePerSecond
-     *
-     * @param distancePerSecond new value of distancePerSecond
-     */
-    public void setDistancePerSecond(double distancePerSecond) {
-        this.distancePerSecond = distancePerSecond;
-    }
-
     
+    /**
+     * Get the value of efficiency
+     *
+     * @return the value of efficiency
+     */
+    public float getEfficiency() {
+        return efficiency;
+    }
+
+    /**
+     * Set the value of efficiency
+     *
+     * @param efficiency new value of efficiency
+     */
+    public void setEfficiency(float efficiency) {
+        if(efficiency > 0 && efficiency <= 1) {
+            this.efficiency = efficiency;
+        } else throw new IllegalArgumentException();
+    }
+
 }

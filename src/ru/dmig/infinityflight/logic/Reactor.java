@@ -25,30 +25,28 @@ import ru.epiclib.base.Base;
  */
 public final class Reactor {
     
-    public static final float BONUS_PRODUCTION_PERCENT = 1.1f;
     public static final float CHANCE_OF_BREAK_REACTOR = 0.14f;
     
     private String name;
     
-    private double energyPerSecond;
     private float fuelConsumption;
-
+    private float efficiency;
+    
     private boolean broken;
 
-    public Reactor(double energyPerSecond, String name) {
+    public Reactor(String name, float fuelConsumption, float efficiency) {
         this.name = name;
-        this.energyPerSecond = energyPerSecond;
-        broken = false;
+        this.fuelConsumption = fuelConsumption;
+        this.efficiency = efficiency;
+        this.broken = false;
     }
     
-    public long getEnergy() throws ReactorBrokenException {
-        if(broken) throw new ReactorBrokenException();
-        double maxEnergy = energyPerSecond*BONUS_PRODUCTION_PERCENT;
-        double minEnergy = energyPerSecond * (BONUS_PRODUCTION_PERCENT - ((BONUS_PRODUCTION_PERCENT - 1) * 2));
+    public int getEnergy() throws EngineBrokenException {
+        if(broken) throw new EngineBrokenException();
         
         if(Base.chance((int)(CHANCE_OF_BREAK_REACTOR*100), 2)) breakThis();
         
-        return Base.randomNumber(Math.round(minEnergy), Math.round(maxEnergy));
+        return Math.round(fuelConsumption*efficiency);
     }
     
     /**
@@ -109,23 +107,25 @@ public final class Reactor {
     public void fixThis() {
         broken = false;
     }
-
+    
     /**
-     * Get the value of energyPerSecond
+     * Get the value of efficiency
      *
-     * @return the value of energyPerSecond
+     * @return the value of efficiency
      */
-    public double getEnergyPerSecond() {
-        return energyPerSecond;
+    public float getEfficiency() {
+        return efficiency;
     }
 
     /**
-     * Set the value of energyPerSecond
+     * Set the value of efficiency
      *
-     * @param energyPerSecond new value of energyPerSecond
+     * @param efficiency new value of efficiency
      */
-    public void setEnergyPerSecond(double energyPerSecond) {
-        this.energyPerSecond = energyPerSecond;
+    public void setEfficiency(float efficiency) {
+        if(efficiency > 0 && efficiency <= 1) {
+            this.efficiency = efficiency;
+        } else throw new IllegalArgumentException();
     }
 
 }

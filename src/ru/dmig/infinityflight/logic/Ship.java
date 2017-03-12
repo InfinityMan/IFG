@@ -17,7 +17,7 @@
 package ru.dmig.infinityflight.logic;
 
 import java.util.ArrayList;
-import ru.dmig.infinityflight.logic.exceptions.ReactorBrokenException;
+import ru.dmig.infinityflight.logic.exceptions.EngineBrokenException;
 import ru.dmig.infinityflight.logic.human.*;
 import ru.dmig.infinityflight.logic.rooms.CabinRoom;
 
@@ -91,25 +91,29 @@ public final class Ship {
                         storage.setFuelAmount(0);
                         break;
                     }
-                } catch (ReactorBrokenException ex) {
+                } catch (EngineBrokenException ex) {
                 }
             }
         }
 
         if (distanceToStation != 0 && energyAmount != 0) {
             for (Engine engine : engines) {
-                if (energyAmount > engine.getEnergyConsumption()) {
-                    energyAmount -= engine.getEnergyConsumption();
-                } else {
-                    energyAmount = 0;
-                    break;
-                }
-                if (distanceToStation > engine.getDistancePerSecond()) {
-                    distanceToStation -= engine.getDistancePerSecond();
-                } else {
-                    distanceToStation = 0;
-                    arriveToStation();
-                    break;
+                try {
+                    if (energyAmount > engine.getEnergyConsumption()) {
+                        energyAmount -= engine.getEnergyConsumption();
+                    } else {
+                        energyAmount = 0;
+                        break;
+                    }
+                    int distancePassed = engine.goDistance();
+                    if (distanceToStation > distancePassed) {
+                        distanceToStation -= distancePassed;
+                    } else {
+                        distanceToStation = 0;
+                        arriveToStation();
+                        break;
+                    }
+                } catch (EngineBrokenException ex) {
                 }
             }
         }

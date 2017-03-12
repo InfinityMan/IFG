@@ -5,17 +5,17 @@
             <url>src/ru/dmig/infinityflight/logic/Ship.java</url>
             <bookmark id="13">
                 <name/>
-                <line>39</line>
+                <line>38</line>
                 <key/>
             </bookmark>
             <bookmark id="11">
                 <name/>
-                <line>120</line>
+                <line>119</line>
                 <key/>
             </bookmark>
             <bookmark id="12">
                 <name/>
-                <line>126</line>
+                <line>125</line>
                 <key/>
             </bookmark>
         </file>
@@ -110,32 +110,32 @@
             <url>src/ru/dmig/infinityflight/logic/InfinityFlight.java</url>
             <bookmark id="24">
                 <name/>
-                <line>39</line>
+                <line>36</line>
                 <key/>
             </bookmark>
             <bookmark id="25">
                 <name/>
-                <line>40</line>
+                <line>37</line>
                 <key/>
             </bookmark>
             <bookmark id="19">
                 <name/>
-                <line>78</line>
+                <line>75</line>
                 <key/>
             </bookmark>
             <bookmark id="18">
                 <name/>
-                <line>144</line>
+                <line>141</line>
                 <key/>
             </bookmark>
             <bookmark id="22">
                 <name/>
-                <line>164</line>
+                <line>163</line>
                 <key/>
             </bookmark>
             <bookmark id="23">
                 <name/>
-                <line>177</line>
+                <line>230</line>
                 <key/>
             </bookmark>
         </file>
@@ -155,13 +155,16 @@
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/gui/StationGui.java</file>
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/rooms/TouristRoom.java</file>
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Ship.java</file>
-            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Station.java</file>
-            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/res/touristRooms</file>
-            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/gui/Tester.java</file>
-            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/human/Personal.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/rooms/CabinRoom.java</file>
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Storage.java</file>
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/gui/Gui.java</file>
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/res/Link.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/res/cabinRooms</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Station.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/res/touristRooms</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/gui/Tester.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Room.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/human/Personal.java</file>
         </group>
     </open-files>
 </project-private>
