@@ -16,13 +16,12 @@
  */
 package ru.dmig.infinityflight.logic;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import ru.dmig.infinityflight.gui.*;
 import ru.dmig.infinityflight.logic.human.Personal;
 import ru.dmig.infinityflight.logic.rooms.*;
-import ru.dmig.infinityflight.res.Link;
+import ru.dmig.infinityflight.res.Defaulter;
 import ru.epiclib.base.Base;
 
 /**
@@ -31,11 +30,10 @@ import ru.epiclib.base.Base;
  */
 public final class InfinityFlight {
     
-    public static final TouristRoom[][] DEFAULT_TOURIST_ROOMS = loadDefaultTouristRooms();
-    public static final CabinRoom[] DEFAULT_CABIN_ROOMS = loadDefaultCabin();
-    
-    //default engines
-    //default reactors
+    public static final TouristRoom[][] DEFAULT_TOURIST_ROOMS = Defaulter.loadDefaultTouristRooms();
+    public static final CabinRoom[] DEFAULT_CABIN_ROOMS = Defaulter.loadDefaultCabin();
+    public static final Reactor[] DEFAULT_REACTORS = Defaulter.loadDefaultReactors();
+    public static final Engine[] DEFAULT_ENGINES = Defaulter.loadDefaultEngines();
 
     public static final byte PROFFESSION_AMOUNT = 5;
     public static final byte TOURIST_CLASSES_AMOUNT = 3;
@@ -76,8 +74,6 @@ public final class InfinityFlight {
         /* Loading ship */
 
         Gui.start();
-        
-        StationGui.start();
 
         Thread.sleep(4000);
 
@@ -158,120 +154,4 @@ public final class InfinityFlight {
         //Restart message
     }
     
-    public static TouristRoom[][] loadDefaultTouristRooms() {
-        TouristRoom[][] trRooms = null;
-        
-        Link l = new Link();
-        String[] alpha = null;
-        try {
-            alpha = l.readResArray("touristRooms");
-        } catch (IOException ex) {
-            throw new IllegalStateException("loadDefaultTouristRooms() :"+ ex.getMessage());
-        }
-        if(alpha != null) {
-            for (int i = 0; i < alpha.length; i++) {
-                String[] beta = alpha[i].split(";");
-                for (int j = 0; j < beta.length; j++) {
-                    if(i == 0 && j == 0) {
-                        trRooms = new TouristRoom[alpha.length][];
-                    }
-                    if(j == 0) {
-                        trRooms[i] = new TouristRoom[beta.length];
-                    }
-                    String[] gamm = beta[j].split(",");
-                    
-                    String typeName;
-                    TouristRoom.Class cl = TouristRoom.Class.THIRD;
-                    Room.Prestige pr = Room.Prestige.TERRIBLE;
-                    byte placeAmount;
-                    
-                    typeName = gamm[0]; //TypeName
-                    
-                    switch (i) { //Class
-                        case 0:
-                            cl = TouristRoom.Class.THIRD;
-                            break;
-                        case 1:
-                            cl = TouristRoom.Class.SECOND;
-                            break;
-                        case 2:
-                            cl = TouristRoom.Class.FIRST;
-                            break;
-                        default:
-                            throw new AssertionError();
-                    }
-                    
-                    switch (Integer.valueOf(gamm[1])) {
-                        case 0:
-                            pr = Room.Prestige.TERRIBLE;
-                            break;
-                        case 1:
-                            pr = Room.Prestige.BAD;
-                            break;
-                        case 2:
-                            pr = Room.Prestige.NORMAL;
-                            break;
-                        case 3:
-                            pr = Room.Prestige.GOOD;
-                            break;
-                        default:
-                            throw new AssertionError();
-                    }
-                    
-                    placeAmount = Byte.valueOf(gamm[2]);
-                    
-                    trRooms[i][j] = new TouristRoom(cl, typeName, pr, placeAmount);
-                }
-            }
-        } else System.exit(-2);
-        return trRooms;
-    }
-
-    public static CabinRoom[] loadDefaultCabin() {
-        CabinRoom[] cbRooms = null;
-        
-        Link l = new Link();
-        String[] alpha = null;
-        try {
-            alpha = l.readResArray("cabinRooms");
-        } catch (IOException ex) {
-            throw new IllegalStateException("loadDefaultCabinRooms() :"+ ex.getMessage());
-        }
-        if(alpha != null) {
-                for (int i = 0; i < alpha.length; i++) {
-                    if(i == 0) {
-                        cbRooms = new CabinRoom[alpha.length];
-                    }
-                    String[] beta = alpha[i].split(",");
-                    
-                    String typeName;
-                    Room.Prestige pr = Room.Prestige.TERRIBLE;
-                    byte placeAmount;
-                    
-                    typeName = beta[0]; //TypeName
-                    
-                    switch (Integer.valueOf(beta[1])) {
-                        case 0:
-                            pr = Room.Prestige.TERRIBLE;
-                            break;
-                        case 1:
-                            pr = Room.Prestige.BAD;
-                            break;
-                        case 2:
-                            pr = Room.Prestige.NORMAL;
-                            break;
-                        case 3:
-                            pr = Room.Prestige.GOOD;
-                            break;
-                        default:
-                            throw new AssertionError();
-                    }
-                    
-                    placeAmount = Byte.valueOf(beta[2]);
-                    
-                    cbRooms[i] = new CabinRoom(typeName, pr, placeAmount);
-                }
-        } else System.exit(-2);
-        return cbRooms;
-    }
 }

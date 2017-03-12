@@ -47,6 +47,11 @@ public final class Engine {
         
         return Math.round(energyConsumption*efficiency);
     }
+
+    @Override
+    public String toString() {
+        return "Engine{" + "name=" + name + ", energyConsumption=" + energyConsumption + ", efficiency=" + efficiency + ", broken=" + broken + '}';
+    }
     
     /**
      * Get the value of fuelConsumption

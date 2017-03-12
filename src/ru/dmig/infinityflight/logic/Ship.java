@@ -40,7 +40,7 @@ public final class Ship {
 
     private long energyAmount;
 
-    private double distanceToStation; // 0 = on station 10x days
+    private double distanceToStation; // 0 = on station; 12x days
     public Station station;
 
     /**
@@ -59,6 +59,9 @@ public final class Ship {
 
         rooms.add(InfinityFlight.DEFAULT_CABIN_ROOMS[0]);
         rooms.add(InfinityFlight.DEFAULT_CABIN_ROOMS[0]);
+        
+        engines.add(InfinityFlight.DEFAULT_ENGINES[0]);
+        reactors.add(InfinityFlight.DEFAULT_REACTORS[0]);
 
         energyAmount = 0;
 
@@ -99,7 +102,7 @@ public final class Ship {
         if (distanceToStation != 0 && energyAmount != 0) {
             for (Engine engine : engines) {
                 try {
-                    if (energyAmount > engine.getEnergyConsumption()) {
+                    if (energyAmount >= engine.getEnergyConsumption()) {
                         energyAmount -= engine.getEnergyConsumption();
                     } else {
                         energyAmount = 0;

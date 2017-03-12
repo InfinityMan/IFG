@@ -30,7 +30,7 @@ public final class Reactor {
     private String name;
     
     private float fuelConsumption;
-    private float efficiency;
+    private float efficiency; 
     
     private boolean broken;
 
@@ -47,6 +47,11 @@ public final class Reactor {
         if(Base.chance((int)(CHANCE_OF_BREAK_REACTOR*100), 2)) breakThis();
         
         return Math.round(fuelConsumption*efficiency);
+    }
+
+    @Override
+    public String toString() {
+        return "Reactor{" + "name=" + name + ", fuelConsumption=" + fuelConsumption + ", efficiency=" + efficiency + ", broken=" + broken + '}';
     }
     
     /**
