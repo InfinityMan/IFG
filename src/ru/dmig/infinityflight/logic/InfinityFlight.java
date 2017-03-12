@@ -71,9 +71,12 @@ public final class InfinityFlight {
      */
     public static void main(String[] args) throws InterruptedException {
         ship = new Ship();
+        ship.setDistanceToStation(genSmallDistanceToStation());
         /* Loading ship */
 
         Gui.start();
+        
+        AdminGui.start();
 
         Thread.sleep(4000);
 
@@ -89,6 +92,10 @@ public final class InfinityFlight {
         int flightDurationType = chancesUpgrade(CHANCES_FLIGHT_DURATION);
         return ((Base.randomNumber(FLIGHT_DURATION[flightDurationType][0],
                 FLIGHT_DURATION[flightDurationType][1])) * 10);
+    }
+    
+    public static double genSmallDistanceToStation() {
+        return ((Base.randomNumber(FLIGHT_DURATION[0][0], FLIGHT_DURATION[0][1])) * 10);
     }
 
     public static Station genNewStation() {
@@ -151,7 +158,12 @@ public final class InfinityFlight {
         }
 
         //Deleting save?
-        //Restart message
+        
+        
+        int restart = JOptionPane.showConfirmDialog(null, "Are you want to restart?", "Restart", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
+        if(restart == JOptionPane.YES_OPTION) JOptionPane.showMessageDialog(null, "Sorry, but you can't to restart yet");
+        
+        System.exit(0);
     }
     
 }
