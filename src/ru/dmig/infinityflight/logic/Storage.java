@@ -27,8 +27,8 @@ public final class Storage {
     private static final int START_FOOD_AMOUNT = 5000;
     private static final int START_MAX_FOOD_AMOUNT = 10000;
 
-    private static final float START_FUEL_AMOUNT = 300;
-    private static final float START_MAX_FUEL_AMOUNT = 500;
+    private static final float START_FUEL_AMOUNT = 400;
+    private static final float START_MAX_FUEL_AMOUNT = 600;
 
     private static final short START_MEDICINE_AMOUNT = 20;
     private static final short START_MAX_MEDICINE_AMOUNT = 20;
