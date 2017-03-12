@@ -58,6 +58,13 @@ public final class Storage {
         this.spareAmount = spareAmount;
         this.maxSpareAmount = maxSpareAmount;
     }
+    
+    public void toStartAmounts() {
+        foodAmount = START_FOOD_AMOUNT;
+        fuelAmount = START_FUEL_AMOUNT;
+        medicineAmount = START_MEDICINE_AMOUNT;
+        spareAmount = START_SPARE_AMOUNT;
+    }
 
     /**
      * New default storage
@@ -66,14 +73,16 @@ public final class Storage {
      */
     public Storage(boolean empty) {
         if (!empty) {
-            foodAmount = START_FOOD_AMOUNT;
+            //foodAmount = START_FOOD_AMOUNT;
             maxFoodAmount = START_MAX_FOOD_AMOUNT;
-            fuelAmount = START_FUEL_AMOUNT;
+            //fuelAmount = START_FUEL_AMOUNT;
             maxFuelAmount = START_MAX_FUEL_AMOUNT;
-            medicineAmount = START_MEDICINE_AMOUNT;
+            //medicineAmount = START_MEDICINE_AMOUNT;
             maxMedicineAmount = START_MAX_MEDICINE_AMOUNT;
-            spareAmount = START_SPARE_AMOUNT;
+            //spareAmount = START_SPARE_AMOUNT;
             maxSpareAmount = START_MAX_SPARE_AMOUNT;
+            
+            toStartAmounts();
         }
     }
 

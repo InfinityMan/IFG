@@ -17,6 +17,9 @@
 package ru.dmig.infinityflight.gui;
 
 import javax.swing.JOptionPane;
+import ru.dmig.infinityflight.logic.Engine;
+import ru.dmig.infinityflight.logic.InfinityFlight;
+import ru.dmig.infinityflight.logic.Reactor;
 import ru.dmig.infinityflight.logic.Updater;
 
 /**
@@ -69,11 +72,19 @@ public final class AdminGui extends javax.swing.JFrame {
         halfSpeed = new javax.swing.JButton();
         doubleSpeed = new javax.swing.JButton();
         tickSize = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        addFuel = new javax.swing.JButton();
+        addFood = new javax.swing.JButton();
+        startStorage = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        repair = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("IF:Admin");
+        setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
 
         halfSpeed.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        halfSpeed.setText("speed / 2");
+        halfSpeed.setText("tick / 2");
         halfSpeed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 halfSpeedActionPerformed(evt);
@@ -81,7 +92,7 @@ public final class AdminGui extends javax.swing.JFrame {
         });
 
         doubleSpeed.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
-        doubleSpeed.setText("speed * 2");
+        doubleSpeed.setText("tick * 2");
         doubleSpeed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 doubleSpeedActionPerformed(evt);
@@ -93,19 +104,60 @@ public final class AdminGui extends javax.swing.JFrame {
         tickSize.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tickSize.setText("1000 ms");
 
+        addFuel.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        addFuel.setText("+100 Fuel");
+        addFuel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addFuelActionPerformed(evt);
+            }
+        });
+
+        addFood.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        addFood.setText("+100 Food");
+        addFood.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addFoodActionPerformed(evt);
+            }
+        });
+
+        startStorage.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        startStorage.setText("Start storage");
+        startStorage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startStorageActionPerformed(evt);
+            }
+        });
+
+        repair.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        repair.setText("Repair all");
+        repair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                repairActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(tickSize)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
+                    .addComponent(addFuel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addFood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(startStorage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator2)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(halfSpeed)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(doubleSpeed)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(tickSize)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(halfSpeed)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(doubleSpeed)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(repair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +168,19 @@ public final class AdminGui extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(halfSpeed)
                     .addComponent(doubleSpeed))
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(startStorage)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addFuel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addFood)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(repair)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -132,9 +196,39 @@ public final class AdminGui extends javax.swing.JFrame {
         tickSize.setText(Math.round(Updater.getTick()) + " ms");
     }//GEN-LAST:event_halfSpeedActionPerformed
 
+    private void startStorageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startStorageActionPerformed
+        InfinityFlight.ship.storage.toStartAmounts();
+    }//GEN-LAST:event_startStorageActionPerformed
+
+    private void addFuelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFuelActionPerformed
+        InfinityFlight.ship.storage.setFuelAmount(InfinityFlight.ship.storage.getFuelAmount() + 100);
+    }//GEN-LAST:event_addFuelActionPerformed
+
+    private void addFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFoodActionPerformed
+        InfinityFlight.ship.storage.setFoodAmount(InfinityFlight.ship.storage.getFoodAmount() + 100);
+    }//GEN-LAST:event_addFoodActionPerformed
+
+    private void repairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repairActionPerformed
+        for (int i = 0; i < InfinityFlight.ship.engines.size(); i++) {
+            Engine get = InfinityFlight.ship.engines.get(i);
+            get.fixThis();
+        }
+        
+        for (int i = 0; i < InfinityFlight.ship.reactors.size(); i++) {
+            Reactor get = InfinityFlight.ship.reactors.get(i);
+            get.fixThis();
+        }
+    }//GEN-LAST:event_repairActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addFood;
+    private javax.swing.JButton addFuel;
     private javax.swing.JButton doubleSpeed;
     private javax.swing.JButton halfSpeed;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JButton repair;
+    private javax.swing.JButton startStorage;
     private javax.swing.JTextField tickSize;
     // End of variables declaration//GEN-END:variables
 }
