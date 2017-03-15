@@ -16,6 +16,8 @@
  */
 package ru.dmig.infinityflight.logic;
 
+import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
+
 /**
  * Class for storages on ship and stations. In storages on stations no max fuel,
  * food, medicine, spares
@@ -28,7 +30,7 @@ public final class Storage {
     private static final int START_MAX_FOOD_AMOUNT = 10000;
 
     private static final float START_FUEL_AMOUNT = 400;
-    private static final float START_MAX_FUEL_AMOUNT = 600;
+    private static final float START_MAX_FUEL_AMOUNT = 750;
 
     private static final short START_MEDICINE_AMOUNT = 20;
     private static final short START_MAX_MEDICINE_AMOUNT = 20;
@@ -103,9 +105,12 @@ public final class Storage {
      * Set the value of foodAmount
      *
      * @param foodAmount new value of foodAmount
+     * @throws ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException
      */
-    public void setFoodAmount(int foodAmount) {
-        this.foodAmount = foodAmount;
+    public void setFoodAmount(int foodAmount) throws StorageOverfilledException {
+        if((this.foodAmount + foodAmount) <= maxFoodAmount) {
+            this.foodAmount = foodAmount;
+        } else throw new StorageOverfilledException(maxFoodAmount - (this.foodAmount + foodAmount));
     }
 
     /**
@@ -139,9 +144,12 @@ public final class Storage {
      * Set the value of fuelAmount
      *
      * @param fuelAmount new value of fuelAmount
+     * @throws ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException
      */
-    public void setFuelAmount(float fuelAmount) {
-        this.fuelAmount = fuelAmount;
+    public void setFuelAmount(float fuelAmount) throws StorageOverfilledException {
+        if((this.fuelAmount + fuelAmount) <= maxFuelAmount) {
+            this.fuelAmount = fuelAmount;
+        } else throw new StorageOverfilledException(maxFuelAmount - (this.fuelAmount + fuelAmount));
     }
 
     /**
@@ -175,9 +183,12 @@ public final class Storage {
      * Set the value of medicineAmount
      *
      * @param medicineAmount new value of medicineAmount
+     * @throws ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException
      */
-    public void setMedicineAmount(short medicineAmount) {
-        this.medicineAmount = medicineAmount;
+    public void setMedicineAmount(short medicineAmount) throws StorageOverfilledException {
+        if((this.medicineAmount + medicineAmount) <= maxMedicineAmount) {
+            this.medicineAmount = medicineAmount;
+        } else throw new StorageOverfilledException(maxMedicineAmount - (this.medicineAmount + medicineAmount));
     }
 
     /**
@@ -211,9 +222,12 @@ public final class Storage {
      * Set the value of spareAmount
      *
      * @param spareAmount new value of spareAmount
+     * @throws ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException
      */
-    public void setSpareAmount(short spareAmount) {
-        this.spareAmount = spareAmount;
+    public void setSpareAmount(short spareAmount) throws StorageOverfilledException {
+        if((this.spareAmount + spareAmount) <= maxSpareAmount) {
+            this.spareAmount = spareAmount;
+        } else throw new StorageOverfilledException(maxSpareAmount - (this.spareAmount + spareAmount));
     }
 
     /**
@@ -235,4 +249,5 @@ public final class Storage {
     }
 
     //</editor-fold>
+    
 }
