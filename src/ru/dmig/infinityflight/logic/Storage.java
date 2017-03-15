@@ -17,7 +17,7 @@
 package ru.dmig.infinityflight.logic;
 
 /**
- * Class for storages on ship and stations In storages on stations no max fuel,
+ * Class for storages on ship and stations. In storages on stations no max fuel,
  * food, medicine, spares
  *
  * @author Dmig
@@ -59,6 +59,9 @@ public final class Storage {
         this.maxSpareAmount = maxSpareAmount;
     }
     
+    /**
+     * Returns food,fuel,medicine,spare amounts to a start level: START_FOOD.. And etc.
+     */
     public void toStartAmounts() {
         foodAmount = START_FOOD_AMOUNT;
         fuelAmount = START_FUEL_AMOUNT;
