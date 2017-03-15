@@ -42,8 +42,8 @@ public final class StationGui extends javax.swing.JFrame {
                 System.exit(-11);
             }
 
-            StationGui gui = new StationGui();
-            gui.setVisible(true);
+            stationGui = new StationGui();
+            stationGui.setVisible(true);
         }
     }
 
@@ -163,6 +163,7 @@ public final class StationGui extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         button = new javax.swing.JButton();
         update = new javax.swing.JButton();
+        flight = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(500, 750));
@@ -790,6 +791,14 @@ public final class StationGui extends javax.swing.JFrame {
             }
         });
 
+        flight.setFont(new java.awt.Font("Gulim", 0, 18)); // NOI18N
+        flight.setText("Flight!");
+        flight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                flightActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -797,6 +806,7 @@ public final class StationGui extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(flight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(thirdClass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(secondClass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(firstClass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -840,10 +850,12 @@ public final class StationGui extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sparesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                    .addComponent(update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(flight)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -889,6 +901,10 @@ public final class StationGui extends javax.swing.JFrame {
         update(false);
     }//GEN-LAST:event_updateActionPerformed
 
+    private void flightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flightActionPerformed
+        InfinityFlight.ship.departureFromStation();
+    }//GEN-LAST:event_flightActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel biologistAmount;
     private javax.swing.JPanel biologistPanel;
@@ -900,6 +916,7 @@ public final class StationGui extends javax.swing.JFrame {
     private javax.swing.JPanel firstClass;
     private javax.swing.JLabel firstClassAmount;
     private javax.swing.JSlider firstClassSlider;
+    private javax.swing.JButton flight;
     private javax.swing.JLabel foodAmount;
     private javax.swing.JPanel foodPanel;
     private javax.swing.JSlider foodSlider;
