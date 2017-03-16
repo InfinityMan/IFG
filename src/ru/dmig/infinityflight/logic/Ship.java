@@ -17,7 +17,10 @@
 package ru.dmig.infinityflight.logic;
 
 import java.util.ArrayList;
+import ru.dmig.infinityflight.gui.StationGui;
 import ru.dmig.infinityflight.logic.exceptions.EngineBrokenException;
+import ru.dmig.infinityflight.logic.exceptions.StorageEmptyException;
+import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
 import ru.dmig.infinityflight.logic.human.*;
 import ru.dmig.infinityflight.logic.rooms.CabinRoom;
 
@@ -42,6 +45,8 @@ public final class Ship {
 
     private double distanceToStation; // 0 = on station; 12x days
     public Station station;
+    
+    private int timeOnStationRemaining; //0 = not on station; in hours
 
     /**
      * Start new game
@@ -74,50 +79,20 @@ public final class Ship {
      * @param hour hour; need for information: eat or not to eat?
      */
     public void updateHour(byte hour) {
-        boolean eat = (hour != 0 && hour != 4 && hour != 12);
-        if (eat) {
-            int amount = (personel.size() + passengers.size());
-            if (storage.getFoodAmount() >= amount) {
-                storage.setFoodAmount(storage.getFoodAmount() - amount);
+        
+        try {
+            eat(hour); //Can't throw exception
+            getEnergy(); //Can't throw exception
+        } catch (StorageOverfilledException n) {System.err.println(n);}
+        
+        if(distanceToStation != 0) {
+            goDistance();
+        } else {
+            if(timeOnStationRemaining != 4) {
+                timeOnStationRemaining -= 4;
             } else {
-                InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FOOD);
-            }
-        }
-
-        if (storage.getFuelAmount() != 0) {
-            for (Reactor reactor : reactors) {
-                try {
-                    energyAmount += reactor.getEnergy();
-                    if (storage.getFuelAmount() > reactor.getFuelConsumption()) {
-                        storage.setFuelAmount(storage.getFuelAmount() - reactor.getFuelConsumption());
-                    } else {
-                        storage.setFuelAmount(0);
-                        break;
-                    }
-                } catch (EngineBrokenException ex) {
-                }
-            }
-        }
-
-        if (distanceToStation != 0 && energyAmount != 0) {
-            for (Engine engine : engines) {
-                try {
-                    if (energyAmount >= engine.getEnergyConsumption()) {
-                        energyAmount -= engine.getEnergyConsumption();
-                    } else {
-                        energyAmount = 0;
-                        break;
-                    }
-                    int distancePassed = engine.goDistance();
-                    if (distanceToStation > distancePassed) {
-                        distanceToStation -= distancePassed;
-                    } else {
-                        distanceToStation = 0;
-                        arriveToStation();
-                        break;
-                    }
-                } catch (EngineBrokenException ex) {
-                }
+                timeOnStationRemaining = 0;
+                departureFromStation();
             }
         }
         /* If distanceToStation == 0 => ship on station and engines off */
@@ -127,11 +102,70 @@ public final class Ship {
         }
 
         //Energy consumption to rooms
+        
         InfinityFlight.gui.update();
     }
 
-    private void arriveToStation() {
+    private void eat(byte hour) throws StorageOverfilledException {
+        boolean eat = (hour != 0 && hour != 4 && hour != 12);
+        if (eat) {
+            int amount = (personel.size() + passengers.size());
+            try {
+                storage.reduceFood(amount);
+            } catch (StorageEmptyException ex) {
+                InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FOOD);
+            }
+        }
+    }
 
+    private void getEnergy() throws StorageOverfilledException {
+        if (storage.getFuelAmount() != 0) {
+            for (Reactor reactor : reactors) {
+                try {
+                    energyAmount += reactor.getEnergy();
+                    try {
+                        storage.reduceFuel(reactor.getFuelConsumption());
+                    } catch (StorageEmptyException ex) {
+                        break;
+                    }
+                } catch (EngineBrokenException n) {
+                    System.out.println(n);
+                }
+            }
+        }
+    }
+
+    private void goDistance() {
+        if (energyAmount != 0) {
+            for (Engine engine : engines) {
+                try {
+                    int distancePassed = engine.goDistance();
+                    if (distanceToStation > distancePassed) {
+                        distanceToStation -= distancePassed;
+                    } else {
+                        distanceToStation = 0;
+                        arriveToStation();
+                        break;
+                    }
+                    if (energyAmount >= engine.getEnergyConsumption()) {
+                        energyAmount -= engine.getEnergyConsumption();
+                    } else {
+                        energyAmount = 0;
+                        break;
+                    }
+                } catch (EngineBrokenException ex) {
+                }
+            }
+        }
+    }
+
+    private void arriveToStation() {
+        StationGui.start();
+    }
+    
+    public void departureFromStation() {
+        StationGui.stationGui.dispose();
+        setNewRouteAndStation();
     }
 
     private void setNewRouteAndStation() {
