@@ -21,11 +21,8 @@ package ru.dmig.infinityflight.logic.human;
  *
  * @author Dmig
  */
-public final class Passenger extends Person {
+public class Passenger extends Person {
 
-    public static enum CLASS {
-        FIRST, SECOND, THIRD
-    };
 
     public CLASS passengerClass;
 
@@ -46,6 +43,9 @@ public final class Passenger extends Person {
     public Passenger(CLASS passengerClass, String[] codes) {
         super(codes);
         this.passengerClass = passengerClass;
+    }
+    public static enum CLASS {
+        FIRST, SECOND, THIRD
     }
 
 }

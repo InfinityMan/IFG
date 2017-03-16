@@ -21,16 +21,8 @@ package ru.dmig.infinityflight.logic.human;
  *
  * @author Dmig
  */
-public final class Personal extends Person {
+public class Personal extends Person {
 
-    public static enum PROFESSION {
-        WORKER, ENGINEER, MEDIC, GUARD, BIOLOGIST
-    };
-    /* In case of edit proffessions:
-        in InfinityFlight:StartPersonalAmount
-        GUI 
-        Station constants
-     */
 
     public PROFESSION profession;
 
@@ -51,6 +43,9 @@ public final class Personal extends Person {
     public Personal(PROFESSION profession, String[] codes) {
         super(codes);
         this.profession = profession;
+    }
+    public static enum PROFESSION {
+        WORKER, ENGINEER, MEDIC, GUARD, BIOLOGIST
     }
 
 }

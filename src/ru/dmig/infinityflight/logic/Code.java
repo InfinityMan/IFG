@@ -17,12 +17,16 @@
 package ru.dmig.infinityflight.logic;
 
 import ru.epiclib.base.Base;
+import static ru.epiclib.base.Base.randomNumber;
+import static ru.epiclib.base.Base.randomNumber;
+import static ru.epiclib.base.Base.randomNumber;
+import static ru.epiclib.base.Base.randomString;
 
 /**
  *
  * @author Dmig
  */
-public final class Code {
+public class Code {
 
     /*
     
@@ -37,35 +41,9 @@ public final class Code {
     public static final String[] SECTORS_NAMES = {"ALPHA", "BETA", "GAMMA", "DELTA",
         "THETA", "ETA", "SIGMA", "ECHO", "OMEGA"};
 
-    private String sector;
-    private short block;
-    private String idenID;
-
-    public Code() {
-        sector = getRandomSector();
-        block = (short) Base.randomNumber(0, 9);
-        idenID = Base.randomString(1, false, true, false);
-    }
-
-    public Code(String sector) {
-        if (testSector(sector)) {
-            this.sector = sector;
-        } else {
-            throw new IllegalArgumentException("Wrong sector name: " + sector);
-        }
-        block = (short) Base.randomNumber(0, 9);
-        idenID = Base.randomString(1, false, true, false);
-    }
-
     public static String getRandomSector() {
-        return SECTORS_NAMES[Base.randomNumber(0, SECTORS_NAMES.length - 1)];
+        return SECTORS_NAMES[randomNumber(0, SECTORS_NAMES.length - 1)];
     }
-
-    @Override
-    public String toString() {
-        return sector + ":" + block + ":" + idenID;
-    }
-
     public static boolean testSector(String sector) {
         for (String string : SECTORS_NAMES) {
             if (string == null ? sector == null : string.equals(sector)) {
@@ -74,6 +52,33 @@ public final class Code {
         }
         return false;
     }
+
+    private String sector;
+    private short block;
+    private String idenID;
+
+    public Code() {
+        sector = getRandomSector();
+        block = (short) randomNumber(0, 9);
+        idenID = randomString(1, false, true, false);
+    }
+
+    public Code(String sector) {
+        if (testSector(sector)) {
+            this.sector = sector;
+        } else {
+            throw new IllegalArgumentException("Wrong sector name: " + sector);
+        }
+        block = (short) randomNumber(0, 9);
+        idenID = randomString(1, false, true, false);
+    }
+
+
+    @Override
+    public String toString() {
+        return sector + ":" + block + ":" + idenID;
+    }
+
 
     public String getSector() {
         return sector;

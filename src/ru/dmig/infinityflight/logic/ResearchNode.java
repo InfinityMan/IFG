@@ -20,7 +20,7 @@ package ru.dmig.infinityflight.logic;
  *
  * @author Dmig
  */
-public final class ResearchNode {
+public class ResearchNode {
     
     private String name;
     
@@ -41,7 +41,9 @@ public final class ResearchNode {
      * @param pointAmount new value of pointAmount
      */
     public void setPointAmount(int pointAmount) {
-        if(pointAmount < 0) throw new IllegalArgumentException("RPointAmount = " + pointAmount);
+        if(pointAmount < 0) {
+            throw new IllegalArgumentException("RPointAmount = " + pointAmount);
+        }
         this.pointAmount = pointAmount;
     }
 

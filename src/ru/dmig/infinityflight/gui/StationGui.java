@@ -1,50 +1,40 @@
-/*
- * Copyright (C) 2016 Dmitry Tsvetkovsky
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package ru.dmig.infinityflight.gui;
 
 import java.awt.HeadlessException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import static java.lang.System.err;
+import static java.lang.Math.round;
+import static java.lang.System.exit;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import static javax.swing.JOptionPane.PLAIN_MESSAGE;
+import static javax.swing.JOptionPane.showMessageDialog;
 import ru.dmig.infinityflight.logic.*;
+import static ru.dmig.infinityflight.logic.InfinityFlight.ship;
 import ru.dmig.infinityflight.logic.exceptions.StorageEmptyException;
 import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
+import static ru.epiclib.gui.Util.setStyle;
 
 /**
  *
  * @author Dmig
  */
-public final class StationGui extends javax.swing.JFrame {
+public class StationGui extends javax.swing.JFrame {
 
     public static StationGui stationGui;
 
     private static class GuiStarter extends Thread {
 
-        public GuiStarter() {
+        GuiStarter() {
             this.setName("StationGui");
         }
 
         @Override
         public void run() {
             try {
-                ru.epiclib.gui.Util.setStyle();
+                setStyle();
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-                JOptionPane.showMessageDialog(null, ex, "Error", JOptionPane.ERROR_MESSAGE);
-                System.exit(-11);
+                showMessageDialog(null, ex, "Error", ERROR_MESSAGE);
+                exit(-11);
             }
 
             stationGui = new StationGui();
@@ -64,7 +54,7 @@ public final class StationGui extends javax.swing.JFrame {
 
     public void update(boolean all) {
 
-        Station station = InfinityFlight.ship.station;
+        Station station = ship.station;
 
         if (all) {
             stationLabel.setText(station.getName() + " - " + station.getSizeString() + " station");
@@ -82,7 +72,7 @@ public final class StationGui extends javax.swing.JFrame {
             guardSlider.setMaximum(station.getWorkersAmount()[3]);
             biologistSlider.setMaximum(station.getWorkersAmount()[4]);
 
-            fuelSlider.setMaximum(Math.round(station.storage.getFuelAmount()));
+            fuelSlider.setMaximum(round(station.storage.getFuelAmount()));
             foodSlider.setMaximum(station.storage.getFoodAmount());
             medicineSlider.setMaximum(station.storage.getMedicineAmount());
             spareSlider.setMaximum(station.storage.getSpareAmount());
@@ -893,13 +883,13 @@ public final class StationGui extends javax.swing.JFrame {
                 storage.increaseFood(foodSlider.getValue());
                 try {
                     station.storage.reduceFood(foodSlider.getValue()); //Can't throw exception
-                } catch (StorageEmptyException n) {System.err.println(n);}
+                } catch (StorageEmptyException n) {err.println(n);}
             } catch (StorageOverfilledException ex) {
-                JOptionPane.showMessageDialog(null, "Food ship storage overfilled."+ex.amount+" food sent back to station ","Overfill", JOptionPane.PLAIN_MESSAGE);
+                showMessageDialog(null, "Food ship storage overfilled."+ex.amount+" food sent back to station ","Overfill", PLAIN_MESSAGE);
                 try {
                     storage.increaseFood((int) (foodSlider.getValue() - ex.amount));
                     station.storage.increaseFood((int) (foodSlider.getValue() - ex.amount));
-                } catch (StorageOverfilledException n) {System.err.println(n);} //Can't throw exception
+                } catch (StorageOverfilledException n) {err.println(n);} //Can't throw exception //Can't throw exception
             }
         }
     }
@@ -910,13 +900,13 @@ public final class StationGui extends javax.swing.JFrame {
                 storage.increaseFuel(fuelSlider.getValue());
                 try {
                     station.storage.reduceFuel(fuelSlider.getValue()); //Can't throw exception
-                } catch (StorageEmptyException n) {System.err.println(n);}
+                } catch (StorageEmptyException n) {err.println(n);}
             } catch (StorageOverfilledException ex) {
-                JOptionPane.showMessageDialog(null, "Fuel ship storage overfilled."+ex.amount+" fuel sent back to station ","Overfill", JOptionPane.PLAIN_MESSAGE);
+                showMessageDialog(null, "Fuel ship storage overfilled."+ex.amount+" fuel sent back to station ","Overfill", PLAIN_MESSAGE);
                 try {
                     storage.increaseFuel((float) (fuelSlider.getValue() - ex.amount));
                     station.storage.increaseFuel((float) (fuelSlider.getValue() - ex.amount));
-                } catch (StorageOverfilledException n) {System.err.println(n);} //Can't throw exception
+                } catch (StorageOverfilledException n) {err.println(n);} //Can't throw exception //Can't throw exception
             }
         }
     }
@@ -927,13 +917,13 @@ public final class StationGui extends javax.swing.JFrame {
                 storage.increaseMedicine((short) medicineSlider.getValue());
                 try {
                     station.storage.reduceMedicine((short) medicineSlider.getValue()); //Can't throw exception
-                } catch (StorageEmptyException n) {System.err.println(n);}
+                } catch (StorageEmptyException n) {err.println(n);}
             } catch (StorageOverfilledException ex) {
-                JOptionPane.showMessageDialog(null, "Medicine ship storage overfilled."+ex.amount+" medicine sent back to station ","Overfill", JOptionPane.PLAIN_MESSAGE);
+                showMessageDialog(null, "Medicine ship storage overfilled."+ex.amount+" medicine sent back to station ","Overfill", PLAIN_MESSAGE);
                 try {
                     storage.increaseMedicine((short) (medicineSlider.getValue() - ex.amount));
                     station.storage.increaseMedicine((short) (medicineSlider.getValue() - ex.amount));
-                } catch (StorageOverfilledException n) {System.err.println(n);} //Can't throw exception
+                } catch (StorageOverfilledException n) {err.println(n);} //Can't throw exception //Can't throw exception
             }
         }
     }
@@ -944,13 +934,13 @@ public final class StationGui extends javax.swing.JFrame {
                 storage.increaseSpare((short) spareSlider.getValue());
                 try {
                     station.storage.reduceSpare((short) spareSlider.getValue()); //Can't throw exception
-                } catch (StorageEmptyException n) {System.err.println(n);}
+                } catch (StorageEmptyException n) {err.println(n);}
             } catch (StorageOverfilledException ex) {
-                JOptionPane.showMessageDialog(null, "Spare ship storage overfilled."+ex.amount+" spare sent back to station ","Overfill", JOptionPane.PLAIN_MESSAGE);
+                showMessageDialog(null, "Spare ship storage overfilled."+ex.amount+" spare sent back to station ","Overfill", PLAIN_MESSAGE);
                 try {
                     storage.increaseSpare((short) (spareSlider.getValue() - ex.amount));
                     station.storage.increaseSpare((short) (spareSlider.getValue() - ex.amount));
-                } catch (StorageOverfilledException n) {System.err.println(n);} //Can't throw exception
+                } catch (StorageOverfilledException n) {err.println(n);} //Can't throw exception //Can't throw exception
             }
         }
     }
@@ -960,7 +950,7 @@ public final class StationGui extends javax.swing.JFrame {
     }//GEN-LAST:event_updateActionPerformed
 
     private void flightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flightActionPerformed
-        InfinityFlight.ship.departureFromStation();
+        ship.departureFromStation();
     }//GEN-LAST:event_flightActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

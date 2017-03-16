@@ -16,14 +16,16 @@
  */
 package ru.dmig.infinityflight.logic;
 
+import static java.lang.Math.round;
 import ru.dmig.infinityflight.logic.exceptions.*;
 import ru.epiclib.base.Base;
+import static ru.epiclib.base.Base.chance;
 
 /**
  * Class for reactor on ship
  * @author Dmig
  */
-public final class Reactor {
+public class Reactor {
     
     public static final float CHANCE_OF_BREAK_REACTOR = 0.14f;
     
@@ -42,11 +44,15 @@ public final class Reactor {
     }
     
     public int getEnergy() throws EngineBrokenException {
-        if(broken) throw new EngineBrokenException();
+        if(broken) {
+            throw new EngineBrokenException();
+        }
         
-        if(Base.chance((int)(CHANCE_OF_BREAK_REACTOR*100), 2)) breakThis();
+        if(chance((int)(CHANCE_OF_BREAK_REACTOR*100), 2)) {
+            breakThis();
+        }
         
-        return Math.round(fuelConsumption*efficiency);
+        return round(fuelConsumption*efficiency);
     }
 
     @Override
@@ -130,7 +136,9 @@ public final class Reactor {
     public void setEfficiency(float efficiency) {
         if(efficiency > 0 && efficiency <= 1) {
             this.efficiency = efficiency;
-        } else throw new IllegalArgumentException();
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
 }

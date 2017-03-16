@@ -22,7 +22,7 @@ import ru.dmig.infinityflight.logic.*;
  *
  * @author Dmig
  */
-public final class CabinRoom extends Room {
+public class CabinRoom extends Room {
 
     public CabinRoom(String typeName, Room.Prestige prestige, byte placeAmount) {
         setTypeName(typeName);

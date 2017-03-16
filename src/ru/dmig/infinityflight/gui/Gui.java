@@ -16,30 +16,35 @@
  */
 package ru.dmig.infinityflight.gui;
 
+import static java.lang.System.exit;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import static javax.swing.JOptionPane.showMessageDialog;
 import ru.dmig.infinityflight.logic.*;
+import static ru.dmig.infinityflight.logic.InfinityFlight.ship;
+import static ru.epiclib.gui.Util.setStyle;
 
 /**
  *
  * @author Dmig
  */
-public final class Gui extends javax.swing.JFrame {
+public class Gui extends javax.swing.JFrame {
 
     public static Gui gui;
 
     private static class GuiStarter extends Thread {
 
-        public GuiStarter() {
+        GuiStarter() {
             this.setName("Guier");
         }
 
         @Override
         public void run() {
             try {
-                ru.epiclib.gui.Util.setStyle();
+                setStyle();
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-                JOptionPane.showMessageDialog(null, ex, "Error", JOptionPane.ERROR_MESSAGE);
-                System.exit(-11);
+                showMessageDialog(null, ex, "Error", ERROR_MESSAGE);
+                exit(-11);
             }
 
             gui = new Gui();
@@ -60,7 +65,7 @@ public final class Gui extends javax.swing.JFrame {
         update();
     }
 
-    public void update() {
+    public final void update() {
         Ship ship = InfinityFlight.ship;
 
         foodAmount.setText(ship.storage.getFoodAmount() + "/" + ship.storage.getMaxFoodAmount());

@@ -16,13 +16,32 @@
  */
 package ru.dmig.infinityflight.logic;
 
+import static java.lang.Math.round;
+import static java.lang.System.exit;
+import static java.lang.System.out;
+
 /**
  *
  * @author Dmig
  */
-public final class Updater extends Thread {
+public class Updater extends Thread {
     
-    private static float tick = 1000;
+    private static float tick = 1_000;
+
+    /**
+     * Change tick of game
+     * @param half If half - halfes tick; else doubles
+     */
+    public static void changeTick(boolean half) {
+        if (half) {
+            tick /= 2;
+        } else {
+            tick *= 2;
+        }
+    }
+    public static float getTick() {
+        return tick;
+    }
     
     public Ship ship;
     private boolean ended = false;
@@ -37,14 +56,17 @@ public final class Updater extends Thread {
         byte hour = 0; // 0;4;8;12;16;20
         while(!ended) {
             try {
-                Thread.sleep(Math.round(tick));
+                sleep(round(tick));
                 ship.updateHour(hour); //in case of edit: edit update hour
                 
-                if(hour != 20) hour = (byte)(hour + 4);
-                else hour = 0;
+                if(hour != 20) {
+                    hour = (byte)(hour + 4);
+                } else {
+                    hour = 0;
+                }
             } catch (InterruptedException ex) {
-                System.out.println(ex);
-                System.exit(1);
+                out.println(ex);
+                exit(1);
             }
         }
     }
@@ -53,17 +75,5 @@ public final class Updater extends Thread {
         ended = true;
     }
     
-    /**
-     * Change tick of game
-     * @param half If half - halfes tick; else doubles
-     */
-    public static void changeTick(boolean half) {
-        if(half) tick = tick/2;
-        else tick = tick*2;
-    }
-
-    public static float getTick() {
-        return tick;
-    }
     
 }

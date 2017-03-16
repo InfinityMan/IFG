@@ -26,7 +26,7 @@ import java.io.InputStreamReader;
  *
  * @author Dmitry Tsvetkovsky
  */
-public final class Link {
+public class Link {
     
     /**
      * Get the array of lines in [file_name]

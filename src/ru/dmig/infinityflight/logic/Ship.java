@@ -16,8 +16,23 @@
  */
 package ru.dmig.infinityflight.logic;
 
+import static java.lang.System.err;
+import static java.lang.System.out;
 import java.util.ArrayList;
 import ru.dmig.infinityflight.gui.StationGui;
+import static ru.dmig.infinityflight.gui.StationGui.start;
+import static ru.dmig.infinityflight.gui.StationGui.stationGui;
+import static ru.dmig.infinityflight.logic.InfinityFlight.DEFAULT_CABIN_ROOMS;
+import static ru.dmig.infinityflight.logic.InfinityFlight.DEFAULT_ENGINES;
+import static ru.dmig.infinityflight.logic.InfinityFlight.DEFAULT_REACTORS;
+import static ru.dmig.infinityflight.logic.InfinityFlight.DEFAULT_TOURIST_ROOMS;
+import static ru.dmig.infinityflight.logic.InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FOOD;
+import static ru.dmig.infinityflight.logic.InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FUEL;
+import static ru.dmig.infinityflight.logic.InfinityFlight.defeatProcess;
+import static ru.dmig.infinityflight.logic.InfinityFlight.genDistanceToStation;
+import static ru.dmig.infinityflight.logic.InfinityFlight.genNewStation;
+import static ru.dmig.infinityflight.logic.InfinityFlight.getStartPersonal;
+import static ru.dmig.infinityflight.logic.InfinityFlight.gui;
 import ru.dmig.infinityflight.logic.exceptions.EngineBrokenException;
 import ru.dmig.infinityflight.logic.exceptions.StorageEmptyException;
 import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
@@ -29,7 +44,7 @@ import ru.dmig.infinityflight.logic.rooms.CabinRoom;
  *
  * @author Dmig
  */
-public final class Ship {
+public class Ship {
 
     public final Storage storage;
 
@@ -55,18 +70,18 @@ public final class Ship {
 
         storage = new Storage(false);
 
-        personel = InfinityFlight.getStartPersonal();
+        personel = getStartPersonal();
 
         potencialFoodAmount = 0;
 
-        rooms.add(InfinityFlight.DEFAULT_TOURIST_ROOMS[0][1]); // "Heit"
-        rooms.add(InfinityFlight.DEFAULT_TOURIST_ROOMS[0][0]); // "Dorm"
+        rooms.add(DEFAULT_TOURIST_ROOMS[0][1]); // "Heit"
+        rooms.add(DEFAULT_TOURIST_ROOMS[0][0]); // "Dorm"
 
-        rooms.add(InfinityFlight.DEFAULT_CABIN_ROOMS[0]);
-        rooms.add(InfinityFlight.DEFAULT_CABIN_ROOMS[0]);
+        rooms.add(DEFAULT_CABIN_ROOMS[0]);
+        rooms.add(DEFAULT_CABIN_ROOMS[0]);
         
-        engines.add(InfinityFlight.DEFAULT_ENGINES[0]);
-        reactors.add(InfinityFlight.DEFAULT_REACTORS[0]);
+        engines.add(DEFAULT_ENGINES[0]);
+        reactors.add(DEFAULT_REACTORS[0]);
 
         energyAmount = 0;
 
@@ -83,7 +98,7 @@ public final class Ship {
         try {
             eat(hour); //Can't throw exception
             getEnergy(); //Can't throw exception
-        } catch (StorageOverfilledException n) {System.err.println(n);}
+        } catch (StorageOverfilledException n) {err.println(n);}
         
         if(distanceToStation != 0) {
             goDistance();
@@ -98,12 +113,12 @@ public final class Ship {
         /* If distanceToStation == 0 => ship on station and engines off */
 
         if (storage.getFuelAmount() == 0 && energyAmount == 0) {
-            InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FUEL);
+            defeatProcess(RUN_OUT_OF_FUEL);
         }
 
         //Energy consumption to rooms
         
-        InfinityFlight.gui.update();
+        gui.update();
     }
 
     private void eat(byte hour) throws StorageOverfilledException {
@@ -113,7 +128,7 @@ public final class Ship {
             try {
                 storage.reduceFood(amount);
             } catch (StorageEmptyException ex) {
-                InfinityFlight.defeatProcess(InfinityFlight.DEFEAT_STATE.RUN_OUT_OF_FOOD);
+                defeatProcess(RUN_OUT_OF_FOOD);
             }
         }
     }
@@ -129,7 +144,7 @@ public final class Ship {
                         break;
                     }
                 } catch (EngineBrokenException n) {
-                    System.out.println(n);
+                    out.println(n);
                 }
             }
         }
@@ -160,17 +175,17 @@ public final class Ship {
     }
 
     private void arriveToStation() {
-        StationGui.start();
+        start();
     }
     
     public void departureFromStation() {
-        StationGui.stationGui.dispose();
+        stationGui.dispose();
         setNewRouteAndStation();
     }
 
     private void setNewRouteAndStation() {
-        distanceToStation = InfinityFlight.genDistanceToStation();
-        station = InfinityFlight.genNewStation();
+        distanceToStation = genDistanceToStation();
+        station = genNewStation();
     }
 
     public short getMaxPersonalAmount() {

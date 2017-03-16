@@ -22,11 +22,8 @@ import ru.dmig.infinityflight.logic.*;
  *
  * @author Dmig
  */
-public final class TouristRoom extends Room {
+public class TouristRoom extends Room {
 
-    public static enum Class {
-        FIRST, SECOND, THIRD
-    };
     
 
     private Class roomClass;
@@ -54,6 +51,9 @@ public final class TouristRoom extends Room {
      */
     public void setRoomClass(Class roomClass) {
         this.roomClass = roomClass;
+    }
+    public static enum Class {
+        FIRST, SECOND, THIRD
     }
 
 }

@@ -25,7 +25,7 @@ import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
  *
  * @author Dmig
  */
-public final class Storage {
+public class Storage {
     
     /**
      * Set this value to any "maxXAmount" if storage of 'x' infinity.
@@ -33,8 +33,8 @@ public final class Storage {
      */
     public static final short NO_MAXIMUM = -1;
 
-    private static final int START_FOOD_AMOUNT = 5000;
-    private static final int START_MAX_FOOD_AMOUNT = 10000;
+    private static final int START_FOOD_AMOUNT = 5_000;
+    private static final int START_MAX_FOOD_AMOUNT = 10_000;
 
     private static final float START_FUEL_AMOUNT = 400;
     private static final float START_MAX_FUEL_AMOUNT = 750;
@@ -68,15 +68,6 @@ public final class Storage {
         this.maxSpareAmount = maxSpareAmount;
     }
     
-    /**
-     * Returns food,fuel,medicine,spare amounts to a start level: START_FOOD.. And etc.
-     */
-    public void toStartAmounts() {
-        foodAmount = START_FOOD_AMOUNT;
-        fuelAmount = START_FUEL_AMOUNT;
-        medicineAmount = START_MEDICINE_AMOUNT;
-        spareAmount = START_SPARE_AMOUNT;
-    }
 
     /**
      * New default storage
@@ -97,6 +88,15 @@ public final class Storage {
             toStartAmounts();
         }
     }
+    /**
+     * Returns food,fuel,medicine,spare amounts to a start level: START_FOOD.. And etc.
+     */
+    public void toStartAmounts() {
+        foodAmount = START_FOOD_AMOUNT;
+        fuelAmount = START_FUEL_AMOUNT;
+        medicineAmount = START_MEDICINE_AMOUNT;
+        spareAmount = START_SPARE_AMOUNT;
+    }
 
     //<editor-fold defaultstate="collapsed" desc="Get and set">
 
@@ -114,7 +114,9 @@ public final class Storage {
             fuelAmount = fuel;
             medicineAmount = medicine;
             spareAmount = spare;
-        } else throw new IllegalArgumentException();
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
     
     /**

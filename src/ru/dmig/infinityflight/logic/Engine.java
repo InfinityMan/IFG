@@ -16,14 +16,16 @@
  */
 package ru.dmig.infinityflight.logic;
 
+import static java.lang.Math.round;
 import ru.dmig.infinityflight.logic.exceptions.EngineBrokenException;
 import ru.epiclib.base.Base;
+import static ru.epiclib.base.Base.chance;
 
 /**
  * Class for engines on ship
  * @author Dmig
  */
-public final class Engine {
+public class Engine {
     public static final float CHANCE_OF_BREAK_ENGINE = 0.14f;
     
     private String name;
@@ -41,11 +43,15 @@ public final class Engine {
     }
     
     public int goDistance() throws EngineBrokenException {
-        if(broken) throw new EngineBrokenException();
+        if(broken) {
+            throw new EngineBrokenException();
+        }
         
-        if(Base.chance((int)(CHANCE_OF_BREAK_ENGINE*100), 2)) breakThis();
+        if(chance((int)(CHANCE_OF_BREAK_ENGINE*100), 2)) {
+            breakThis();
+        }
         
-        return Math.round(energyConsumption*efficiency);
+        return round(energyConsumption*efficiency);
     }
 
     @Override
@@ -129,7 +135,9 @@ public final class Engine {
     public void setEfficiency(float efficiency) {
         if(efficiency > 0 && efficiency <= 1) {
             this.efficiency = efficiency;
-        } else throw new IllegalArgumentException();
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
 }

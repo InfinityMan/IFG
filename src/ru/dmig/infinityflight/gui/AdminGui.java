@@ -1,49 +1,40 @@
-/*
- * Copyright (C) 2016 Dmitry Tsvetkovsky
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package ru.dmig.infinityflight.gui;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import static java.lang.Math.round;
+import static java.lang.System.err;
+import static java.lang.System.exit;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import static javax.swing.JOptionPane.showMessageDialog;
 import ru.dmig.infinityflight.logic.Engine;
 import ru.dmig.infinityflight.logic.InfinityFlight;
+import static ru.dmig.infinityflight.logic.InfinityFlight.ship;
 import ru.dmig.infinityflight.logic.Reactor;
 import ru.dmig.infinityflight.logic.Updater;
+import static ru.dmig.infinityflight.logic.Updater.changeTick;
+import static ru.dmig.infinityflight.logic.Updater.getTick;
 import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
+import static ru.epiclib.gui.Util.setStyle;
 
 /**
  *
  * @author Dmig
  */
-public final class AdminGui extends javax.swing.JFrame {
+public class AdminGui extends javax.swing.JFrame {
 
     private static class GuiStarter extends Thread {
 
-        public GuiStarter() {
+        GuiStarter() {
             this.setName("AdminGui");
         }
 
         @Override
         public void run() {
             try {
-                ru.epiclib.gui.Util.setStyle();
+                setStyle();
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-                JOptionPane.showMessageDialog(null, ex, "Error", JOptionPane.ERROR_MESSAGE);
-                System.exit(-11);
+                showMessageDialog(null, ex, "Error", ERROR_MESSAGE);
+                exit(-11);
             }
 
             AdminGui gui = new AdminGui();
@@ -190,47 +181,47 @@ public final class AdminGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void doubleSpeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doubleSpeedActionPerformed
-        Updater.changeTick(false);
-        tickSize.setText(Math.round(Updater.getTick()) + " ms");
+        changeTick(false);
+        tickSize.setText(round(getTick()) + " ms");
     }//GEN-LAST:event_doubleSpeedActionPerformed
 
     private void halfSpeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfSpeedActionPerformed
-        Updater.changeTick(true);
-        tickSize.setText(Math.round(Updater.getTick()) + " ms");
+        changeTick(true);
+        tickSize.setText(round(getTick()) + " ms");
     }//GEN-LAST:event_halfSpeedActionPerformed
 
     private void startStorageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startStorageActionPerformed
-        InfinityFlight.ship.storage.toStartAmounts();
+        ship.storage.toStartAmounts();
     }//GEN-LAST:event_startStorageActionPerformed
 
     private void addFuelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFuelActionPerformed
         try {
-            InfinityFlight.ship.storage.increaseFuel(100);
+            ship.storage.increaseFuel(100);
         } catch (StorageOverfilledException ex) {
             try {
-                InfinityFlight.ship.storage.increaseFuel((float) (100 - ex.amount));
-            } catch (StorageOverfilledException n) {System.err.println(n);}
+                ship.storage.increaseFuel((float) (100 - ex.amount));
+            } catch (StorageOverfilledException n) {err.println(n);}
         }
     }//GEN-LAST:event_addFuelActionPerformed
 
     private void addFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFoodActionPerformed
         try {
-            InfinityFlight.ship.storage.increaseFood(100);
+            ship.storage.increaseFood(100);
         } catch (StorageOverfilledException ex) {
             try {
-                InfinityFlight.ship.storage.increaseFood((int) (100 - ex.amount));
-            } catch (StorageOverfilledException n) {System.err.println(n);}
+                ship.storage.increaseFood((int) (100 - ex.amount));
+            } catch (StorageOverfilledException n) {err.println(n);}
         }
     }//GEN-LAST:event_addFoodActionPerformed
 
     private void repairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repairActionPerformed
-        for (int i = 0; i < InfinityFlight.ship.engines.size(); i++) {
-            Engine get = InfinityFlight.ship.engines.get(i);
+        for (int i = 0; i < ship.engines.size(); i++) {
+            Engine get = ship.engines.get(i);
             get.fixThis();
         }
         
-        for (int i = 0; i < InfinityFlight.ship.reactors.size(); i++) {
-            Reactor get = InfinityFlight.ship.reactors.get(i);
+        for (int i = 0; i < ship.reactors.size(); i++) {
+            Reactor get = ship.reactors.get(i);
             get.fixThis();
         }
     }//GEN-LAST:event_repairActionPerformed

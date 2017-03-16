@@ -16,7 +16,10 @@
  */
 package ru.dmig.infinityflight.gui;
 
+import static java.lang.System.out;
+import static ru.dmig.infinityflight.gui.StationGui.start;
 import ru.dmig.infinityflight.logic.*;
+import static ru.dmig.infinityflight.logic.InfinityFlight.ship;
 
 /**
  *
@@ -24,17 +27,17 @@ import ru.dmig.infinityflight.logic.*;
  */
 public class Tester {
     public static void main(String[] args) {
-        InfinityFlight.ship = new Ship();
+        ship = new Ship();
 
-        for (int i = 0; i < InfinityFlight.ship.rooms.size(); i++) {
-            Room get = InfinityFlight.ship.rooms.get(i);
-            System.out.println(get);
+        for (int i = 0; i < ship.rooms.size(); i++) {
+            Room get = ship.rooms.get(i);
+            out.println(get);
         }
         
-        System.out.println(InfinityFlight.ship.engines.get(0).toString());
-        System.out.println(InfinityFlight.ship.reactors.get(0).toString());
+        out.println(ship.engines.get(0).toString());
+        out.println(ship.reactors.get(0).toString());
 
-        StationGui.start();
+        start();
 
     }
 }

@@ -22,9 +22,6 @@ package ru.dmig.infinityflight.logic;
  */
 public abstract class Room {
     
-    public static enum Prestige {
-        TERRIBLE,BAD,NORMAL,GOOD
-    };
     
     private String typeName;
     
@@ -88,6 +85,9 @@ public abstract class Room {
      */
     public void setPlaceAmount(byte placeAmount) {
         this.placeAmount = placeAmount;
+    }
+    public static enum Prestige {
+        TERRIBLE,BAD,NORMAL,GOOD
     }
     
 }

@@ -18,6 +18,7 @@ package ru.dmig.infinityflight.logic.human;
 
 import ru.dmig.infinityflight.logic.Code;
 import ru.epiclib.base.Base;
+import static ru.epiclib.base.Base.randomNumber;
 
 /**
  * Class for any peolpe on the ship or on station
@@ -37,13 +38,6 @@ public class Person {
      */
     public static final byte MAX_AGE = 48;
 
-    public static enum INTELLIGENCE {
-        SILLY, NORMAL, SMART
-    };
-
-    public static enum POWER {
-        WEAK, NORMAL, STRONG
-    };
 
     //<editor-fold defaultstate="collapsed" desc="Characteristic">
     private Code code;
@@ -60,8 +54,8 @@ public class Person {
     public Person() {
         code = new Code();
 
-        isMan = Base.randomNumber(0, 1) != 0;
-        age = (byte) Base.randomNumber(MIN_AGE, MAX_AGE);
+        isMan = randomNumber(0, 1) != 0;
+        age = (byte) randomNumber(MIN_AGE, MAX_AGE);
 
     }
 
@@ -143,5 +137,11 @@ public class Person {
      */
     public void setGender(boolean isMan) {
         this.isMan = isMan;
+    }
+    public static enum INTELLIGENCE {
+        SILLY, NORMAL, SMART
+    }
+    public static enum POWER {
+        WEAK, NORMAL, STRONG
     }
 }

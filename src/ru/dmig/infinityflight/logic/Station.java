@@ -1,27 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ru.dmig.infinityflight.logic;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import static java.lang.System.err;
+import static ru.dmig.infinityflight.logic.InfinityFlight.PROFFESSION_AMOUNT;
+import static ru.dmig.infinityflight.logic.InfinityFlight.TOURIST_CLASSES_AMOUNT;
 import static ru.dmig.infinityflight.logic.InfinityFlight.chancesUpgrade;
+import static ru.dmig.infinityflight.logic.Storage.NO_MAXIMUM;
 import ru.dmig.infinityflight.logic.exceptions.StorageEmptyException;
 import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
-import ru.epiclib.base.Base;
+import static ru.epiclib.base.Base.chance;
+import static ru.epiclib.base.Base.randomNumber;
 
 /**
  * Class for stations in the infinity black sea
  *
  * @author Dmig
  */
-public final class Station {
+public class Station {
 
-    public static enum SIZE {
-        SMALL, NORMAL, BIG
-    };
 
     public static final byte[] SIZE_CHANCES = {56, 27, 17};
     public static final byte[] MAX_DAYS = {10, 20, 50};
@@ -81,7 +77,7 @@ public final class Station {
     /**
      * Food amount: FA[0] - small station, etc. FA[x][0] - min; FA[x][1] - max;
      */
-    public static final short[][] FOOD_AMOUNT = {{3500, 4500}, {5000, 5500}, {7000, 7500}};
+    public static final short[][] FOOD_AMOUNT = {{3_500, 4_500}, {5_000, 5_500}, {7_000, 7_500}};
 
     public SIZE size;
     
@@ -159,13 +155,13 @@ public final class Station {
         assignWorkers(sizeIndex);
         assignTourists(sizeIndex);
         
-        storage.setMaxFoodAmount(Storage.NO_MAXIMUM);
-        storage.setMaxFuelAmount(Storage.NO_MAXIMUM);
-        storage.setMaxMedicineAmount(Storage.NO_MAXIMUM);
-        storage.setMaxFoodAmount(Storage.NO_MAXIMUM);
+        storage.setMaxFoodAmount(NO_MAXIMUM);
+        storage.setMaxFuelAmount(NO_MAXIMUM);
+        storage.setMaxMedicineAmount(NO_MAXIMUM);
+        storage.setMaxFoodAmount(NO_MAXIMUM);
 
-        storage.setAmounts(Base.randomNumber(FOOD_AMOUNT[sizeIndex][0], FOOD_AMOUNT[sizeIndex][1]),
-                Base.randomNumber(FUEL_AMOUNT[sizeIndex][0], FUEL_AMOUNT[sizeIndex][1]),
+        storage.setAmounts(randomNumber(FOOD_AMOUNT[sizeIndex][0], FOOD_AMOUNT[sizeIndex][1]),
+                randomNumber(FUEL_AMOUNT[sizeIndex][0], FUEL_AMOUNT[sizeIndex][1]),
                 (short) 0, (short) 0);
 
         //Medinice bonus
@@ -174,29 +170,29 @@ public final class Station {
         doFuelBonus();
 
         if (size == SIZE.BIG) {
-            if (Base.chance(CHANCE_FOOD_BONUS, 0)) {
+            if (chance(CHANCE_FOOD_BONUS, 0)) {
                 storage.increaseFood(FOOD_BONUS);
             }
         }
     }
     
     private void assignWorkers(int sizeIndex) {
-        short workersMainAmount = Base.randomNumber(AMOUNT_OF_WORKERS[sizeIndex][0],
+        short workersMainAmount = randomNumber(AMOUNT_OF_WORKERS[sizeIndex][0],
                 AMOUNT_OF_WORKERS[sizeIndex][1]);
 
-        workersAmount = new short[InfinityFlight.PROFFESSION_AMOUNT];
+        workersAmount = new short[PROFFESSION_AMOUNT];
         for (int i = 0; i < workersMainAmount; i++) {
-            workersAmount[InfinityFlight.chancesUpgrade(CHANCE_WORKERS)]++;
+            workersAmount[chancesUpgrade(CHANCE_WORKERS)]++;
         }
     }
 
     private void assignTourists(int sizeIndex) {
-        short touristsMainAmount = Base.randomNumber(AMOUNT_OF_TOURISTS[sizeIndex][0],
+        short touristsMainAmount = randomNumber(AMOUNT_OF_TOURISTS[sizeIndex][0],
                 AMOUNT_OF_TOURISTS[sizeIndex][1]);
         
-        touristsAmount = new short[InfinityFlight.TOURIST_CLASSES_AMOUNT];
+        touristsAmount = new short[TOURIST_CLASSES_AMOUNT];
         for (int i = 0; i < touristsMainAmount; i++) {
-            touristsAmount[InfinityFlight.chancesUpgrade(CHANCE_TOURISTS)]++;
+            touristsAmount[chancesUpgrade(CHANCE_TOURISTS)]++;
         }
     }
 
@@ -215,7 +211,7 @@ public final class Station {
                     break;
             }
         } catch (StorageEmptyException | StorageOverfilledException n) {
-            System.err.println(n);
+            err.println(n);
         }
     }
     
@@ -284,6 +280,9 @@ public final class Station {
             default:
                 throw new IllegalStateException("Station::getSizeString()");
         }
+    }
+    public static enum SIZE {
+        SMALL, NORMAL, BIG
     }
 
 }
