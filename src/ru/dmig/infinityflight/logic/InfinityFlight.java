@@ -48,6 +48,11 @@ import static ru.epiclib.base.Base.randomNumber;
  */
 public class InfinityFlight {
     
+    public static final double PRICE_FOR_ONE_FUEL = 1;
+    public static final double PRICE_FOR_ONE_FOOD = 9;
+    public static final double PRICE_FOR_ONE_SPARE = 25;
+    public static final double PRICE_FOR_ONE_MEDICINE = 32;
+    
     public static final TouristRoom[][] DEFAULT_TOURIST_ROOMS = loadDefaultTouristRooms();
     public static final CabinRoom[] DEFAULT_CABIN_ROOMS = loadDefaultCabin();
     public static final Reactor[] DEFAULT_REACTORS = loadDefaultReactors();
