@@ -33,6 +33,7 @@ import static ru.dmig.infinityflight.logic.InfinityFlight.genNewStation;
 import static ru.dmig.infinityflight.logic.InfinityFlight.getStartPersonal;
 import static ru.dmig.infinityflight.logic.InfinityFlight.gui;
 import ru.dmig.infinityflight.logic.exceptions.EngineBrokenException;
+import ru.dmig.infinityflight.logic.exceptions.NotEnoughtMoneyException;
 import ru.dmig.infinityflight.logic.exceptions.StorageEmptyException;
 import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
 import ru.dmig.infinityflight.logic.human.*;
@@ -44,7 +45,7 @@ import ru.dmig.infinityflight.logic.rooms.CabinRoom;
  * @author Dmig
  */
 public class Ship {
-
+    
     public final Storage storage;
 
     public ArrayList<Personal> personel = new ArrayList<>();
@@ -54,6 +55,8 @@ public class Ship {
     public ArrayList<Engine> engines = new ArrayList<>();
 
     private int potencialFoodAmount;
+    
+    private double money;
 
     private long energyAmount;
 
@@ -85,6 +88,41 @@ public class Ship {
         energyAmount = 0;
 
         setNewRouteAndStation();
+    }
+    
+    public double getMoney() {
+        return money;
+    }
+    
+    /**
+     * In case of increase or reduce money is not enought. No safe!
+     * @param amount Future amount of money
+     */
+    public void setMoney(double amount) {
+        if(amount < 0) throw new IllegalArgumentException();
+        money = amount;
+    }
+    
+    /**
+     * Increase amount of money
+     * @param amount amount of money plus
+     */
+    public void increaseMoney(double amount) {
+        money += amount;
+    }
+    
+    /**
+     * Reduce amount of money
+     * @param amount amount of money minus
+     * @throws NotEnoughtMoneyException
+     */
+    public void reduceMoney(double amount) throws NotEnoughtMoneyException {
+        if(money >= amount) {
+            money -= amount;
+        } else {
+            money = 0;
+            throw new NotEnoughtMoneyException(amount - money);
+        }
     }
 
     /**
