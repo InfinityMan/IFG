@@ -16,6 +16,7 @@
  */
 package ru.dmig.infinityflight.logic;
 
+import ru.dmig.infinityflight.logic.exceptions.StorageEmptyException;
 import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
 
 /**
@@ -25,6 +26,12 @@ import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
  * @author Dmig
  */
 public final class Storage {
+    
+    /**
+     * Set this value to any "maxXAmount" if storage of 'x' infinity.
+     * In this case <code>StorageOverfilledException</code> can't be throwed
+     */
+    public static final short NO_MAXIMUM = -1;
 
     private static final int START_FOOD_AMOUNT = 5000;
     private static final int START_MAX_FOOD_AMOUNT = 10000;
@@ -92,6 +99,24 @@ public final class Storage {
     }
 
     //<editor-fold defaultstate="collapsed" desc="Get and set">
+
+    /**
+     * USING ONLY ON STATION AND BASIC SHIP!
+     * @param food foodAmount = food
+     * @param fuel fuelAmount = fuel;
+     * @param medicine medicineAmount = medicine;
+     * @param spare spareAmount = spare;
+     */
+    
+    public void setAmounts(int food, float fuel, short medicine, short spare) {
+        if(food >= 0 && fuel >= 0 && medicine >= 0 && spare >= 0) {
+            foodAmount = food;
+            fuelAmount = fuel;
+            medicineAmount = medicine;
+            spareAmount = spare;
+        } else throw new IllegalArgumentException();
+    }
+    
     /**
      * Get the value of foodAmount
      *
@@ -101,16 +126,21 @@ public final class Storage {
         return foodAmount;
     }
 
-    /**
-     * Set the value of foodAmount
-     *
-     * @param foodAmount new value of foodAmount
-     * @throws ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException
-     */
-    public void setFoodAmount(int foodAmount) throws StorageOverfilledException {
-        if((this.foodAmount + foodAmount) <= maxFoodAmount) {
-            this.foodAmount = foodAmount;
-        } else throw new StorageOverfilledException(maxFoodAmount - (this.foodAmount + foodAmount));
+    public void reduceFood(int amount) throws StorageEmptyException {
+        if((foodAmount - amount) >= 0) {
+            foodAmount -= amount;
+        } else {
+            foodAmount = 0;
+            throw new StorageEmptyException();
+        }
+    }
+    
+    public void increaseFood(int amount) throws StorageOverfilledException {
+        if ((this.foodAmount + amount) <= maxFoodAmount || maxFoodAmount == NO_MAXIMUM) {
+            this.foodAmount += amount;
+        } else {
+            throw new StorageOverfilledException((this.foodAmount + amount) - maxFoodAmount);
+        }
     }
 
     /**
@@ -139,17 +169,22 @@ public final class Storage {
     public float getFuelAmount() {
         return fuelAmount;
     }
-
-    /**
-     * Set the value of fuelAmount
-     *
-     * @param fuelAmount new value of fuelAmount
-     * @throws ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException
-     */
-    public void setFuelAmount(float fuelAmount) throws StorageOverfilledException {
-        if((this.fuelAmount + fuelAmount) <= maxFuelAmount) {
-            this.fuelAmount = fuelAmount;
-        } else throw new StorageOverfilledException(maxFuelAmount - (this.fuelAmount + fuelAmount));
+    
+    public void reduceFuel(float amount) throws StorageEmptyException {
+        if((fuelAmount - amount) >= 0) {
+            fuelAmount -= amount;
+        } else {
+            fuelAmount = 0;
+            throw new StorageEmptyException();
+        }
+    }
+    
+    public void increaseFuel(float amount) throws StorageOverfilledException {
+        if ((this.fuelAmount + amount) <= maxFuelAmount || maxFuelAmount == NO_MAXIMUM) {
+            this.fuelAmount += amount;
+        } else {
+            throw new StorageOverfilledException((this.fuelAmount + amount) - maxFuelAmount);
+        }
     }
 
     /**
@@ -179,16 +214,21 @@ public final class Storage {
         return medicineAmount;
     }
 
-    /**
-     * Set the value of medicineAmount
-     *
-     * @param medicineAmount new value of medicineAmount
-     * @throws ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException
-     */
-    public void setMedicineAmount(short medicineAmount) throws StorageOverfilledException {
-        if((this.medicineAmount + medicineAmount) <= maxMedicineAmount) {
-            this.medicineAmount = medicineAmount;
-        } else throw new StorageOverfilledException(maxMedicineAmount - (this.medicineAmount + medicineAmount));
+    public void reduceMedicine(short amount) throws StorageEmptyException {
+        if((medicineAmount - amount) >= 0) {
+            medicineAmount -= amount;
+        } else {
+            medicineAmount = 0;
+            throw new StorageEmptyException();
+        }
+    }
+    
+    public void increaseMedicine(short amount) throws StorageOverfilledException {
+        if ((this.medicineAmount + amount) <= maxMedicineAmount || maxMedicineAmount == NO_MAXIMUM) {
+            this.medicineAmount += amount;
+        } else {
+            throw new StorageOverfilledException((this.medicineAmount + amount) - maxMedicineAmount);
+        }
     }
 
     /**
@@ -218,16 +258,21 @@ public final class Storage {
         return spareAmount;
     }
 
-    /**
-     * Set the value of spareAmount
-     *
-     * @param spareAmount new value of spareAmount
-     * @throws ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException
-     */
-    public void setSpareAmount(short spareAmount) throws StorageOverfilledException {
-        if((this.spareAmount + spareAmount) <= maxSpareAmount) {
-            this.spareAmount = spareAmount;
-        } else throw new StorageOverfilledException(maxSpareAmount - (this.spareAmount + spareAmount));
+    public void reduceSpare(short amount) throws StorageEmptyException {
+        if((spareAmount - amount) >= 0) {
+            spareAmount -= amount;
+        } else {
+            spareAmount = 0;
+            throw new StorageEmptyException();
+        }
+    }
+    
+    public void increaseSpare(short amount) throws StorageOverfilledException {
+        if ((this.spareAmount + amount) <= maxSpareAmount || maxSpareAmount == NO_MAXIMUM) {
+            this.spareAmount += amount;
+        } else {
+            throw new StorageOverfilledException((this.spareAmount + amount) - maxSpareAmount);
+        }
     }
 
     /**

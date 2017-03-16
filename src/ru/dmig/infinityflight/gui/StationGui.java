@@ -16,8 +16,13 @@
  */
 package ru.dmig.infinityflight.gui;
 
+import java.awt.HeadlessException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import ru.dmig.infinityflight.logic.*;
+import ru.dmig.infinityflight.logic.exceptions.StorageEmptyException;
+import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
 
 /**
  *
@@ -872,30 +877,83 @@ public final class StationGui extends javax.swing.JFrame {
         
         Storage storage = ship.storage;
         
-        if(fuelSlider.getValue() > 0) {
-            storage.setFuelAmount(storage.getFuelAmount() + fuelSlider.getValue());
-            station.storage.setFuelAmount(station.storage.getFuelAmount() - fuelSlider.getValue());
-        }
-        
-        if(foodSlider.getValue() > 0) {
-            storage.setFoodAmount(storage.getFoodAmount() + foodSlider.getValue());
-            station.storage.setFoodAmount(station.storage.getFoodAmount() - foodSlider.getValue());
-        }
-        
-        if(medicineSlider.getValue() > 0) {
-            storage.setMedicineAmount((short) (storage.getMedicineAmount() + medicineSlider.getValue()));
-            station.storage.setMedicineAmount((short) (station.storage.getMedicineAmount() - medicineSlider.getValue()));
-        }
-        
-        if(spareSlider.getValue() > 0) {
-            storage.setSpareAmount((short) (storage.getSpareAmount() + spareSlider.getValue()));
-            station.storage.setSpareAmount((short) (station.storage.getSpareAmount() - spareSlider.getValue()));
-        }
-        
         //Money!
+        
+        buyFood(storage, station);
+        buyFuel(storage, station);
+        buyMedicine(storage, station);
+        buySpare(storage, station);
         
         update(true);
     }//GEN-LAST:event_buttonActionPerformed
+
+    private void buyFood(Storage storage, Station station) throws HeadlessException {
+        if(foodSlider.getValue() > 0) {
+            try {
+                storage.increaseFood(foodSlider.getValue());
+                try {
+                    station.storage.reduceFood(foodSlider.getValue()); //Can't throw exception
+                } catch (StorageEmptyException n) {System.err.println(n);}
+            } catch (StorageOverfilledException ex) {
+                JOptionPane.showMessageDialog(null, "Food ship storage overfilled."+ex.amount+" food sent back to station ","Overfill", JOptionPane.PLAIN_MESSAGE);
+                try {
+                    storage.increaseFood((int) (foodSlider.getValue() - ex.amount));
+                    station.storage.increaseFood((int) (foodSlider.getValue() - ex.amount));
+                } catch (StorageOverfilledException n) {System.err.println(n);} //Can't throw exception
+            }
+        }
+    }
+
+    private void buyFuel(Storage storage, Station station) throws HeadlessException {
+        if(fuelSlider.getValue() > 0) {
+            try {
+                storage.increaseFuel(fuelSlider.getValue());
+                try {
+                    station.storage.reduceFuel(fuelSlider.getValue()); //Can't throw exception
+                } catch (StorageEmptyException n) {System.err.println(n);}
+            } catch (StorageOverfilledException ex) {
+                JOptionPane.showMessageDialog(null, "Fuel ship storage overfilled."+ex.amount+" fuel sent back to station ","Overfill", JOptionPane.PLAIN_MESSAGE);
+                try {
+                    storage.increaseFuel((float) (fuelSlider.getValue() - ex.amount));
+                    station.storage.increaseFuel((float) (fuelSlider.getValue() - ex.amount));
+                } catch (StorageOverfilledException n) {System.err.println(n);} //Can't throw exception
+            }
+        }
+    }
+    
+    private void buyMedicine(Storage storage, Station station) throws HeadlessException {
+        if(medicineSlider.getValue() > 0) {
+            try {
+                storage.increaseMedicine((short) medicineSlider.getValue());
+                try {
+                    station.storage.reduceMedicine((short) medicineSlider.getValue()); //Can't throw exception
+                } catch (StorageEmptyException n) {System.err.println(n);}
+            } catch (StorageOverfilledException ex) {
+                JOptionPane.showMessageDialog(null, "Medicine ship storage overfilled."+ex.amount+" medicine sent back to station ","Overfill", JOptionPane.PLAIN_MESSAGE);
+                try {
+                    storage.increaseMedicine((short) (medicineSlider.getValue() - ex.amount));
+                    station.storage.increaseMedicine((short) (medicineSlider.getValue() - ex.amount));
+                } catch (StorageOverfilledException n) {System.err.println(n);} //Can't throw exception
+            }
+        }
+    }
+    
+    private void buySpare(Storage storage, Station station) throws HeadlessException {
+        if(spareSlider.getValue() > 0) {
+            try {
+                storage.increaseSpare((short) spareSlider.getValue());
+                try {
+                    station.storage.reduceSpare((short) spareSlider.getValue()); //Can't throw exception
+                } catch (StorageEmptyException n) {System.err.println(n);}
+            } catch (StorageOverfilledException ex) {
+                JOptionPane.showMessageDialog(null, "Spare ship storage overfilled."+ex.amount+" spare sent back to station ","Overfill", JOptionPane.PLAIN_MESSAGE);
+                try {
+                    storage.increaseSpare((short) (spareSlider.getValue() - ex.amount));
+                    station.storage.increaseSpare((short) (spareSlider.getValue() - ex.amount));
+                } catch (StorageOverfilledException n) {System.err.println(n);} //Can't throw exception
+            }
+        }
+    }
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
         update(false);

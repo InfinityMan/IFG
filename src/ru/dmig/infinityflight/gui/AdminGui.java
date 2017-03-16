@@ -16,11 +16,14 @@
  */
 package ru.dmig.infinityflight.gui;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import ru.dmig.infinityflight.logic.Engine;
 import ru.dmig.infinityflight.logic.InfinityFlight;
 import ru.dmig.infinityflight.logic.Reactor;
 import ru.dmig.infinityflight.logic.Updater;
+import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
 
 /**
  *
@@ -201,11 +204,23 @@ public final class AdminGui extends javax.swing.JFrame {
     }//GEN-LAST:event_startStorageActionPerformed
 
     private void addFuelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFuelActionPerformed
-        InfinityFlight.ship.storage.setFuelAmount(InfinityFlight.ship.storage.getFuelAmount() + 100);
+        try {
+            InfinityFlight.ship.storage.increaseFuel(100);
+        } catch (StorageOverfilledException ex) {
+            try {
+                InfinityFlight.ship.storage.increaseFuel((float) (100 - ex.amount));
+            } catch (StorageOverfilledException n) {System.err.println(n);}
+        }
     }//GEN-LAST:event_addFuelActionPerformed
 
     private void addFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFoodActionPerformed
-        InfinityFlight.ship.storage.setFoodAmount(InfinityFlight.ship.storage.getFoodAmount() + 100);
+        try {
+            InfinityFlight.ship.storage.increaseFood(100);
+        } catch (StorageOverfilledException ex) {
+            try {
+                InfinityFlight.ship.storage.increaseFood((int) (100 - ex.amount));
+            } catch (StorageOverfilledException n) {System.err.println(n);}
+        }
     }//GEN-LAST:event_addFoodActionPerformed
 
     private void repairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repairActionPerformed

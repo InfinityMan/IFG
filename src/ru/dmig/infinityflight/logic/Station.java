@@ -5,7 +5,11 @@
  */
 package ru.dmig.infinityflight.logic;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static ru.dmig.infinityflight.logic.InfinityFlight.chancesUpgrade;
+import ru.dmig.infinityflight.logic.exceptions.StorageEmptyException;
+import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
 import ru.epiclib.base.Base;
 
 /**
@@ -40,7 +44,7 @@ public final class Station {
     /**
      * !Bonus fuel value
      */
-    public static final short LOW_FUEL_ADDEND = -20;
+    public static final short LOW_FUEL_ADDEND = 20;
 
     /**
      * Bonus fuel value
@@ -72,7 +76,7 @@ public final class Station {
     /**
      * Fuel amount: FA[0] - small station, etc. FA[x][0] - min; FA[x][1] - max;
      */
-    public static final short[][] FUEL_AMOUNT = {{75, 90}, {80, 95}, {100, 125}};
+    public static final short[][] FUEL_AMOUNT = {{450, 540}, {510, 600}, {660, 840}};
 
     /**
      * Food amount: FA[0] - small station, etc. FA[x][0] - min; FA[x][1] - max;
@@ -97,7 +101,7 @@ public final class Station {
      */
     private short[] touristsAmount;
 
-    public Station() {
+    public Station() throws StorageOverfilledException {
         
         storage = new Storage(true);
         
@@ -121,7 +125,7 @@ public final class Station {
         
     }
 
-    public Station(SIZE size) {
+    public Station(SIZE size) throws StorageOverfilledException {
         
         storage = new Storage(true);
         
@@ -129,7 +133,7 @@ public final class Station {
 
     }
     
-    private final void constructor(SIZE size) {
+    private void constructor(SIZE size) throws StorageOverfilledException {
         
         name = "NoName";
         //Generating name
@@ -154,10 +158,16 @@ public final class Station {
 
         assignWorkers(sizeIndex);
         assignTourists(sizeIndex);
-
-        storage.setFuelAmount(Base.randomNumber(FUEL_AMOUNT[sizeIndex][0], FUEL_AMOUNT[sizeIndex][1]));
-        storage.setFoodAmount(Base.randomNumber(FOOD_AMOUNT[sizeIndex][0], FOOD_AMOUNT[sizeIndex][1]));
         
+        storage.setMaxFoodAmount(Storage.NO_MAXIMUM);
+        storage.setMaxFuelAmount(Storage.NO_MAXIMUM);
+        storage.setMaxMedicineAmount(Storage.NO_MAXIMUM);
+        storage.setMaxFoodAmount(Storage.NO_MAXIMUM);
+
+        storage.setAmounts(Base.randomNumber(FOOD_AMOUNT[sizeIndex][0], FOOD_AMOUNT[sizeIndex][1]),
+                Base.randomNumber(FUEL_AMOUNT[sizeIndex][0], FUEL_AMOUNT[sizeIndex][1]),
+                (short) 0, (short) 0);
+
         //Medinice bonus
         //Spare bonus
 
@@ -165,7 +175,7 @@ public final class Station {
 
         if (size == SIZE.BIG) {
             if (Base.chance(CHANCE_FOOD_BONUS, 0)) {
-                storage.setFoodAmount(storage.getFoodAmount() + CHANCE_FOOD_BONUS);
+                storage.increaseFood(FOOD_BONUS);
             }
         }
     }
@@ -191,17 +201,21 @@ public final class Station {
     }
 
     private void doFuelBonus() {
-        int bonusType = chancesUpgrade(VOLUME_FUEL_CHANCES);
-        switch (bonusType) {
-            case 0:
-                storage.setFuelAmount(storage.getFuelAmount() + LOW_FUEL_ADDEND);
-                break;
-            case 1:
-                //no addend
-                break;
-            case 2:
-                storage.setFuelAmount(storage.getFuelAmount() + HIGH_FUEL_ADDEND);
-                break;
+        try {
+            int bonusType = chancesUpgrade(VOLUME_FUEL_CHANCES);
+            switch (bonusType) {
+                case 0:
+                    storage.reduceFuel(LOW_FUEL_ADDEND);
+                    break;
+                case 1:
+                    //no addend
+                    break;
+                case 2:
+                    storage.increaseFuel(HIGH_FUEL_ADDEND);
+                    break;
+            }
+        } catch (StorageEmptyException | StorageOverfilledException n) {
+            System.err.println(n);
         }
     }
     
