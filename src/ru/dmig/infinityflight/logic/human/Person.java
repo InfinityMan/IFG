@@ -17,7 +17,6 @@
 package ru.dmig.infinityflight.logic.human;
 
 import ru.dmig.infinityflight.logic.Code;
-import ru.epiclib.base.Base;
 import static ru.epiclib.base.Base.randomNumber;
 
 /**

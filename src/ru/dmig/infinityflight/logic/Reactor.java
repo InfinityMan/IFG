@@ -18,7 +18,6 @@ package ru.dmig.infinityflight.logic;
 
 import static java.lang.Math.round;
 import ru.dmig.infinityflight.logic.exceptions.*;
-import ru.epiclib.base.Base;
 import static ru.epiclib.base.Base.chance;
 
 /**

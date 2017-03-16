@@ -17,11 +17,9 @@
 package ru.dmig.infinityflight.gui;
 
 import static java.lang.System.exit;
-import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import static javax.swing.JOptionPane.showMessageDialog;
 import ru.dmig.infinityflight.logic.*;
-import static ru.dmig.infinityflight.logic.InfinityFlight.ship;
 import static ru.epiclib.gui.Util.setStyle;
 
 /**

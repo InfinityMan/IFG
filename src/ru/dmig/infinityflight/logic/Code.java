@@ -16,9 +16,6 @@
  */
 package ru.dmig.infinityflight.logic;
 
-import ru.epiclib.base.Base;
-import static ru.epiclib.base.Base.randomNumber;
-import static ru.epiclib.base.Base.randomNumber;
 import static ru.epiclib.base.Base.randomNumber;
 import static ru.epiclib.base.Base.randomString;
 

@@ -19,7 +19,6 @@ package ru.dmig.infinityflight.logic;
 import static java.lang.System.err;
 import static java.lang.System.out;
 import java.util.ArrayList;
-import ru.dmig.infinityflight.gui.StationGui;
 import static ru.dmig.infinityflight.gui.StationGui.start;
 import static ru.dmig.infinityflight.gui.StationGui.stationGui;
 import static ru.dmig.infinityflight.logic.InfinityFlight.DEFAULT_CABIN_ROOMS;

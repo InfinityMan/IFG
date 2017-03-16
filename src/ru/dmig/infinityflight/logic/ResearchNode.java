@@ -23,6 +23,7 @@ package ru.dmig.infinityflight.logic;
 public class ResearchNode {
     
     private String name;
+    private String desctiption;
     
     private int pointAmount;
     
@@ -65,6 +66,25 @@ public class ResearchNode {
     public void setName(String name) {
         this.name = name;
     }
+    
+    /**
+     * Get the value of desctiption
+     *
+     * @return the value of desctiption
+     */
+    public String getDesctiption() {
+        return desctiption;
+    }
+
+    /**
+     * Set the value of desctiption
+     *
+     * @param desctiption new value of desctiption
+     */
+    public void setDesctiption(String desctiption) {
+        this.desctiption = desctiption;
+    }
+
 
     
 }
