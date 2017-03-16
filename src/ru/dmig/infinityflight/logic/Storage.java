@@ -91,7 +91,7 @@ public class Storage {
     /**
      * Returns food,fuel,medicine,spare amounts to a start level: START_FOOD.. And etc.
      */
-    public void toStartAmounts() {
+    public final void toStartAmounts() {
         foodAmount = START_FOOD_AMOUNT;
         fuelAmount = START_FUEL_AMOUNT;
         medicineAmount = START_MEDICINE_AMOUNT;

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="25">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="26">
         <file>
             <url>src/ru/dmig/infinityflight/gui/StationGui.java</url>
             <bookmark id="16">
                 <name/>
-                <line>867</line>
+                <line>859</line>
                 <key/>
             </bookmark>
             <bookmark id="20">
                 <name/>
-                <line>892</line>
+                <line>873</line>
                 <key/>
             </bookmark>
             <bookmark id="21">
                 <name/>
-                <line>901</line>
+                <line>874</line>
                 <key/>
             </bookmark>
         </file>
@@ -66,32 +66,32 @@
             <url>src/ru/dmig/infinityflight/logic/InfinityFlight.java</url>
             <bookmark id="24">
                 <name/>
-                <line>35</line>
+                <line>53</line>
                 <key/>
             </bookmark>
             <bookmark id="25">
                 <name/>
-                <line>35</line>
+                <line>53</line>
                 <key/>
             </bookmark>
             <bookmark id="19">
                 <name/>
-                <line>74</line>
+                <line>86</line>
                 <key/>
             </bookmark>
             <bookmark id="18">
                 <name/>
-                <line>144</line>
+                <line>162</line>
                 <key/>
             </bookmark>
             <bookmark id="22">
                 <name/>
-                <line>167</line>
+                <line>191</line>
                 <key/>
             </bookmark>
             <bookmark id="23">
                 <name/>
-                <line>167</line>
+                <line>191</line>
                 <key/>
             </bookmark>
         </file>
@@ -99,17 +99,17 @@
             <url>src/ru/dmig/infinityflight/logic/Ship.java</url>
             <bookmark id="13">
                 <name/>
-                <line>39</line>
+                <line>56</line>
                 <key/>
             </bookmark>
             <bookmark id="11">
                 <name/>
-                <line>97</line>
+                <line>121</line>
                 <key/>
             </bookmark>
             <bookmark id="12">
                 <name/>
-                <line>157</line>
+                <line>176</line>
                 <key/>
             </bookmark>
         </file>
@@ -128,6 +128,11 @@
             <bookmark id="17">
                 <name/>
                 <line>134</line>
+                <key/>
+            </bookmark>
+            <bookmark id="26">
+                <name/>
+                <line>162</line>
                 <key/>
             </bookmark>
         </file>
@@ -166,6 +171,7 @@
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/res/cabinRooms</file>
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/res/reactors</file>
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/res/engines</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/exceptions/StorageEmptyException.java</file>
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Station.java</file>
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/res/touristRooms</file>
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/gui/Tester.java</file>

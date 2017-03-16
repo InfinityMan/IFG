@@ -156,13 +156,14 @@ public class StationGui extends javax.swing.JFrame {
         spareSlider = new javax.swing.JSlider();
         sparesAmount = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
+        jPanel1 = new javax.swing.JPanel();
+        flight = new javax.swing.JButton();
         button = new javax.swing.JButton();
         update = new javax.swing.JButton();
-        flight = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("IF:Station");
         setMinimumSize(new java.awt.Dimension(500, 750));
-        setPreferredSize(new java.awt.Dimension(500, 750));
 
         stationLabel.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
         stationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -770,6 +771,14 @@ public class StationGui extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        flight.setFont(new java.awt.Font("Gulim", 0, 18)); // NOI18N
+        flight.setText("Flight!");
+        flight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                flightActionPerformed(evt);
+            }
+        });
+
         button.setFont(new java.awt.Font("Gulim", 0, 18)); // NOI18N
         button.setText("Buy / Hire ");
         button.addActionListener(new java.awt.event.ActionListener() {
@@ -786,13 +795,26 @@ public class StationGui extends javax.swing.JFrame {
             }
         });
 
-        flight.setFont(new java.awt.Font("Gulim", 0, 18)); // NOI18N
-        flight.setText("Flight!");
-        flight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                flightActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(flight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(button, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(button))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(flight))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -801,7 +823,6 @@ public class StationGui extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(flight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(thirdClass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(secondClass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(firstClass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -813,10 +834,7 @@ public class StationGui extends javax.swing.JFrame {
                     .addComponent(sparesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator2)
                     .addComponent(stationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(button, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -845,11 +863,7 @@ public class StationGui extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sparesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(flight)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -875,21 +889,22 @@ public class StationGui extends javax.swing.JFrame {
         buySpare(storage, station);
         
         update(true);
+        InfinityFlight.gui.update();
     }//GEN-LAST:event_buttonActionPerformed
 
     private void buyFood(Storage storage, Station station) throws HeadlessException {
         if(foodSlider.getValue() > 0) {
             try {
-                storage.increaseFood(foodSlider.getValue());
                 try {
                     station.storage.reduceFood(foodSlider.getValue()); //Can't throw exception
                 } catch (StorageEmptyException n) {err.println(n);}
+                storage.increaseFood(foodSlider.getValue());
             } catch (StorageOverfilledException ex) {
                 showMessageDialog(null, "Food ship storage overfilled."+ex.amount+" food sent back to station ","Overfill", PLAIN_MESSAGE);
                 try {
                     storage.increaseFood((int) (foodSlider.getValue() - ex.amount));
-                    station.storage.increaseFood((int) (foodSlider.getValue() - ex.amount));
-                } catch (StorageOverfilledException n) {err.println(n);} //Can't throw exception //Can't throw exception
+                    station.storage.increaseFood((int) (ex.amount));
+                } catch (StorageOverfilledException n) {err.println(n);} //Can't throw exception
             }
         }
     }
@@ -897,16 +912,16 @@ public class StationGui extends javax.swing.JFrame {
     private void buyFuel(Storage storage, Station station) throws HeadlessException {
         if(fuelSlider.getValue() > 0) {
             try {
-                storage.increaseFuel(fuelSlider.getValue());
                 try {
                     station.storage.reduceFuel(fuelSlider.getValue()); //Can't throw exception
                 } catch (StorageEmptyException n) {err.println(n);}
+                storage.increaseFuel(fuelSlider.getValue());
             } catch (StorageOverfilledException ex) {
                 showMessageDialog(null, "Fuel ship storage overfilled."+ex.amount+" fuel sent back to station ","Overfill", PLAIN_MESSAGE);
                 try {
                     storage.increaseFuel((float) (fuelSlider.getValue() - ex.amount));
-                    station.storage.increaseFuel((float) (fuelSlider.getValue() - ex.amount));
-                } catch (StorageOverfilledException n) {err.println(n);} //Can't throw exception //Can't throw exception
+                    station.storage.increaseFuel((float) (ex.amount));
+                } catch (StorageOverfilledException n) {err.println(n);} //Can't throw exception
             }
         }
     }
@@ -914,15 +929,15 @@ public class StationGui extends javax.swing.JFrame {
     private void buyMedicine(Storage storage, Station station) throws HeadlessException {
         if(medicineSlider.getValue() > 0) {
             try {
-                storage.increaseMedicine((short) medicineSlider.getValue());
                 try {
                     station.storage.reduceMedicine((short) medicineSlider.getValue()); //Can't throw exception
                 } catch (StorageEmptyException n) {err.println(n);}
+                storage.increaseMedicine((short) medicineSlider.getValue());
             } catch (StorageOverfilledException ex) {
                 showMessageDialog(null, "Medicine ship storage overfilled."+ex.amount+" medicine sent back to station ","Overfill", PLAIN_MESSAGE);
                 try {
                     storage.increaseMedicine((short) (medicineSlider.getValue() - ex.amount));
-                    station.storage.increaseMedicine((short) (medicineSlider.getValue() - ex.amount));
+                    station.storage.increaseMedicine((short) (ex.amount));
                 } catch (StorageOverfilledException n) {err.println(n);} //Can't throw exception //Can't throw exception
             }
         }
@@ -931,15 +946,15 @@ public class StationGui extends javax.swing.JFrame {
     private void buySpare(Storage storage, Station station) throws HeadlessException {
         if(spareSlider.getValue() > 0) {
             try {
-                storage.increaseSpare((short) spareSlider.getValue());
                 try {
                     station.storage.reduceSpare((short) spareSlider.getValue()); //Can't throw exception
                 } catch (StorageEmptyException n) {err.println(n);}
+                storage.increaseSpare((short) spareSlider.getValue());
             } catch (StorageOverfilledException ex) {
                 showMessageDialog(null, "Spare ship storage overfilled."+ex.amount+" spare sent back to station ","Overfill", PLAIN_MESSAGE);
                 try {
                     storage.increaseSpare((short) (spareSlider.getValue() - ex.amount));
-                    station.storage.increaseSpare((short) (spareSlider.getValue() - ex.amount));
+                    station.storage.increaseSpare((short) (ex.amount));
                 } catch (StorageOverfilledException n) {err.println(n);} //Can't throw exception //Can't throw exception
             }
         }
@@ -986,6 +1001,7 @@ public class StationGui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
