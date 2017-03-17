@@ -27,6 +27,8 @@ import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
  */
 public class Storage {
     
+    public static enum RESOURCE_TYPE {FOOD, FUEL, MEDICINE, SPARES};
+    
     /**
      * Set this value to any "maxXAmount" if storage of 'x' infinity.
      * In this case <code>StorageOverfilledException</code> can't be throwed

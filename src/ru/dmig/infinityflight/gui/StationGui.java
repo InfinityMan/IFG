@@ -20,11 +20,14 @@ import java.awt.HeadlessException;
 import static java.lang.System.err;
 import static java.lang.Math.round;
 import static java.lang.System.exit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import static javax.swing.JOptionPane.PLAIN_MESSAGE;
 import static javax.swing.JOptionPane.showMessageDialog;
 import ru.dmig.infinityflight.logic.*;
 import static ru.dmig.infinityflight.logic.InfinityFlight.ship;
+import ru.dmig.infinityflight.logic.exceptions.NotEnoughtMoneyException;
 import ru.dmig.infinityflight.logic.exceptions.StorageEmptyException;
 import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
 import static ru.epiclib.gui.Util.setStyle;
@@ -908,71 +911,140 @@ public class StationGui extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonActionPerformed
 
     private void buyFood(Storage storage, Station station) throws HeadlessException {
-        if(foodSlider.getValue() > 0) {
+        if (foodSlider.getValue() > 0) {
             try {
+                station.storage.reduceFood(foodSlider.getValue()); //Can't throw exception
+                storage.increaseFood(foodSlider.getValue()); //CAN throw exception
                 try {
-                    station.storage.reduceFood(foodSlider.getValue()); //Can't throw exception
-                } catch (StorageEmptyException n) {err.println(n);}
-                storage.increaseFood(foodSlider.getValue());
+                    pay(foodSlider.getValue(), Storage.RESOURCE_TYPE.FOOD); //If SO exception not throwed
+                } catch (NotEnoughtMoneyException ex) {
+                    showMessageDialog(null, "Not enought money for buy food, need extra: " + ex.amount, "No money", PLAIN_MESSAGE);
+                    /* Return resource to station from ship*/
+                    storage.reduceFood(foodSlider.getValue()); //Can't throw exception
+                    station.storage.increaseFood(foodSlider.getValue()); //Can't throw exception
+                }
             } catch (StorageOverfilledException ex) {
-                showMessageDialog(null, "Food ship storage overfilled."+ex.amount+" food sent back to station ","Overfill", PLAIN_MESSAGE);
+                showMessageDialog(null, "Food ship storage overfilled." + ex.amount + " food sent back to station ", "Overfill", PLAIN_MESSAGE);
+                storage.reduceFood((int) (ex.amount)); //Can't throw exception
+                station.storage.increaseFood((int) (ex.amount)); //Can't throw exception
                 try {
-                    storage.increaseFood((int) (foodSlider.getValue() - ex.amount));
-                    station.storage.increaseFood((int) (ex.amount));
-                } catch (StorageOverfilledException n) {err.println(n);} //Can't throw exception
+                    pay(foodSlider.getValue(), Storage.RESOURCE_TYPE.FOOD); //If SO exception throwed
+                } catch (NotEnoughtMoneyException exep) {
+                    showMessageDialog(null, "Not enought money for buy food, need extra: " + exep.amount, "No money", PLAIN_MESSAGE);
+                    /* Return resource to station from ship*/
+                    storage.reduceFood((int) (foodSlider.getValue() - ex.amount)); //Can't throw exception
+                    station.storage.reduceFood((int) (ex.amount)); //Can't throw exception
+                }
             }
         }
     }
 
     private void buyFuel(Storage storage, Station station) throws HeadlessException {
-        if(fuelSlider.getValue() > 0) {
+        if (fuelSlider.getValue() > 0) {
             try {
+                station.storage.reduceFuel(fuelSlider.getValue()); //Can't throw exception
+                storage.increaseFuel(fuelSlider.getValue()); //CAN throw exception
                 try {
-                    station.storage.reduceFuel(fuelSlider.getValue()); //Can't throw exception
-                } catch (StorageEmptyException n) {err.println(n);}
-                storage.increaseFuel(fuelSlider.getValue());
+                    pay(fuelSlider.getValue(), Storage.RESOURCE_TYPE.FOOD); //If SO exception not throwed
+                } catch (NotEnoughtMoneyException ex) {
+                    showMessageDialog(null, "Not enought money for buy fuel, need extra: " + ex.amount, "No money", PLAIN_MESSAGE);
+                    /* Return resource to station from ship*/
+                    storage.reduceFuel(fuelSlider.getValue()); //Can't throw exception
+                    station.storage.increaseFuel(fuelSlider.getValue()); //Can't throw exception
+                }
             } catch (StorageOverfilledException ex) {
-                showMessageDialog(null, "Fuel ship storage overfilled."+ex.amount+" fuel sent back to station ","Overfill", PLAIN_MESSAGE);
+                showMessageDialog(null, "Fuel ship storage overfilled." + ex.amount + " fuel sent back to station ", "Overfill", PLAIN_MESSAGE);
+                storage.reduceFuel((float) (ex.amount)); //Can't throw exception
+                station.storage.increaseFuel((float) (ex.amount)); //Can't throw exception
                 try {
-                    storage.increaseFuel((float) (fuelSlider.getValue() - ex.amount));
-                    station.storage.increaseFuel((float) (ex.amount));
-                } catch (StorageOverfilledException n) {err.println(n);} //Can't throw exception
+                    pay(fuelSlider.getValue(), Storage.RESOURCE_TYPE.FOOD); //If SO exception throwed
+                } catch (NotEnoughtMoneyException exep) {
+                    showMessageDialog(null, "Not enought money for buy fuel, need extra: " + exep.amount, "No money", PLAIN_MESSAGE);
+                    /* Return resource to station from ship*/
+                    storage.reduceFuel((float) (fuelSlider.getValue() - ex.amount)); //Can't throw exception
+                    station.storage.reduceFuel((float) (ex.amount)); //Can't throw exception
+                }
             }
         }
     }
-    
+
     private void buyMedicine(Storage storage, Station station) throws HeadlessException {
-        if(medicineSlider.getValue() > 0) {
+        if (medicineSlider.getValue() > 0) {
             try {
+                station.storage.reduceMedicine((short) medicineSlider.getValue()); //Can't throw exception
+                storage.increaseMedicine((short) medicineSlider.getValue()); //CAN throw exception
                 try {
-                    station.storage.reduceMedicine((short) medicineSlider.getValue()); //Can't throw exception
-                } catch (StorageEmptyException n) {err.println(n);}
-                storage.increaseMedicine((short) medicineSlider.getValue());
+                    pay(medicineSlider.getValue(), Storage.RESOURCE_TYPE.FOOD); //If SO exception not throwed
+                } catch (NotEnoughtMoneyException ex) {
+                    showMessageDialog(null, "Not enought money for buy medicine, need extra: " + ex.amount, "No money", PLAIN_MESSAGE);
+                    /* Return resource to station from ship*/
+                    storage.reduceMedicine((short) medicineSlider.getValue()); //Can't throw exception
+                    station.storage.increaseMedicine((short) medicineSlider.getValue()); //Can't throw exception
+                }
             } catch (StorageOverfilledException ex) {
-                showMessageDialog(null, "Medicine ship storage overfilled."+ex.amount+" medicine sent back to station ","Overfill", PLAIN_MESSAGE);
+                showMessageDialog(null, "Medicine ship storage overfilled." + ex.amount + " medicine sent back to station ", "Overfill", PLAIN_MESSAGE);
+                storage.reduceMedicine((short) (ex.amount)); //Can't throw exception
+                station.storage.increaseMedicine((short) (ex.amount)); //Can't throw exception
                 try {
-                    storage.increaseMedicine((short) (medicineSlider.getValue() - ex.amount));
-                    station.storage.increaseMedicine((short) (ex.amount));
-                } catch (StorageOverfilledException n) {err.println(n);} //Can't throw exception //Can't throw exception
+                    pay(medicineSlider.getValue(), Storage.RESOURCE_TYPE.FOOD); //If SO exception throwed
+                } catch (NotEnoughtMoneyException exep) {
+                    showMessageDialog(null, "Not enought money for buy medicine, need extra: " + exep.amount, "No money", PLAIN_MESSAGE);
+                    /* Return resource to station from ship*/
+                    storage.reduceMedicine((short) (medicineSlider.getValue() - ex.amount)); //Can't throw exception
+                    station.storage.reduceMedicine((short) (ex.amount)); //Can't throw exception
+                }
             }
         }
     }
     
     private void buySpare(Storage storage, Station station) throws HeadlessException {
-        if(spareSlider.getValue() > 0) {
+        if (spareSlider.getValue() > 0) {
             try {
+                station.storage.reduceSpare((short) spareSlider.getValue()); //Can't throw exception
+                storage.increaseSpare((short) spareSlider.getValue()); //CAN throw exception
                 try {
-                    station.storage.reduceSpare((short) spareSlider.getValue()); //Can't throw exception
-                } catch (StorageEmptyException n) {err.println(n);}
-                storage.increaseSpare((short) spareSlider.getValue());
+                    pay(spareSlider.getValue(), Storage.RESOURCE_TYPE.FOOD); //If SO exception not throwed
+                } catch (NotEnoughtMoneyException ex) {
+                    showMessageDialog(null, "Not enought money for buy spare, need extra: " + ex.amount, "No money", PLAIN_MESSAGE);
+                    /* Return resource to station from ship*/
+                    storage.reduceSpare((short) spareSlider.getValue()); //Can't throw exception
+                    station.storage.increaseSpare((short) spareSlider.getValue()); //Can't throw exception
+                }
             } catch (StorageOverfilledException ex) {
-                showMessageDialog(null, "Spare ship storage overfilled."+ex.amount+" spare sent back to station ","Overfill", PLAIN_MESSAGE);
+                showMessageDialog(null, "Spare ship storage overfilled." + ex.amount + " spare sent back to station ", "Overfill", PLAIN_MESSAGE);
+                storage.reduceSpare((short) (ex.amount)); //Can't throw exception
+                station.storage.increaseSpare((short) (ex.amount)); //Can't throw exception
                 try {
-                    storage.increaseSpare((short) (spareSlider.getValue() - ex.amount));
-                    station.storage.increaseSpare((short) (ex.amount));
-                } catch (StorageOverfilledException n) {err.println(n);} //Can't throw exception //Can't throw exception
+                    pay(spareSlider.getValue(), Storage.RESOURCE_TYPE.FOOD); //If SO exception throwed
+                } catch (NotEnoughtMoneyException exep) {
+                    showMessageDialog(null, "Not enought money for buy spare, need extra: " + exep.amount, "No money", PLAIN_MESSAGE);
+                    /* Return resource to station from ship*/
+                    storage.reduceSpare((short) (spareSlider.getValue() - ex.amount)); //Can't throw exception
+                    station.storage.reduceSpare((short) (ex.amount)); //Can't throw exception
+                }
             }
         }
+    }
+    
+    private void pay(float amount, Storage.RESOURCE_TYPE type) throws NotEnoughtMoneyException {
+        double price = amount;
+        switch (type) {
+            case FOOD:
+                price = amount * InfinityFlight.PRICE_FOR_ONE_FOOD;
+                break;
+            case FUEL:
+                price = amount * InfinityFlight.PRICE_FOR_ONE_FUEL;
+                break;
+            case MEDICINE:
+                price = amount * InfinityFlight.PRICE_FOR_ONE_MEDICINE;
+                break;
+            case SPARES:
+                price = amount * InfinityFlight.PRICE_FOR_ONE_SPARE;
+                break;
+            default:
+                throw new AssertionError();
+        }
+        InfinityFlight.ship.reduceMoney(price);
     }
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
