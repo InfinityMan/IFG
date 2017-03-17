@@ -44,11 +44,40 @@ public class Updater extends Thread {
     }
     
     public Ship ship;
+    
     private boolean ended = false;
+    private boolean paused = false;
+    
+    private float previousTick = 1000;
 
     public Updater(Ship ship) {
         this.ship = ship;
         this.setName("Updater");
+    }
+    
+    /**
+     * Pauses updating of the game
+     */
+    public void pause() {
+        paused = true;
+        previousTick = tick;
+        tick = 200;
+    }
+    
+    /**
+     * Unpauses updating of the game
+     */
+    public void play() {
+        tick = previousTick;
+        paused = false;
+    }
+    
+    /**
+     * Get value of paused
+     * @return true if paused; false if not
+     */
+    public boolean isPaused() {
+        return paused;
     }
 
     @Override
@@ -57,7 +86,10 @@ public class Updater extends Thread {
         while(!ended) {
             try {
                 sleep(round(tick));
-                ship.updateHour(hour); //in case of edit: edit update hour
+                
+                if(!paused) {
+                    ship.updateHour(hour); //in case of edit: edit update hour
+                }
                 
                 if(hour != 20) {
                     hour = (byte)(hour + 4);
