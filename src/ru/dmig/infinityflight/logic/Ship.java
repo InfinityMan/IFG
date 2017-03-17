@@ -71,6 +71,8 @@ public class Ship {
     public Ship() {
 
         storage = new Storage(false);
+        
+        money = InfinityFlight.START_MONEY_AMOUNT;
 
         personel = getStartPersonal();
 

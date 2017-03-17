@@ -62,6 +62,8 @@ public class InfinityFlight {
     public static final byte TOURIST_CLASSES_AMOUNT = 3;
 
     public static final short[] START_PERSONAL_AMOUNT = {2, 1, 2, 0, 2};
+    
+    public static final double START_MONEY_AMOUNT = 1000;
 
     /**
      * Flight duration between stations in days; FD[0] - low flight duration
