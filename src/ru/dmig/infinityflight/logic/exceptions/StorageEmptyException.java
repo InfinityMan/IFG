@@ -20,7 +20,7 @@ package ru.dmig.infinityflight.logic.exceptions;
  *
  * @author Dmig
  */
-public class StorageEmptyException extends Exception {
+public class StorageEmptyException extends RuntimeException {
 
     /**
      * Creates a new instance of <code>StorageEmptyException</code> without

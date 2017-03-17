@@ -20,7 +20,7 @@ package ru.dmig.infinityflight.logic.exceptions;
  *
  * @author Dmig
  */
-public class NotEnoughtMoneyException extends Exception {
+public class NotEnoughtMoneyException extends RuntimeException {
     
     public double amount;
 

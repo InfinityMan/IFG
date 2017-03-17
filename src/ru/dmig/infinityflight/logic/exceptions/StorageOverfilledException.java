@@ -20,7 +20,7 @@ package ru.dmig.infinityflight.logic.exceptions;
  * Exception throwed in case of <code>Storage</code> current value > max <code>Storage</code> value
  * @author Dmig
  */
-public class StorageOverfilledException extends Exception {
+public class StorageOverfilledException extends RuntimeException {
     
     public double amount = 0;
 
