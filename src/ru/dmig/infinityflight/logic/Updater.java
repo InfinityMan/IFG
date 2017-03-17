@@ -27,28 +27,14 @@ import static java.lang.System.out;
 public class Updater extends Thread {
     
     private static float tick = 1_000;
-
-    /**
-     * Change tick of game
-     * @param half If half - halfes tick; else doubles
-     */
-    public static void changeTick(boolean half) {
-        if (half) {
-            tick /= 2;
-        } else {
-            tick *= 2;
-        }
-    }
-    public static float getTick() {
-        return tick;
-    }
     
     public Ship ship;
     
     private boolean ended = false;
-    private boolean paused = false;
     
-    private float previousTick = 1000;
+    private static boolean paused = false;
+    
+    private static float previousTick = 1000;
 
     public Updater(Ship ship) {
         this.ship = ship;
@@ -56,9 +42,41 @@ public class Updater extends Thread {
     }
     
     /**
+     * Change tick of the game. If game paused change previousTick
+     * @param half If half - halfes tick; else doubles
+     */
+    public static void changeTick(boolean half) {
+        if (!paused) {
+            if (half) {
+                tick /= 2;
+            } else {
+                tick *= 2;
+            }
+        } else {
+            if (half) {
+                previousTick /= 2;
+            } else {
+                previousTick *= 2;
+            }
+        }
+    }
+
+    /**
+     * Get tick of the game. If game paused returns previousTick
+     * @return tick, if !paused; previousTick if paused.
+     */
+    public static float getTick() {
+        if(!paused) {
+            return tick;
+        } else {
+            return previousTick;
+        }
+    }
+    
+    /**
      * Pauses updating of the game
      */
-    public void pause() {
+    public static void pause() {
         paused = true;
         previousTick = tick;
         tick = 200;
@@ -67,7 +85,7 @@ public class Updater extends Thread {
     /**
      * Unpauses updating of the game
      */
-    public void play() {
+    public static void play() {
         tick = previousTick;
         paused = false;
     }
@@ -76,7 +94,7 @@ public class Updater extends Thread {
      * Get value of paused
      * @return true if paused; false if not
      */
-    public boolean isPaused() {
+    public static boolean isPaused() {
         return paused;
     }
 

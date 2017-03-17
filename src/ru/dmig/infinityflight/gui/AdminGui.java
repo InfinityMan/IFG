@@ -24,8 +24,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import ru.dmig.infinityflight.logic.Engine;
 import static ru.dmig.infinityflight.logic.InfinityFlight.ship;
 import ru.dmig.infinityflight.logic.Reactor;
-import static ru.dmig.infinityflight.logic.Updater.changeTick;
-import static ru.dmig.infinityflight.logic.Updater.getTick;
+import ru.dmig.infinityflight.logic.Updater;
 import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
 import static ru.epiclib.gui.Util.setStyle;
 
@@ -85,6 +84,7 @@ public class AdminGui extends javax.swing.JFrame {
         startStorage = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         repair = new javax.swing.JButton();
+        pauseButton = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("IF:Admin");
@@ -143,6 +143,14 @@ public class AdminGui extends javax.swing.JFrame {
             }
         });
 
+        pauseButton.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        pauseButton.setText("Pause");
+        pauseButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pauseButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,21 +163,24 @@ public class AdminGui extends javax.swing.JFrame {
                     .addComponent(addFood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(startStorage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator2)
+                    .addComponent(repair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(tickSize)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(halfSpeed)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(doubleSpeed)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(repair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(doubleSpeed))
+                            .addComponent(pauseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(pauseButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tickSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -194,13 +205,13 @@ public class AdminGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void doubleSpeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doubleSpeedActionPerformed
-        changeTick(false);
-        tickSize.setText(round(getTick()) + " ms");
+        Updater.changeTick(false);
+        tickSize.setText(round(Updater.getTick()) + " ms");
     }//GEN-LAST:event_doubleSpeedActionPerformed
 
     private void halfSpeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfSpeedActionPerformed
-        changeTick(true);
-        tickSize.setText(round(getTick()) + " ms");
+        Updater.changeTick(true);
+        tickSize.setText(round(Updater.getTick()) + " ms");
     }//GEN-LAST:event_halfSpeedActionPerformed
 
     private void startStorageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startStorageActionPerformed
@@ -239,6 +250,14 @@ public class AdminGui extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_repairActionPerformed
 
+    private void pauseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseButtonActionPerformed
+        if(Updater.isPaused()) {
+            Updater.play();
+        } else {
+            Updater.pause();
+        }
+    }//GEN-LAST:event_pauseButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addFood;
     private javax.swing.JButton addFuel;
@@ -246,6 +265,7 @@ public class AdminGui extends javax.swing.JFrame {
     private javax.swing.JButton halfSpeed;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JToggleButton pauseButton;
     private javax.swing.JButton repair;
     private javax.swing.JButton startStorage;
     private javax.swing.JTextField tickSize;
