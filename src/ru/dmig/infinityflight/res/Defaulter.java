@@ -24,10 +24,11 @@ import static ru.dmig.infinityflight.logic.Room.Prestige.BAD;
 import static ru.dmig.infinityflight.logic.Room.Prestige.GOOD;
 import static ru.dmig.infinityflight.logic.Room.Prestige.NORMAL;
 import static ru.dmig.infinityflight.logic.Room.Prestige.TERRIBLE;
+import ru.dmig.infinityflight.logic.human.Passenger;
 import ru.dmig.infinityflight.logic.rooms.*;
-import static ru.dmig.infinityflight.logic.rooms.TouristRoom.Class.FIRST;
-import static ru.dmig.infinityflight.logic.rooms.TouristRoom.Class.SECOND;
-import static ru.dmig.infinityflight.logic.rooms.TouristRoom.Class.THIRD;
+import static ru.dmig.infinityflight.logic.human.Passenger.CLASS.FIRST;
+import static ru.dmig.infinityflight.logic.human.Passenger.CLASS.SECOND;
+import static ru.dmig.infinityflight.logic.human.Passenger.CLASS.THIRD;
 
 /**
  * Class for loading defaults (Reactors;Engines;Tourist rooms;Cabins..)
@@ -58,7 +59,7 @@ public class Defaulter {
                     String[] gamm = beta[j].split(",");
 
                     String typeName;
-                    TouristRoom.Class cl = THIRD;
+                    Passenger.CLASS cl = THIRD;
                     Room.Prestige pr = TERRIBLE;
                     byte placeAmount;
 
