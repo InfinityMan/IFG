@@ -16,13 +16,16 @@
  */
 package ru.dmig.infinityflight.logic.human;
 
+import ru.epiclib.base.Base;
+
 /**
- * Class for peoples, who traveling on space
+ * Class for peoples, who traveling on space for money
  *
  * @author Dmig
  */
 public class Passenger extends Person {
-
+    
+    public static final byte[][] STATION_NUMS = {{1,2},{1,3},{2,5}};
 
     public CLASS passengerClass;
     
@@ -31,6 +34,26 @@ public class Passenger extends Person {
     public Passenger(CLASS passengerClass) {
         super();
         this.passengerClass = passengerClass;
+        genStationNumInFlight();
+    }
+    
+    /**
+     * Gen the value of stationNumInFlight
+     */
+    private void genStationNumInFlight() {
+        switch (passengerClass) {
+            case THIRD:
+                stationNumInFlight = (byte) Base.randomNumber(STATION_NUMS[0][0], STATION_NUMS[0][1]);
+                break;
+            case SECOND:
+                stationNumInFlight = (byte) Base.randomNumber(STATION_NUMS[1][0], STATION_NUMS[1][1]);
+                break;
+            case FIRST:
+                stationNumInFlight = (byte) Base.randomNumber(STATION_NUMS[2][0], STATION_NUMS[2][1]);
+                break;
+            default:
+                throw new AssertionError();
+        }
     }
     
     /**
@@ -53,7 +76,7 @@ public class Passenger extends Person {
 
     
     public static enum CLASS {
-        FIRST, SECOND, THIRD
+        THIRD, SECOND, FIRST
     }
 
 }
