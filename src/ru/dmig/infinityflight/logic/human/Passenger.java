@@ -25,25 +25,33 @@ public class Passenger extends Person {
 
 
     public CLASS passengerClass;
+    
+    private byte stationNumInFlight;
 
-    public Passenger() {
+    public Passenger(CLASS passengerClass) {
         super();
-    }
-
-    public Passenger(CLASS pasClass) {
-        this();
-        passengerClass = pasClass;
-    }
-
-    public Passenger(CLASS passengerClass, String sector) {
-        super(sector);
         this.passengerClass = passengerClass;
     }
-
-    public Passenger(CLASS passengerClass, String[] codes) {
-        super(codes);
-        this.passengerClass = passengerClass;
+    
+    /**
+     * Get the value of stationNumInFlight
+     *
+     * @return the value of stationNumInFlight
+     */
+    public byte getStationNumInFlight() {
+        return stationNumInFlight;
     }
+
+    /**
+     * Set the value of stationNumInFlight
+     *
+     * @param stationNumInFlight new value of stationNumInFlight
+     */
+    public void setStationNumInFlight(byte stationNumInFlight) {
+        this.stationNumInFlight = stationNumInFlight;
+    }
+
+    
     public static enum CLASS {
         FIRST, SECOND, THIRD
     }

@@ -16,7 +16,6 @@
  */
 package ru.dmig.infinityflight.logic.human;
 
-import ru.dmig.infinityflight.logic.Code;
 import static ru.epiclib.base.Base.randomNumber;
 
 /**
@@ -39,7 +38,6 @@ public class Person {
 
 
     //<editor-fold defaultstate="collapsed" desc="Characteristic">
-    private Code code;
 
     private byte age;
     private boolean isMan;
@@ -49,27 +47,17 @@ public class Person {
 
     //?:toString()
     //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Constructors">
+    
     public Person() {
-        code = new Code();
 
         isMan = randomNumber(0, 1) != 0;
         age = (byte) randomNumber(MIN_AGE, MAX_AGE);
 
     }
-
-    public Person(String[] codes) {
-        this();
-        code = new Code();
-        //expect
-    }
-
-    public Person(String sector) {
-        this();
-
-        code = new Code(sector);
-    }
-//</editor-fold>
+    
+    //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Methods">
     /**
@@ -85,40 +73,11 @@ public class Person {
         }
     }
 
-    /**
-     * Edit the sector of code of people
-     *
-     * @param sector new sector name
-     */
-    public void editSector(String sector) {
-        Code a = getCode();
-        a.setSector(sector);
-        setCode(a);
-    }
-
     @Override
     public String toString() {
-        return code.toString() + "::Age:" + age + "::Gender:" + gender() + ";";
+        return "Age:" + age + "::Gender:" + gender() + ";";
     }
     //</editor-fold>
-
-    /**
-     * Get the value of code
-     *
-     * @return the value of code
-     */
-    public Code getCode() {
-        return code;
-    }
-
-    /**
-     * Set the value of code
-     *
-     * @param code new value of code
-     */
-    public void setCode(Code code) {
-        this.code = code;
-    }
 
     /**
      * Get the value of man

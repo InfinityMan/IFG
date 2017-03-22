@@ -34,16 +34,7 @@ public class Personal extends Person {
         super();
         this.profession = profession;
     }
-
-    public Personal(PROFESSION profession, String sector) {
-        super(sector);
-        this.profession = profession;
-    }
-
-    public Personal(PROFESSION profession, String[] codes) {
-        super(codes);
-        this.profession = profession;
-    }
+    
     public static enum PROFESSION {
         WORKER, ENGINEER, MEDIC, GUARD, BIOLOGIST
     }
