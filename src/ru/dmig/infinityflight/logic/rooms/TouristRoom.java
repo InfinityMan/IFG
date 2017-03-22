@@ -17,6 +17,7 @@
 package ru.dmig.infinityflight.logic.rooms;
 
 import ru.dmig.infinityflight.logic.*;
+import ru.dmig.infinityflight.logic.human.Passenger;
 
 /**
  *
@@ -26,9 +27,9 @@ public class TouristRoom extends Room {
 
     
 
-    private Class roomClass;
+    private Passenger.CLASS roomClass;
 
-    public TouristRoom(Class roomClass, String typeName, Prestige prestige, byte placeAmount) {
+    public TouristRoom(Passenger.CLASS roomClass, String typeName, Prestige prestige, byte placeAmount) {
         this.roomClass = roomClass;
         setTypeName(typeName);
         setPrestige(prestige);
@@ -40,7 +41,7 @@ public class TouristRoom extends Room {
      *
      * @return the value of roomClass
      */
-    public Class getRoomClass() {
+    public Passenger.CLASS getRoomClass() {
         return roomClass;
     }
 
@@ -49,11 +50,8 @@ public class TouristRoom extends Room {
      *
      * @param roomClass new value of roomClass
      */
-    public void setRoomClass(Class roomClass) {
+    public void setRoomClass(Passenger.CLASS roomClass) {
         this.roomClass = roomClass;
-    }
-    public static enum Class {
-        FIRST, SECOND, THIRD
     }
 
 }
