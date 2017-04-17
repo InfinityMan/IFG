@@ -30,6 +30,7 @@ import static ru.dmig.infinityflight.logic.InfinityFlight.ship;
 import ru.dmig.infinityflight.logic.exceptions.NotEnoughtMoneyException;
 import ru.dmig.infinityflight.logic.exceptions.StorageEmptyException;
 import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
+import ru.dmig.infinityflight.logic.human.Passenger;
 import static ru.epiclib.gui.Util.setStyle;
 
 /**
@@ -893,13 +894,13 @@ public class StationGui extends javax.swing.JFrame {
         Ship ship = InfinityFlight.ship;
         Station station = ship.station;
         
-        //Tourists
+        transferTouristsToShip(Passenger.CLASS.THIRD);
+        transferTouristsToShip(Passenger.CLASS.SECOND);
+        transferTouristsToShip(Passenger.CLASS.FIRST);
         
         //Workers
         
         Storage storage = ship.storage;
-        
-        //Money!
         
         buyFood(storage, station);
         buyFuel(storage, station);
@@ -910,6 +911,26 @@ public class StationGui extends javax.swing.JFrame {
         InfinityFlight.gui.update();
     }//GEN-LAST:event_buttonActionPerformed
 
+    private void transferTouristsToShip(Passenger.CLASS pClass) {
+        int num = 0;
+        switch (pClass) {
+            case THIRD:
+                num = thirdClassSlider.getValue();
+                break;
+            case SECOND:
+                num = secondClassSlider.getValue();
+                break;
+            case FIRST:
+                num = firstClassSlider.getValue();
+                break;
+            default:
+                throw new AssertionError();
+        }
+        for (int i = 0; i < num; i++) {
+            InfinityFlight.ship.passengers.add(new Passenger(pClass));
+        }
+    }
+    
     private void buyFood(Storage storage, Station station) throws HeadlessException {
         if (foodSlider.getValue() > 0) {
             try {
