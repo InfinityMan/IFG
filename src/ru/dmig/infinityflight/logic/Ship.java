@@ -19,7 +19,7 @@ package ru.dmig.infinityflight.logic;
 import static java.lang.System.err;
 import static java.lang.System.out;
 import java.util.ArrayList;
-import static ru.dmig.infinityflight.gui.StationGui.start;
+import ru.dmig.infinityflight.gui.StationGui;
 import static ru.dmig.infinityflight.gui.StationGui.stationGui;
 import static ru.dmig.infinityflight.logic.InfinityFlight.DEFAULT_CABIN_ROOMS;
 import static ru.dmig.infinityflight.logic.InfinityFlight.DEFAULT_ENGINES;
@@ -214,7 +214,19 @@ public class Ship {
     }
 
     private void arriveToStation() {
-        start();
+        //exit passengers
+        ArrayList<Passenger> newPassengers = passengers;
+        for (int i = 0; i < passengers.size(); i++) {
+            Passenger passenger = passengers.get(i);
+            if(passenger.getStationRemaining() - 1 == 0) {
+                increaseMoney(passenger.pay());
+                newPassengers.remove(i);
+            } else {
+                passenger.setStationRemaining((byte) (passenger.getStationRemaining() - 1));
+            }
+        }
+        
+        StationGui.start();
     }
     
     public void departureFromStation() {

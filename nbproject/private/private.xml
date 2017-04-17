@@ -1,47 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="26">
-        <file>
-            <url>src/ru/dmig/infinityflight/logic/Ship.java</url>
-            <bookmark id="13">
-                <name/>
-                <line>56</line>
-                <key/>
-            </bookmark>
-            <bookmark id="11">
-                <name/>
-                <line>123</line>
-                <key/>
-            </bookmark>
-            <bookmark id="12">
-                <name/>
-                <line>178</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
-            <url>src/ru/dmig/infinityflight/logic/Station.java</url>
-            <bookmark id="14">
-                <name/>
-                <line>128</line>
-                <key/>
-            </bookmark>
-            <bookmark id="15">
-                <name/>
-                <line>128</line>
-                <key/>
-            </bookmark>
-            <bookmark id="17">
-                <name/>
-                <line>134</line>
-                <key/>
-            </bookmark>
-            <bookmark id="26">
-                <name/>
-                <line>162</line>
-                <key/>
-            </bookmark>
-        </file>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="27">
         <file>
             <url>src/ru/dmig/infinityflight/gui/StationGui.java</url>
             <bookmark id="16">
@@ -104,14 +63,6 @@
             </bookmark>
         </file>
         <file>
-            <url>src/ru/dmig/prjisland/Person.java</url>
-            <bookmark id="9">
-                <name/>
-                <line>60</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
             <url>src/ru/dmig/infinityflight/logic/InfinityFlight.java</url>
             <bookmark id="24">
                 <name/>
@@ -145,6 +96,63 @@
             </bookmark>
         </file>
         <file>
+            <url>src/ru/dmig/infinityflight/logic/human/Person.java</url>
+            <bookmark id="27">
+                <name/>
+                <line>57</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/ru/dmig/infinityflight/logic/Ship.java</url>
+            <bookmark id="13">
+                <name/>
+                <line>56</line>
+                <key/>
+            </bookmark>
+            <bookmark id="11">
+                <name/>
+                <line>123</line>
+                <key/>
+            </bookmark>
+            <bookmark id="12">
+                <name/>
+                <line>178</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/ru/dmig/infinityflight/logic/Station.java</url>
+            <bookmark id="14">
+                <name/>
+                <line>128</line>
+                <key/>
+            </bookmark>
+            <bookmark id="15">
+                <name/>
+                <line>128</line>
+                <key/>
+            </bookmark>
+            <bookmark id="17">
+                <name/>
+                <line>134</line>
+                <key/>
+            </bookmark>
+            <bookmark id="26">
+                <name/>
+                <line>162</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/ru/dmig/prjisland/Person.java</url>
+            <bookmark id="9">
+                <name/>
+                <line>60</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
             <url>src/ru/dmig/infinityflight/gui/Gui.java</url>
             <bookmark id="10">
                 <name/>
@@ -164,7 +172,9 @@
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/exceptions/StorageEmptyException.java</file>
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Station.java</file>
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/exceptions/NotEnoughtMoneyException.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/human/Person.java</file>
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/res/Defaulter.java</file>
+            <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/human/Passenger.java</file>
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Engine.java</file>
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/Updater.java</file>
             <file>file:/C:/Users/Dmig/Documents/NetBeansProjects/InfinityFlight/src/ru/dmig/infinityflight/logic/rooms/TouristRoom.java</file>

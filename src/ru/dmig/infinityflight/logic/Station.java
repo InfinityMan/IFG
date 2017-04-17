@@ -48,7 +48,7 @@ public class Station {
     public static final byte CHANCE_FOOD_BONUS = 15;
 
     /**
-     * Chance of 'low' fuel Chance of 'normal' fuel Chance of 'high' fuel
+     * Chance of 'low' fuel; Chance of 'normal' fuel; Chance of 'high' fuel
      */
     public static final byte[] VOLUME_FUEL_CHANCES = {15, 75, 10};
 
