@@ -118,11 +118,14 @@ public class Gui extends javax.swing.JFrame {
         settingsMenu = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenuItem();
         aboutMenu = new javax.swing.JMenuItem();
-        personalMenu = new javax.swing.JMenu();
-        touristMenu = new javax.swing.JMenu();
-        roomMenu = new javax.swing.JMenu();
-        enginesMenu = new javax.swing.JMenu();
-        reactorMenu = new javax.swing.JMenu();
+        funcMenu = new javax.swing.JMenu();
+        personalMenu = new javax.swing.JMenuItem();
+        passengersMenu = new javax.swing.JMenuItem();
+        roomsMenu = new javax.swing.JMenuItem();
+        enginesMenu = new javax.swing.JMenuItem();
+        reactorsMenu = new javax.swing.JMenuItem();
+        otherMenu = new javax.swing.JMenu();
+        statisticMenu = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
@@ -362,29 +365,31 @@ public class Gui extends javax.swing.JFrame {
 
         jMenuBar1.add(gameSubsMenus);
 
+        funcMenu.setText("Functions");
+
         personalMenu.setText("Personal");
         personalMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 personalMenuActionPerformed(evt);
             }
         });
-        jMenuBar1.add(personalMenu);
+        funcMenu.add(personalMenu);
 
-        touristMenu.setText("Tourists");
-        touristMenu.addActionListener(new java.awt.event.ActionListener() {
+        passengersMenu.setText("Passengers");
+        passengersMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                touristMenuActionPerformed(evt);
+                passengersMenuActionPerformed(evt);
             }
         });
-        jMenuBar1.add(touristMenu);
+        funcMenu.add(passengersMenu);
 
-        roomMenu.setText("Rooms");
-        roomMenu.addActionListener(new java.awt.event.ActionListener() {
+        roomsMenu.setText("Rooms");
+        roomsMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                roomMenuActionPerformed(evt);
+                roomsMenuActionPerformed(evt);
             }
         });
-        jMenuBar1.add(roomMenu);
+        funcMenu.add(roomsMenu);
 
         enginesMenu.setText("Engines");
         enginesMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -392,15 +397,29 @@ public class Gui extends javax.swing.JFrame {
                 enginesMenuActionPerformed(evt);
             }
         });
-        jMenuBar1.add(enginesMenu);
+        funcMenu.add(enginesMenu);
 
-        reactorMenu.setText("Reactors");
-        reactorMenu.addActionListener(new java.awt.event.ActionListener() {
+        reactorsMenu.setText("Reactors");
+        reactorsMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reactorMenuActionPerformed(evt);
+                reactorsMenuActionPerformed(evt);
             }
         });
-        jMenuBar1.add(reactorMenu);
+        funcMenu.add(reactorsMenu);
+
+        jMenuBar1.add(funcMenu);
+
+        otherMenu.setText("Other");
+
+        statisticMenu.setText("Statistic");
+        statisticMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statisticMenuActionPerformed(evt);
+            }
+        });
+        otherMenu.add(statisticMenu);
+
+        jMenuBar1.add(otherMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -442,26 +461,6 @@ public class Gui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void personalMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personalMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_personalMenuActionPerformed
-
-    private void touristMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_touristMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_touristMenuActionPerformed
-
-    private void roomMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_roomMenuActionPerformed
-
-    private void enginesMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enginesMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enginesMenuActionPerformed
-
-    private void reactorMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reactorMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_reactorMenuActionPerformed
-
     private void settingsMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsMenuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_settingsMenuActionPerformed
@@ -474,6 +473,30 @@ public class Gui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_aboutMenuActionPerformed
 
+    private void personalMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personalMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_personalMenuActionPerformed
+
+    private void passengersMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passengersMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passengersMenuActionPerformed
+
+    private void roomsMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomsMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_roomsMenuActionPerformed
+
+    private void enginesMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enginesMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enginesMenuActionPerformed
+
+    private void reactorsMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reactorsMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reactorsMenuActionPerformed
+
+    private void statisticMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statisticMenuActionPerformed
+        System.out.println(InfinityFlight.game.toString());
+    }//GEN-LAST:event_statisticMenuActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel InfoBar;
     private javax.swing.JMenuItem aboutMenu;
@@ -481,11 +504,12 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JLabel distanceToStationL;
     private javax.swing.JLabel energyAmount;
     private javax.swing.JLabel energyAmountL;
-    private javax.swing.JMenu enginesMenu;
+    private javax.swing.JMenuItem enginesMenu;
     private javax.swing.JLabel foodAmount;
     private javax.swing.JLabel foodAmountL;
     private javax.swing.JLabel fuelAmount;
     private javax.swing.JLabel fuelAmountL;
+    private javax.swing.JMenu funcMenu;
     private javax.swing.JMenu gameSubsMenus;
     private javax.swing.JMenuItem helpMenu;
     private javax.swing.JMenuBar jMenuBar1;
@@ -498,12 +522,15 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JLabel money;
     private javax.swing.JLabel moneyL;
+    private javax.swing.JMenu otherMenu;
+    private javax.swing.JMenuItem passengersMenu;
     private javax.swing.JLabel personalAmount;
     private javax.swing.JLabel personalAmountL;
-    private javax.swing.JMenu personalMenu;
-    private javax.swing.JMenu reactorMenu;
-    private javax.swing.JMenu roomMenu;
+    private javax.swing.JMenuItem personalMenu;
+    private javax.swing.JMenuItem reactorsMenu;
+    private javax.swing.JMenuItem roomsMenu;
     private javax.swing.JMenuItem settingsMenu;
+    private javax.swing.JMenuItem statisticMenu;
     private javax.swing.JLabel tFirst;
     private javax.swing.JLabel tFirstL;
     private javax.swing.JLabel tSecond;
@@ -511,6 +538,5 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JLabel tThird;
     private javax.swing.JLabel tThirdL;
     private javax.swing.JPanel tourismPanel;
-    private javax.swing.JMenu touristMenu;
     // End of variables declaration//GEN-END:variables
 }
