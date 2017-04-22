@@ -26,6 +26,8 @@ public class Game {
     public Ship ship;
     
     private int passedStations;
+    
+    private long passengersTransfered;
 
     public Game(String playerName) {
         this.playerName = playerName;
@@ -65,6 +67,38 @@ public class Game {
      */
     public void setPassedStations(int passedStations) {
         this.passedStations = passedStations;
+    }
+    
+    /**
+     * Increment value of passedStations
+     */
+    public void addPassedStation() {
+        passedStations++;
+    }
+    
+    /**
+     * Get the value of passengersTransfered
+     *
+     * @return the value of passengersTransfered
+     */
+    public long getPassengersTransfered() {
+        return passengersTransfered;
+    }
+
+    /**
+     * Set the value of passengersTransfered
+     *
+     * @param passengersTransfered new value of passengersTransfered
+     */
+    public void setPassengersTransfered(long passengersTransfered) {
+        this.passengersTransfered = passengersTransfered;
+    }
+    
+    /**
+     * Increment value of passengersTransfered
+     */
+    public void addPassengersTransfered() {
+        passengersTransfered++;
     }
     
 }

@@ -214,15 +214,17 @@ public class Ship {
     }
 
     private void arriveToStation() {
+        InfinityFlight.game.addPassedStation();
+        
         //exit passengers
         ArrayList<Passenger> newPassengers = passengers;
         for (int i = 0; i < passengers.size(); i++) {
             Passenger passenger = passengers.get(i);
-            if(passenger.getStationRemaining() - 1 == 0) {
+            passenger.setStationRemaining((byte) (passenger.getStationRemaining() - 1));
+            if(passenger.getStationRemaining() == 0) {
+                InfinityFlight.game.addPassengersTransfered();
                 increaseMoney(passenger.pay());
                 newPassengers.remove(i);
-            } else {
-                passenger.setStationRemaining((byte) (passenger.getStationRemaining() - 1));
             }
         }
         

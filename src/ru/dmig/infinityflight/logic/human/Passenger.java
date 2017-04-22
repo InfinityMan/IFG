@@ -38,6 +38,7 @@ public class Passenger extends Person {
         super();
         this.passengerClass = passengerClass;
         genStationNumInFlight();
+        stationRemaining = stationNumInFlight;
     }
 
     public double pay() {
@@ -109,10 +110,10 @@ public class Passenger extends Person {
      * @param stationRemaining new value of stationRemaining
      */
     public void setStationRemaining(byte stationRemaining) {
-        if(stationRemaining > 0 && stationRemaining < 10) {
+        if(stationRemaining >= 0 && stationRemaining < 10) {
             this.stationRemaining = stationRemaining;
         } else {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("" + stationRemaining);
         }
     }
 
