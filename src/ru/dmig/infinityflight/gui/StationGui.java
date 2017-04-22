@@ -26,7 +26,7 @@ import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import static javax.swing.JOptionPane.PLAIN_MESSAGE;
 import static javax.swing.JOptionPane.showMessageDialog;
 import ru.dmig.infinityflight.logic.*;
-import static ru.dmig.infinityflight.logic.InfinityFlight.ship;
+import static ru.dmig.infinityflight.logic.InfinityFlight.game;
 import ru.dmig.infinityflight.logic.exceptions.NotEnoughtMoneyException;
 import ru.dmig.infinityflight.logic.exceptions.StorageEmptyException;
 import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
@@ -73,7 +73,7 @@ public class StationGui extends javax.swing.JFrame {
 
     public void update(boolean all) {
 
-        Station station = ship.station;
+        Station station = game.ship.station;
 
         if (all) {
             stationLabel.setText(station.getName() + " - " + station.getSizeString() + " station");
@@ -891,7 +891,7 @@ public class StationGui extends javax.swing.JFrame {
 
     private void buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActionPerformed
         
-        Ship ship = InfinityFlight.ship;
+        Ship ship = game.ship;
         Station station = ship.station;
         
         transferTouristsToShip(Passenger.CLASS.THIRD);
@@ -927,7 +927,7 @@ public class StationGui extends javax.swing.JFrame {
                 throw new AssertionError();
         }
         for (int i = 0; i < num; i++) {
-            InfinityFlight.ship.passengers.add(new Passenger(pClass));
+            game.ship.passengers.add(new Passenger(pClass));
         }
     }
     
@@ -1065,7 +1065,7 @@ public class StationGui extends javax.swing.JFrame {
             default:
                 throw new AssertionError();
         }
-        InfinityFlight.ship.reduceMoney(price);
+        game.ship.reduceMoney(price);
     }
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
@@ -1073,7 +1073,7 @@ public class StationGui extends javax.swing.JFrame {
     }//GEN-LAST:event_updateActionPerformed
 
     private void flightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flightActionPerformed
-        ship.departureFromStation();
+        game.ship.departureFromStation();
     }//GEN-LAST:event_flightActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

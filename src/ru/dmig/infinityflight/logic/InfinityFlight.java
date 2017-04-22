@@ -48,8 +48,8 @@ import static ru.epiclib.base.Base.randomNumber;
  */
 public class InfinityFlight {
     
-    public static final double PRICE_FOR_ONE_FUEL = 1;
-    public static final double PRICE_FOR_ONE_FOOD = 9;
+    public static final double PRICE_FOR_ONE_FOOD = 1;
+    public static final double PRICE_FOR_ONE_FUEL = 8;
     public static final double PRICE_FOR_ONE_SPARE = 25;
     public static final double PRICE_FOR_ONE_MEDICINE = 32;
     
@@ -81,16 +81,19 @@ public class InfinityFlight {
 
 
     public static Gui gui;
-
-    public static Ship ship;
+    
+    public static Game game;
 
     /**
      * @param args the command line arguments
      * @throws java.lang.InterruptedException
      */
     public static void main(String[] args) throws InterruptedException {
-        ship = new Ship();
-        ship.setDistanceToStation(genSmallDistanceToStation());
+        
+        game = new Game("Tester");
+        
+        game.ship = new Ship();
+        game.ship.setDistanceToStation(genSmallDistanceToStation());
         /* Loading ship */
 
         Gui.start();
@@ -101,7 +104,7 @@ public class InfinityFlight {
 
         gui = Gui.gui;
 
-        Updater updater = new Updater(ship);
+        Updater updater = new Updater(game.ship);
         updater.start();
 
         //updater.end();

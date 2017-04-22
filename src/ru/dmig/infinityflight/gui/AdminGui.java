@@ -22,7 +22,7 @@ import static java.lang.System.exit;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import static javax.swing.JOptionPane.showMessageDialog;
 import ru.dmig.infinityflight.logic.Engine;
-import static ru.dmig.infinityflight.logic.InfinityFlight.ship;
+import static ru.dmig.infinityflight.logic.InfinityFlight.game;
 import ru.dmig.infinityflight.logic.Reactor;
 import ru.dmig.infinityflight.logic.Updater;
 import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
@@ -215,37 +215,37 @@ public class AdminGui extends javax.swing.JFrame {
     }//GEN-LAST:event_halfSpeedActionPerformed
 
     private void startStorageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startStorageActionPerformed
-        ship.storage.toStartAmounts();
+        game.ship.storage.toStartAmounts();
     }//GEN-LAST:event_startStorageActionPerformed
 
     private void addFuelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFuelActionPerformed
         try {
-            ship.storage.increaseFuel(100);
+            game.ship.storage.increaseFuel(100);
         } catch (StorageOverfilledException ex) {
             try {
-                ship.storage.increaseFuel((float) (100 - ex.amount));
+                game.ship.storage.increaseFuel((float) (100 - ex.amount));
             } catch (StorageOverfilledException n) {err.println(n);}
         }
     }//GEN-LAST:event_addFuelActionPerformed
 
     private void addFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFoodActionPerformed
         try {
-            ship.storage.increaseFood(100);
+            game.ship.storage.increaseFood(100);
         } catch (StorageOverfilledException ex) {
             try {
-                ship.storage.increaseFood((int) (100 - ex.amount));
+                game.ship.storage.increaseFood((int) (100 - ex.amount));
             } catch (StorageOverfilledException n) {err.println(n);}
         }
     }//GEN-LAST:event_addFoodActionPerformed
 
     private void repairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repairActionPerformed
-        for (int i = 0; i < ship.engines.size(); i++) {
-            Engine get = ship.engines.get(i);
+        for (int i = 0; i < game.ship.engines.size(); i++) {
+            Engine get = game.ship.engines.get(i);
             get.fixThis();
         }
         
-        for (int i = 0; i < ship.reactors.size(); i++) {
-            Reactor get = ship.reactors.get(i);
+        for (int i = 0; i < game.ship.reactors.size(); i++) {
+            Reactor get = game.ship.reactors.get(i);
             get.fixThis();
         }
     }//GEN-LAST:event_repairActionPerformed
