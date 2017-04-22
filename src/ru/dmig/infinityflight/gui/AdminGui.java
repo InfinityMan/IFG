@@ -89,6 +89,11 @@ public class AdminGui extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("IF:Admin");
         setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         halfSpeed.setFont(new java.awt.Font("Gulim", 0, 14)); // NOI18N
         halfSpeed.setText("tick / 2");
@@ -251,13 +256,21 @@ public class AdminGui extends javax.swing.JFrame {
     }//GEN-LAST:event_repairActionPerformed
 
     private void pauseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseButtonActionPerformed
+        pause();
+    }//GEN-LAST:event_pauseButtonActionPerformed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE) pause();
+    }//GEN-LAST:event_formKeyPressed
+
+    private void pause() {
         if(Updater.isPaused()) {
             Updater.play();
         } else {
             Updater.pause();
         }
-    }//GEN-LAST:event_pauseButtonActionPerformed
-
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addFood;
     private javax.swing.JButton addFuel;
