@@ -16,6 +16,7 @@
  */
 package ru.dmig.infinityflight.logic;
 
+import java.util.ArrayList;
 import ru.dmig.infinityflight.logic.human.Person;
 
 /**
@@ -32,7 +33,7 @@ public abstract class Room {
     
     private byte freePlaces;
     
-    private Person[] persons;
+    private ArrayList<Person> persons;
 
     public Room(String typeName, Prestige prestige, byte placeAmount) {
         this.typeName = typeName;
@@ -40,7 +41,7 @@ public abstract class Room {
         this.placeAmount = placeAmount;
         
         freePlaces = this.placeAmount;
-        persons = new Person[this.placeAmount];
+        persons = new ArrayList<>();
         
     }
     
@@ -68,7 +69,7 @@ public abstract class Room {
      *
      * @return the value of persons
      */
-    public Person[] getPersons() {
+    public ArrayList<Person> getPersons() {
         return persons;
     }
 
@@ -77,8 +78,12 @@ public abstract class Room {
      *
      * @param persons new value of persons
      */
-    public void setPersons(Person[] persons) {
+    public void setPersons(ArrayList<Person> persons) {
         this.persons = persons;
+    }
+    
+    public void addPerson(Person person) {
+        persons.add(person);
     }
 
 
