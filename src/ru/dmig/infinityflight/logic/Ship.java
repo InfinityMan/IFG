@@ -34,10 +34,11 @@ import static ru.dmig.infinityflight.logic.InfinityFlight.getStartPersonal;
 import static ru.dmig.infinityflight.logic.InfinityFlight.gui;
 import ru.dmig.infinityflight.logic.exceptions.EngineBrokenException;
 import ru.dmig.infinityflight.logic.exceptions.NotEnoughtMoneyException;
+import ru.dmig.infinityflight.logic.exceptions.NoPlaceForPersonException;
 import ru.dmig.infinityflight.logic.exceptions.StorageEmptyException;
 import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
 import ru.dmig.infinityflight.logic.human.*;
-import ru.dmig.infinityflight.logic.rooms.CabinRoom;
+import ru.dmig.infinityflight.logic.rooms.*;
 
 /**
  * Class for ship and all parameters of him
@@ -90,6 +91,20 @@ public class Ship {
         energyAmount = 0;
 
         setNewRouteAndStation();
+    }
+    
+    public void addTourist(Passenger.CLASS pClass) throws NoPlaceForPersonException {
+        for (int i = 0; i < rooms.size(); i++) {
+            Room get = rooms.get(i);
+            if(get instanceof TouristRoom) {
+                if(get.getFreePlaces() > 0) {
+                    Passenger p = InfinityFlight.genTourist(pClass);
+                    get.addPerson(p);
+                    passengers.add(p);
+                } else throw new NoPlaceForPersonException(NoPlaceForPersonException.TYPE.PASSENGER);
+            }
+        }
+        
     }
     
     public double getMoney() {
