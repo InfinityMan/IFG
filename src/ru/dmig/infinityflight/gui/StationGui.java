@@ -22,11 +22,13 @@ import static java.lang.Math.round;
 import static java.lang.System.exit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import static javax.swing.JOptionPane.PLAIN_MESSAGE;
 import static javax.swing.JOptionPane.showMessageDialog;
 import ru.dmig.infinityflight.logic.*;
 import static ru.dmig.infinityflight.logic.InfinityFlight.game;
+import ru.dmig.infinityflight.logic.exceptions.NoPlaceForPersonException;
 import ru.dmig.infinityflight.logic.exceptions.NotEnoughtMoneyException;
 import ru.dmig.infinityflight.logic.exceptions.StorageEmptyException;
 import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
@@ -913,22 +915,20 @@ public class StationGui extends javax.swing.JFrame {
 
     private void transferTouristsToShip(Passenger.CLASS pClass) {
         int num = 0;
-        switch (pClass) {
-            case THIRD:
-                num = thirdClassSlider.getValue();
-                break;
-            case SECOND:
-                num = secondClassSlider.getValue();
-                break;
-            case FIRST:
-                num = firstClassSlider.getValue();
-                break;
-            default:
-                throw new AssertionError();
-        }
+        num = getTouristSlider(pClass);
+        
+        int transfered = 0;
         for (int i = 0; i < num; i++) {
-            game.ship.passengers.add(new Passenger(pClass));
+            try {
+                game.ship.addTourist(pClass);
+                transfered++;
+            } catch (NoPlaceForPersonException ex) {
+                JOptionPane.showMessageDialog(null, "No place for tourist #"+(i+1)+"and next(s))\nClass: "+pClass,"No place", JOptionPane.INFORMATION_MESSAGE);
+                break;
+            }
         }
+        
+        setTouristSlider(pClass, num-transfered);
     }
     
     private void buyFood(Storage storage, Station station) throws HeadlessException {
@@ -1068,6 +1068,36 @@ public class StationGui extends javax.swing.JFrame {
         game.ship.reduceMoney(price);
     }
 
+    public void setTouristSlider(Passenger.CLASS pClass, int value) {
+        switch (pClass) {
+            case THIRD:
+                thirdClassSlider.setValue(value);
+                break;
+            case SECOND:
+                secondClassSlider.setValue(value);
+                break;
+            case FIRST:
+                firstClassSlider.setValue(value);
+                break;
+            default:
+                throw new AssertionError();
+        }
+    }
+    
+    public int getTouristSlider(Passenger.CLASS pClass) {
+        switch (pClass) {
+            case THIRD:
+                return thirdClassSlider.getValue();
+            case SECOND:
+                return secondClassSlider.getValue();
+            case FIRST:
+                return firstClassSlider.getValue();
+            default:
+                throw new AssertionError();
+        }
+    }
+    
+    
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
         update(false);
     }//GEN-LAST:event_updateActionPerformed
