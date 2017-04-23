@@ -103,11 +103,11 @@ public class Ship {
                     get.addPerson(p);
                     passengers.add(p);
                     passengerAdded = true;
+                    break;
                 } else throw new NoPlaceForPersonException(NoPlaceForPersonException.TYPE.PASSENGER);
             }
         }
         if(!passengerAdded) throw new NoPlaceForPersonException(NoPlaceForPersonException.TYPE.PASSENGER);
-        
     }
     
     public double getMoney() {

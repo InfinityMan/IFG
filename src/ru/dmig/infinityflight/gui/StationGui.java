@@ -1097,7 +1097,6 @@ public class StationGui extends javax.swing.JFrame {
         }
     }
     
-    
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
         update(false);
     }//GEN-LAST:event_updateActionPerformed
