@@ -25,9 +25,9 @@ public class Game {
     private String playerName;
     public Ship ship;
     
-    private int passedStations;
+    private int passedStations = 0;
     
-    private long passengersTransfered;
+    private long passengersTransfered = 0;
 
     public Game(String playerName) {
         this.playerName = playerName;
@@ -100,5 +100,15 @@ public class Game {
     public void addPassengersTransfered() {
         passengersTransfered++;
     }
+
+    @Override
+    public String toString() {
+        return "Statistic:\n"
+                + "    player name: " + playerName + "\n"
+                + "    passed stations: " + passedStations + "\n"
+                + "    passengers transfered: " + passengersTransfered;
+    }
+    
+    
     
 }
