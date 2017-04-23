@@ -28,6 +28,7 @@ import static javax.swing.JOptionPane.showConfirmDialog;
 import static javax.swing.JOptionPane.showMessageDialog;
 import ru.dmig.infinityflight.gui.*;
 import ru.dmig.infinityflight.logic.exceptions.StorageOverfilledException;
+import ru.dmig.infinityflight.logic.human.Passenger;
 import ru.dmig.infinityflight.logic.human.Personal;
 import static ru.dmig.infinityflight.logic.human.Personal.PROFESSION.BIOLOGIST;
 import static ru.dmig.infinityflight.logic.human.Personal.PROFESSION.ENGINEER;
@@ -108,6 +109,10 @@ public class InfinityFlight {
         updater.start();
 
         //updater.end();
+    }
+    
+    public static Passenger genTourist(Passenger.CLASS pClass) {
+        return new Passenger(pClass);
     }
 
     public static double genDistanceToStation() {
