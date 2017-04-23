@@ -94,6 +94,7 @@ public class Ship {
     }
     
     public void addTourist(Passenger.CLASS pClass) throws NoPlaceForPersonException {
+        boolean passengerAdded = false;
         for (int i = 0; i < rooms.size(); i++) {
             Room get = rooms.get(i);
             if(get instanceof TouristRoom) {
@@ -101,9 +102,11 @@ public class Ship {
                     Passenger p = InfinityFlight.genTourist(pClass);
                     get.addPerson(p);
                     passengers.add(p);
+                    passengerAdded = true;
                 } else throw new NoPlaceForPersonException(NoPlaceForPersonException.TYPE.PASSENGER);
             }
         }
+        if(!passengerAdded) throw new NoPlaceForPersonException(NoPlaceForPersonException.TYPE.PASSENGER);
         
     }
     
