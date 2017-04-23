@@ -25,9 +25,7 @@ import ru.dmig.infinityflight.logic.*;
 public class CabinRoom extends Room {
 
     public CabinRoom(String typeName, Room.Prestige prestige, byte placeAmount) {
-        setTypeName(typeName);
-        setPrestige(prestige);
-        setPlaceAmount(placeAmount);
+        super(typeName, prestige, placeAmount);
     }
     
     

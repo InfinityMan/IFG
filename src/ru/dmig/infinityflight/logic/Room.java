@@ -16,6 +16,8 @@
  */
 package ru.dmig.infinityflight.logic;
 
+import ru.dmig.infinityflight.logic.human.Person;
+
 /**
  *
  * @author Dmig
@@ -23,10 +25,62 @@ package ru.dmig.infinityflight.logic;
 public abstract class Room {
     
     
-    private String typeName;
+    private final String typeName;
     
-    private Prestige prestige;
-    private byte placeAmount;
+    private final Prestige prestige;
+    private final byte placeAmount;
+    
+    private byte freePlaces;
+    
+    private Person[] persons;
+
+    public Room(String typeName, Prestige prestige, byte placeAmount) {
+        this.typeName = typeName;
+        this.prestige = prestige;
+        this.placeAmount = placeAmount;
+        
+        freePlaces = this.placeAmount;
+        persons = new Person[this.placeAmount];
+        
+    }
+    
+    /**
+     * Get the value of freePlaces
+     *
+     * @return the value of freePlaces
+     */
+    public byte getFreePlaces() {
+        return freePlaces;
+    }
+
+    /**
+     * Set the value of freePlaces
+     *
+     * @param freePlaces new value of freePlaces
+     */
+    public void setFreePlaces(byte freePlaces) {
+        this.freePlaces = freePlaces;
+    }
+
+
+    /**
+     * Get the value of persons
+     *
+     * @return the value of persons
+     */
+    public Person[] getPersons() {
+        return persons;
+    }
+
+    /**
+     * Set the value of persons
+     *
+     * @param persons new value of persons
+     */
+    public void setPersons(Person[] persons) {
+        this.persons = persons;
+    }
+
 
     @Override
     public String toString() {
@@ -41,15 +95,6 @@ public abstract class Room {
     public String getTypeName() {
         return typeName;
     }
-
-    /**
-     * Set the value of typeName
-     *
-     * @param typeName new value of typeName
-     */
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
-    }
     
     /**
      * Get the value of prestige
@@ -58,15 +103,6 @@ public abstract class Room {
      */
     public Prestige getPrestige() {
         return prestige;
-    }
-
-    /**
-     * Set the value of prestige
-     *
-     * @param prestige new value of prestige
-     */
-    public void setPrestige(Prestige prestige) {
-        this.prestige = prestige;
     }
     
     /**
@@ -77,15 +113,7 @@ public abstract class Room {
     public byte getPlaceAmount() {
         return placeAmount;
     }
-
-    /**
-     * Set the value of placeAmount
-     *
-     * @param placeAmount new value of placeAmount
-     */
-    public void setPlaceAmount(byte placeAmount) {
-        this.placeAmount = placeAmount;
-    }
+    
     public static enum Prestige {
         TERRIBLE,BAD,NORMAL,GOOD
     }

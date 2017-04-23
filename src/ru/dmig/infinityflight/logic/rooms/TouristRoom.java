@@ -25,15 +25,11 @@ import ru.dmig.infinityflight.logic.human.Passenger;
  */
 public class TouristRoom extends Room {
 
-    
-
     private Passenger.CLASS roomClass;
 
     public TouristRoom(Passenger.CLASS roomClass, String typeName, Prestige prestige, byte placeAmount) {
+        super(typeName, prestige, placeAmount);
         this.roomClass = roomClass;
-        setTypeName(typeName);
-        setPrestige(prestige);
-        setPlaceAmount(placeAmount);
     }
     
     /**
